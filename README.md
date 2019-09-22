@@ -41,12 +41,12 @@ libraryDependencies += "com.clivern" % "kangaroo" % "1.0.0"
 
 For transparency into our release cycle and in striving to maintain backward compatibility, Kangaroo is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
 
-See the [Releases section of our GitHub project](https://github.com/clivern/alligator/releases) for changelogs for each release version of Kangaroo. It contains summaries of the most noteworthy changes made in each release.
+See the [Releases section of our GitHub project](https://github.com/clivern/kangaroo/releases) for changelogs for each release version of Kangaroo. It contains summaries of the most noteworthy changes made in each release.
 
 
 ## Bug tracker
 
-If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/alligator/issues
+If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/kangaroo/issues
 
 
 ## Security Issues
