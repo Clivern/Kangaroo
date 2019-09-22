@@ -15,10 +15,22 @@ assemble:
 	$(GRADLEW) assemble --info
 
 
+## update: Gradle update pom file
+update:
+	@echo ">> ============= Gradle update pom file ============= <<"
+	$(GRADLEW) updatePom
+
+
 ## check: Gradle check code task
 check:
 	@echo ">> ============= Gradle check code task ============= <<"
 	$(GRADLEW) check --info
+
+
+## upload: Gradle upload archives task
+upload:
+	@echo ">> ============= Gradle upload archives task ============= <<"
+	$(GRADLEW) -b maven-push.gradle uploadArchives
 
 
 ## format: Gradle format code task

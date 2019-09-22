@@ -61,6 +61,6 @@ We are an open source, community-driven project so please feel free to join us. 
 
 ## License
 
-© 2019, Clivern. Released under [MIT License](https://opensource.org/licenses/mit-license.php).
+© 2019, Clivern. Released under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 **Kangaroo** is authored and maintained by [@Clivern](http://github.com/clivern).

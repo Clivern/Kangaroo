@@ -15,11 +15,58 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'maven'
     id 'com.github.sherter.google-java-format' version '0.8'
 }
 
 googleJavaFormat {
   options style: 'AOSP'
+}
+
+// Update Pom file ./gradlew updatePom
+task updatePom {
+    doLast {
+        pom {
+            project {
+                groupId 'com.clivern'
+                artifactId 'kangaroo'
+                version '1.0.0'
+                name 'Kangaroo'
+                description "A Schema Validation Package."
+                url 'https://github.com/Clivern/Kangaroo'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'Clivern'
+                        name 'Ahmed'
+                        email 'hello@clivern.com'
+                        url 'http://clivern.com'
+                        roles {
+                            role 'Software Engineer'
+                        }
+                    }
+                }
+                scm {
+                    url 'https://github.com/clivern/kangaroo'
+                    connection 'scm:git:git://github.com/clivern/kangaroo.git'
+                    developerConnection 'scm:git:git@github.com:clivern/kangaroo.git'
+                }
+            }
+        }.writeTo("kangaroo.pom").writeTo("kangaroo.xml")
+    }
+}
+
+test {
+    //we want display the following test events
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
 }
 
 repositories {
