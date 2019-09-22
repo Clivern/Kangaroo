@@ -13,12 +13,15 @@
  */
 package com.clivern.kangaroo;
 
-public class App {
+/** Validator Class */
+public class Validator {
+
+    /**
+     * Dummy Method
+     *
+     * @return string
+     */
     public String getGreeting() {
         return "Hello world.";
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
     }
 }

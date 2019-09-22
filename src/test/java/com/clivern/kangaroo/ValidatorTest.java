@@ -13,12 +13,14 @@
  */
 package com.clivern.kangaroo;
 
-import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+import org.junit.Test;
+
+public class ValidatorTest {
+    @Test
+    public void testValidatorHasAGreeting() {
+        Validator classUnderTest = new Validator();
+        assertEquals("Hello world.", classUnderTest.getGreeting());
     }
 }
