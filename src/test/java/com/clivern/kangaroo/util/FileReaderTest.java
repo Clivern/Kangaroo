@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/** FileReaderTest Class */
 public class FileReaderTest {
 
     @Test
