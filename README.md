@@ -1,7 +1,7 @@
 <p align="center">
     <img alt="Kangaroo Logo" src="https://raw.githubusercontent.com/Clivern/Kangaroo/master/images/logo.png" height="100" />
     <h3 align="center">Kangaroo</h3>
-    <p align="center">A Schema Validation Package.</p>
+    <p align="center">JSON Schema Validation Package for Java.</p>
     <p align="center">
         <a href="http://www.javadoc.io/doc/com.clivern/kangaroo"><img src="http://www.javadoc.io/badge/com.clivern/kangaroo.svg"></a>
         <a href="https://travis-ci.org/Clivern/Kangaroo"><img src="https://travis-ci.org/Clivern/Kangaroo.svg?branch=master"></a>

@@ -6,7 +6,7 @@
   <artifactId>kangaroo</artifactId>
   <version>1.0.0</version>
   <name>Kangaroo</name>
-  <description>A Schema Validation Package.</description>
+  <description>JSON Schema Validation Package for Java.</description>
   <url>https://github.com/Clivern/Kangaroo</url>
   <licenses>
     <license>

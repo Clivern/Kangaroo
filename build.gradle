@@ -32,7 +32,7 @@ task updatePom {
                 artifactId 'kangaroo'
                 version '1.0.0'
                 name 'Kangaroo'
-                description "A Schema Validation Package."
+                description "JSON Schema Validation Package for Java."
                 url 'https://github.com/Clivern/Kangaroo'
                 licenses {
                     license {

@@ -2,7 +2,7 @@ POM_GROUP_ID=com.clivern
 POM_ARTIFACT_ID=kangaroo
 POM_VERSION=1.0.0
 POM_NAME=Kangaroo
-POM_DESCRIPTION=A Schema Validation Package.
+POM_DESCRIPTION=JSON Schema Validation Package for Java.
 POM_URL=https://github.com/clivern/kangaroo
 POM_LICENSE_NAME=The Apache Software License, Version 2.0
 POM_LICENSE_URL=http://www.apache.org/licenses/LICENSE-2.0.txt
@@ -24,4 +24,4 @@ RELEASE_REPOSITORY_URL=https://oss.sonatype.org/service/local/staging/deploy/mav
 
 signing.keyId=key id here
 signing.password=
-signing.secretKeyRingFile=~/.gnupg/secring.gpg
+signing.secretKeyRingFile=./gnupg_secring.gpg
