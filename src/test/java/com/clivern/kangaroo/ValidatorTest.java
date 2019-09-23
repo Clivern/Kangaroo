@@ -17,7 +17,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/** ValidatorTest Class */
 public class ValidatorTest {
+
     @Test
     public void testValidatorHasAGreeting() {
         Validator classUnderTest = new Validator();
