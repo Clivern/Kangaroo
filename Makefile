@@ -27,6 +27,12 @@ check:
 	$(GRADLEW) check --info
 
 
+## build: Gradle build jar task
+build:
+	@echo ">> ============= Gradle build jar task ============= <<"
+	$(GRADLEW) build --info
+
+
 ## upload: Gradle upload archives task
 upload:
 	@echo ">> ============= Gradle upload archives task ============= <<"

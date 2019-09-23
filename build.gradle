@@ -19,6 +19,9 @@ plugins {
     id 'com.github.sherter.google-java-format' version '0.8'
 }
 
+archivesBaseName = "kangaroo"
+version = '1.0.0'
+
 googleJavaFormat {
   options style: 'AOSP'
 }
