@@ -6,7 +6,7 @@
         <a href="http://www.javadoc.io/doc/com.clivern/kangaroo"><img src="http://www.javadoc.io/badge/com.clivern/kangaroo.svg"></a>
         <a href="https://travis-ci.org/Clivern/Kangaroo"><img src="https://travis-ci.org/Clivern/Kangaroo.svg?branch=master"></a>
         <a href="https://mvnrepository.com/artifact/com.clivern/kangaroo/1.0.0"><img src="https://img.shields.io/maven-central/v/com.clivern/kangaroo.svg"></a>
-        <a href="https://github.com/Clivern/Kangaroo/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
+        <a href="https://github.com/Clivern/Kangaroo/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg"></a>
     </p>
 </p>
 
