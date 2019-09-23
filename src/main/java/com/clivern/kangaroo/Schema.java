@@ -13,5 +13,5 @@
  */
 package com.clivern.kangaroo;
 
-/** Schema7 Class */
-public class Schema7 {}
+/** Schema Class */
+public class Schema {}
