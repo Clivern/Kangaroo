@@ -13,7 +13,6 @@
  */
 
 plugins {
-    // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     id 'maven'
     id 'com.github.sherter.google-java-format' version '0.8'
@@ -26,7 +25,7 @@ googleJavaFormat {
   options style: 'AOSP'
 }
 
-// Update Pom file ./gradlew updatePom
+// updatePom task
 task updatePom {
     doLast {
         pom {
@@ -81,7 +80,7 @@ repositories {
 }
 
 dependencies {
-    // This dependency is used by the application.
+    // Required dependencies
     implementation 'com.google.guava:guava:27.1-jre'
 
     // Use JUnit test framework
