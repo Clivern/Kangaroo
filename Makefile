@@ -39,6 +39,12 @@ build:
 	$(GRADLEW) build --info
 
 
+## build_scan: Gradle build jar and scan report task
+build_scan:
+	@echo ">> ============= Gradle build jar and scan report task ============= <<"
+	$(GRADLEW) build --scan
+
+
 ## upload: Gradle upload archives task
 upload:
 	@echo ">> ============= Gradle upload archives task ============= <<"
