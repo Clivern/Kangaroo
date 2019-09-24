@@ -19,7 +19,7 @@ public class ValidationError extends Exception {
     /**
      * Class Constructor
      *
-     * @param message
+     * @param message the exception message
      */
     public ValidationError(String message) {
         super(message);

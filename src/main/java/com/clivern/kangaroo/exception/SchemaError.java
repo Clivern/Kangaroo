@@ -19,7 +19,7 @@ public class SchemaError extends Exception {
     /**
      * Class Constructor
      *
-     * @param message
+     * @param message the exception message
      */
     public SchemaError(String message) {
         super(message);

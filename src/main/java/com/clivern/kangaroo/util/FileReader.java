@@ -23,7 +23,7 @@ public class FileReader {
      *
      * @param filePath absolute path to file
      * @return String file content as string
-     * @throws Exception
+     * @throws Exception throws exception if file not exists
      */
     public String readFileAsString(String filePath) throws Exception {
         return new String(Files.readAllBytes(Paths.get(filePath)));

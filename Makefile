@@ -27,6 +27,12 @@ check:
 	$(GRADLEW) check --info
 
 
+## test: Runs the unit tests.
+test:
+	@echo ">> ============= Runs the unit tests ============= <<"
+	$(GRADLEW) test --info
+
+
 ## build: Gradle build jar task
 build:
 	@echo ">> ============= Gradle build jar task ============= <<"
@@ -37,6 +43,36 @@ build:
 upload:
 	@echo ">> ============= Gradle upload archives task ============= <<"
 	$(GRADLEW) -b maven-push.gradle uploadArchives
+
+
+## clean: Deletes the build directory.
+clean:
+	@echo ">> ============= Deletes the build directory ============= <<"
+	$(GRADLEW) clean
+
+
+## dependencies: Displays all dependencies declared in root project
+dependencies:
+	@echo ">> ============= Displays all dependencies declared in root project ============= <<"
+	$(GRADLEW) dependencies
+
+
+## javadoc: Generates Javadoc API documentation for the main source code
+javadoc:
+	@echo ">> ============= Generates Javadoc API documentation for the main source code ============= <<"
+	$(GRADLEW) javadoc
+
+
+## properties: Displays the properties of root project
+properties:
+	@echo ">> ============= Displays the properties of root project ============= <<"
+	$(GRADLEW) properties
+
+
+## tasks: Displays the tasks runnable from root project
+tasks:
+	@echo ">> ============= Displays the tasks runnable from root project ============= <<"
+	$(GRADLEW) tasks
 
 
 ## format: Gradle format code task
