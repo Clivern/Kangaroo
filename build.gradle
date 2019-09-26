@@ -1,91 +1,98 @@
 /*
- * Copyright (C) 2019 Clivern <http://clivern.com>
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- */
+* Copyright (C) 2019 Clivern <http://clivern.com>
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+* in compliance with the License. You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software distributed under the License
+* is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+* or implied. See the License for the specific language governing permissions and limitations under
+* the License.
+*/
 
 plugins {
-    id 'java-library'
-    id 'maven'
-    id 'com.diffplug.gradle.spotless' version '3.24.3'
+	id 'java-library'
+	id 'maven'
+	id 'com.diffplug.gradle.spotless' version '3.24.3'
 }
 
 archivesBaseName = "kangaroo"
 version = '1.0.0'
 
 spotless {
-    java {
-        licenseHeaderFile 'spotless.license.java'
-        importOrder 'java'
-    }
+	java {
+		licenseHeaderFile 'spotless.license.java'
+		importOrder 'java'
+	}
+	format 'misc', {
+		target '**/*.gradle', '**/*.md', '**/.gitignore'
+
+		trimTrailingWhitespace()
+		indentWithTabs()
+		endWithNewline()
+	}
 }
 
 // updatePom task
 task updatePom {
-    doLast {
-        pom {
-            project {
-                groupId 'com.clivern'
-                artifactId 'kangaroo'
-                version '1.0.0'
-                name 'Kangaroo'
-                description "JSON Schema Validation Package for Java."
-                url 'https://github.com/Clivern/Kangaroo'
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        distribution 'repo'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'Clivern'
-                        name 'Ahmed'
-                        email 'hello@clivern.com'
-                        url 'http://clivern.com'
-                        roles {
-                            role 'Software Engineer'
-                        }
-                    }
-                }
-                scm {
-                    url 'https://github.com/clivern/kangaroo'
-                    connection 'scm:git:git://github.com/clivern/kangaroo.git'
-                    developerConnection 'scm:git:git@github.com:clivern/kangaroo.git'
-                }
-            }
-        }.writeTo("kangaroo.pom").writeTo("kangaroo.xml")
-    }
+	doLast {
+		pom {
+			project {
+				groupId 'com.clivern'
+				artifactId 'kangaroo'
+				version '1.0.0'
+				name 'Kangaroo'
+				description "JSON Schema Validation Package for Java."
+				url 'https://github.com/Clivern/Kangaroo'
+				licenses {
+					license {
+						name 'The Apache Software License, Version 2.0'
+						url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+						distribution 'repo'
+					}
+				}
+				developers {
+					developer {
+						id 'Clivern'
+						name 'Ahmed'
+						email 'hello@clivern.com'
+						url 'http://clivern.com'
+						roles {
+							role 'Software Engineer'
+						}
+					}
+				}
+				scm {
+					url 'https://github.com/clivern/kangaroo'
+					connection 'scm:git:git://github.com/clivern/kangaroo.git'
+					developerConnection 'scm:git:git@github.com:clivern/kangaroo.git'
+				}
+			}
+		}.writeTo("kangaroo.pom").writeTo("kangaroo.xml")
+	}
 }
 
 test {
-    //we want display the following test events
-    testLogging {
-        events "PASSED", "STARTED", "FAILED", "SKIPPED"
-    }
+	//we want display the following test events
+	testLogging {
+		events "PASSED", "STARTED", "FAILED", "SKIPPED"
+	}
 }
 
 repositories {
-    // Use jcenter for resolving dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
-    mavenCentral()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+	// Use jcenter for resolving dependencies.
+	// You can declare any Maven/Ivy/file repository here.
+	jcenter()
+	mavenCentral()
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {
-    // Required dependencies
-    implementation 'com.google.guava:guava:27.1-jre'
+	// Required dependencies
+	implementation 'com.google.guava:guava:27.1-jre'
 
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+	// Use JUnit test framework
+	testImplementation 'junit:junit:4.12'
 }

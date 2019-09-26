@@ -1,13 +1,13 @@
 <p align="center">
-    <img alt="Kangaroo Logo" src="https://raw.githubusercontent.com/Clivern/Kangaroo/master/images/logo.png" height="100" />
-    <h3 align="center">Kangaroo</h3>
-    <p align="center">JSON Schema Validation Package for Java.</p>
-    <p align="center">
-        <a href="http://www.javadoc.io/doc/com.clivern/kangaroo"><img src="http://www.javadoc.io/badge/com.clivern/kangaroo.svg"></a>
-        <a href="https://travis-ci.org/Clivern/Kangaroo"><img src="https://travis-ci.org/Clivern/Kangaroo.svg?branch=master"></a>
-        <a href="https://mvnrepository.com/artifact/com.clivern/kangaroo/1.0.0"><img src="https://img.shields.io/maven-central/v/com.clivern/kangaroo.svg"></a>
-        <a href="https://github.com/Clivern/Kangaroo/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg"></a>
-    </p>
+	<img alt="Kangaroo Logo" src="https://raw.githubusercontent.com/Clivern/Kangaroo/master/images/logo.png" height="100" />
+	<h3 align="center">Kangaroo</h3>
+	<p align="center">JSON Schema Validation Package for Java.</p>
+	<p align="center">
+		<a href="http://www.javadoc.io/doc/com.clivern/kangaroo"><img src="http://www.javadoc.io/badge/com.clivern/kangaroo.svg"></a>
+		<a href="https://travis-ci.org/Clivern/Kangaroo"><img src="https://travis-ci.org/Clivern/Kangaroo.svg?branch=master"></a>
+		<a href="https://mvnrepository.com/artifact/com.clivern/kangaroo/1.0.0"><img src="https://img.shields.io/maven-central/v/com.clivern/kangaroo.svg"></a>
+		<a href="https://github.com/Clivern/Kangaroo/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg"></a>
+	</p>
 </p>
 
 
@@ -18,16 +18,16 @@
 To add a dependency using Maven, use the following:
 ```xml
 <dependency>
-  <groupId>com.clivern</groupId>
-  <artifactId>kangaroo</artifactId>
-  <version>1.0.0</version>
+	<groupId>com.clivern</groupId>
+	<artifactId>kangaroo</artifactId>
+	<version>1.0.0</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:kangaroo:1.0.0'
+	compile 'com.clivern:kangaroo:1.0.0'
 }
 ```
 
