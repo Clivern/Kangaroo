@@ -15,14 +15,17 @@
 plugins {
     id 'java-library'
     id 'maven'
-    id 'com.github.sherter.google-java-format' version '0.8'
+    id 'com.diffplug.gradle.spotless' version '3.24.3'
 }
 
 archivesBaseName = "kangaroo"
 version = '1.0.0'
 
-googleJavaFormat {
-  options style: 'AOSP'
+spotless {
+    java {
+        licenseHeaderFile 'spotless.license.java'
+        importOrder 'java'
+    }
 }
 
 // updatePom task

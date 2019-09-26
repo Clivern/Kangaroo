@@ -84,13 +84,13 @@ tasks:
 ## format: Gradle format code task
 format:
 	@echo ">> ============= Gradle format code task ============= <<"
-	$(GRADLEW) goJF --info
+	$(GRADLEW) spotlessApply --info
 
 
 ## verify: Gradle verify code format task
 verify:
 	@echo ">> ============= Gradle verify code format task ============= <<"
-	$(GRADLEW) verGJF --info
+	$(GRADLEW) spotlessJavaCheck --info
 
 
 ## ci: Run all CI tests.
