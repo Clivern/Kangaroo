@@ -23,7 +23,7 @@ version = '1.0.0'
 
 spotless {
 	java {
-		licenseHeaderFile 'spotless.license.java'
+		licenseHeaderFile '.license'
 		importOrder 'java'
 	}
 	format 'misc', {
