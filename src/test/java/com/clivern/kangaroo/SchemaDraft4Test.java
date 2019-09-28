@@ -18,28 +18,28 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import org.junit.Test;
 
-/** SchemaDraft7Test Class */
-public class SchemaDraft7Test {
+/** SchemaDraft4Test Class */
+public class SchemaDraft4Test {
 
     @Test
-    public void testSchemaDraft7_01() {
-        SchemaDraft7 schema = new SchemaDraft7();
+    public void testSchemaDraft4_01() {
+        SchemaDraft4 schema = new SchemaDraft4();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
-        schema.title = "Schema Title";
+        schema.description = "Schema Description";
         schema.type = "object";
 
         Gson gson = new Gson();
         String json = gson.toJson(schema);
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"$id\":\"SchemaId\",\"title\":\"Schema Title\",\"type\":\"object\",\"required\":[],\"properties\":{}}", json);
+        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[],\"properties\":{}}", json);
     }
 
     @Test
-    public void testSchemaDraft7_02() {
-        SchemaDraft7 schema = new SchemaDraft7();
+    public void testSchemaDraft4_02() {
+        SchemaDraft4 schema = new SchemaDraft4();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
-        schema.title = "Schema Title";
+        schema.description = "Schema Description";
         schema.type = "object";
         schema.required.add("itemOne");
         schema.required.add("itemTwo");
@@ -48,6 +48,6 @@ public class SchemaDraft7Test {
         Gson gson = new Gson();
         String json = gson.toJson(schema);
 
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"$id\":\"SchemaId\",\"title\":\"Schema Title\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}", json);
+        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}", json);
     }
 }

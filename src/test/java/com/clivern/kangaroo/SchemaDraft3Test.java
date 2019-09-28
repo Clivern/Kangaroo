@@ -18,28 +18,26 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import org.junit.Test;
 
-/** SchemaDraft7Test Class */
-public class SchemaDraft7Test {
+/** SchemaDraft3Test Class */
+public class SchemaDraft3Test {
 
     @Test
-    public void testSchemaDraft7_01() {
-        SchemaDraft7 schema = new SchemaDraft7();
+    public void testSchemaDraft3_01() {
+        SchemaDraft3 schema = new SchemaDraft3();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
-        schema.title = "Schema Title";
         schema.type = "object";
 
         Gson gson = new Gson();
         String json = gson.toJson(schema);
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"$id\":\"SchemaId\",\"title\":\"Schema Title\",\"type\":\"object\",\"required\":[],\"properties\":{}}", json);
+        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"type\":\"object\",\"required\":[],\"properties\":{}}", json);
     }
 
     @Test
-    public void testSchemaDraft7_02() {
-        SchemaDraft7 schema = new SchemaDraft7();
+    public void testSchemaDraft3_02() {
+        SchemaDraft3 schema = new SchemaDraft3();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
-        schema.title = "Schema Title";
         schema.type = "object";
         schema.required.add("itemOne");
         schema.required.add("itemTwo");
@@ -48,6 +46,6 @@ public class SchemaDraft7Test {
         Gson gson = new Gson();
         String json = gson.toJson(schema);
 
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"$id\":\"SchemaId\",\"title\":\"Schema Title\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}", json);
+        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}", json);
     }
 }

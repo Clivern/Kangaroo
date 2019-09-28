@@ -18,12 +18,12 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import org.junit.Test;
 
-/** SchemaDraft7Test Class */
-public class SchemaDraft7Test {
+/** SchemaDraft6Test Class */
+public class SchemaDraft6Test {
 
     @Test
-    public void testSchemaDraft7_01() {
-        SchemaDraft7 schema = new SchemaDraft7();
+    public void testSchemaDraft6_01() {
+        SchemaDraft6 schema = new SchemaDraft6();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
         schema.title = "Schema Title";
@@ -35,8 +35,8 @@ public class SchemaDraft7Test {
     }
 
     @Test
-    public void testSchemaDraft7_02() {
-        SchemaDraft7 schema = new SchemaDraft7();
+    public void testSchemaDraft6_02() {
+        SchemaDraft6 schema = new SchemaDraft6();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
         schema.title = "Schema Title";
