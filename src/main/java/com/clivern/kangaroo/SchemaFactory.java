@@ -13,28 +13,27 @@
  */
 package com.clivern.kangaroo;
 
-import static org.junit.Assert.*;
-
 import com.google.gson.Gson;
-import org.junit.Test;
 
-/** NodeDraft3Test Class */
-public class NodeDraft3Test {
+import java.util.ArrayList;
+import java.util.HashMap;
 
-    @Test
-    public void testNodeDraft3_01() {
-        SchemaFactory schemaFactory = new SchemaFactory();
-        NodeDraft3 node = new NodeDraft3();
-        node.description = "Node Description";
-        node.type = "string";
-        node.required.add("item01");
-        node.enumerated.add("enum01");
+/**
+ * SchemaFactory Class
+ */
+public class SchemaFactory {
 
-        String json = schemaFactory.serialize(node);
+    private Gson gson;
 
-        assertEquals(
-            "{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}",
-            json
-        );
+    public SchemaFactory() {
+        this.gson = new Gson();
+    }
+
+    public String serialize(Object object) {
+        return this.gson.toJson(object);
+    }
+
+    public <T> T unserialize(String json, Class<T> object) {
+        return this.gson.fromJson(json, object);
     }
 }

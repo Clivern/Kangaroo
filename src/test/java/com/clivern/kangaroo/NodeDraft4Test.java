@@ -23,16 +23,18 @@ public class NodeDraft4Test {
 
     @Test
     public void testNodeDraft4_01() {
-
+        SchemaFactory schemaFactory = new SchemaFactory();
         NodeDraft4 node = new NodeDraft4();
         node.description = "Node Description";
         node.type = "string";
         node.required.add("item01");
         node.enumerated.add("enum01");
 
-        Gson gson = new Gson();
-        String json = gson.toJson(node);
+        String json = schemaFactory.serialize(node);
 
-        assertEquals("{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}", json);
+        assertEquals(
+            "{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}",
+            json
+        );
     }
 }

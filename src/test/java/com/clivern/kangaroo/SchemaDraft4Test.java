@@ -23,19 +23,24 @@ public class SchemaDraft4Test {
 
     @Test
     public void testSchemaDraft4_01() {
+        SchemaFactory schemaFactory = new SchemaFactory();
         SchemaDraft4 schema = new SchemaDraft4();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
         schema.description = "Schema Description";
         schema.type = "object";
 
-        Gson gson = new Gson();
-        String json = gson.toJson(schema);
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[],\"properties\":{}}", json);
+        String json = schemaFactory.serialize(schema);
+
+        assertEquals(
+            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[],\"properties\":{}}",
+            json
+        );
     }
 
     @Test
     public void testSchemaDraft4_02() {
+        SchemaFactory schemaFactory = new SchemaFactory();
         SchemaDraft4 schema = new SchemaDraft4();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
@@ -45,9 +50,11 @@ public class SchemaDraft4Test {
         schema.required.add("itemTwo");
         schema.required.add("itemThree");
 
-        Gson gson = new Gson();
-        String json = gson.toJson(schema);
+        String json = schemaFactory.serialize(schema);
 
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}", json);
+        assertEquals(
+            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}",
+            json
+        );
     }
 }

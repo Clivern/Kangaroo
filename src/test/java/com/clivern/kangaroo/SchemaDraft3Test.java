@@ -23,18 +23,23 @@ public class SchemaDraft3Test {
 
     @Test
     public void testSchemaDraft3_01() {
+        SchemaFactory schemaFactory = new SchemaFactory();
         SchemaDraft3 schema = new SchemaDraft3();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
         schema.type = "object";
 
-        Gson gson = new Gson();
-        String json = gson.toJson(schema);
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"type\":\"object\",\"required\":[],\"properties\":{}}", json);
+        String json = schemaFactory.serialize(schema);
+
+        assertEquals(
+            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"type\":\"object\",\"required\":[],\"properties\":{}}",
+            json
+        );
     }
 
     @Test
     public void testSchemaDraft3_02() {
+        SchemaFactory schemaFactory = new SchemaFactory();
         SchemaDraft3 schema = new SchemaDraft3();
         schema.schema = "http://json-schema.org/draft-07/schema#";
         schema.id = "SchemaId";
@@ -43,9 +48,11 @@ public class SchemaDraft3Test {
         schema.required.add("itemTwo");
         schema.required.add("itemThree");
 
-        Gson gson = new Gson();
-        String json = gson.toJson(schema);
+        String json = schemaFactory.serialize(schema);
 
-        assertEquals("{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}", json);
+        assertEquals(
+            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}",
+            json
+        );
     }
 }

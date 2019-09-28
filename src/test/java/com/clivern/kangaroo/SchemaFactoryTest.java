@@ -15,26 +15,28 @@ package com.clivern.kangaroo;
 
 import static org.junit.Assert.*;
 
-import com.google.gson.Gson;
 import org.junit.Test;
 
-/** NodeDraft3Test Class */
-public class NodeDraft3Test {
+/** SchemaFactoryTest Class */
+public class SchemaFactoryTest {
 
     @Test
-    public void testNodeDraft3_01() {
+    public void testSchemaDraft7_01() {
         SchemaFactory schemaFactory = new SchemaFactory();
-        NodeDraft3 node = new NodeDraft3();
-        node.description = "Node Description";
-        node.type = "string";
-        node.required.add("item01");
-        node.enumerated.add("enum01");
+        SchemaDraft7 schema = new SchemaDraft7();
+        schema.schema = "http://json-schema.org/draft-07/schema#";
+        schema.id = "SchemaId";
+        schema.title = "Schema Title";
+        schema.type = "object";
 
-        String json = schemaFactory.serialize(node);
+        String json = schemaFactory.serialize(schema);
 
         assertEquals(
-            "{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}",
+            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"$id\":\"SchemaId\",\"title\":\"Schema Title\",\"type\":\"object\",\"required\":[],\"properties\":{}}",
             json
         );
+
+        SchemaDraft7 obj = schemaFactory.unserialize(json, SchemaDraft7.class);
+        assertEquals(json, schemaFactory.serialize(obj));
     }
 }
