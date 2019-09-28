@@ -13,5 +13,29 @@
  */
 package com.clivern.kangaroo;
 
-/** Schema Class */
-public class Schema {}
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/** SchemaDraft7 Class */
+public class SchemaDraft7 {
+
+    @SerializedName("$schema")
+    public String schema;
+
+    @SerializedName("$id")
+    public String id;
+
+    @SerializedName("title")
+    public String title;
+
+    @SerializedName("type")
+    public String type;
+
+    @SerializedName("required")
+    public ArrayList<String> required =  new ArrayList<String>();
+
+    @SerializedName("properties")
+    public HashMap<String, NodeDraft7> properties = new HashMap<String, NodeDraft7>();
+}

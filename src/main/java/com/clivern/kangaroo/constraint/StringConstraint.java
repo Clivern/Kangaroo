@@ -11,38 +11,48 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.kangaroo;
+package com.clivern.kangaroo.constraint;
 
-/** Validator Class */
-public class Validator {
+import com.google.common.base.Strings;
 
-    private String schema;
-    private String data;
+/** StringConstraint Class */
+public class StringConstraint {
+
+    public String value;
 
     /**
-     * Set Schema
+     * Set Value
      *
-     * @param schema the json schema to validate data against
+     * @param value the value
      */
-    public void setSchema(String schema) {
-        this.schema = schema;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     /**
-     * Set Data
+     * Get Value
      *
-     * @param data the data to validate
+     * @return the value
      */
-    public void setData(String data) {
-        this.data = data;
+    public String getValue() {
+        return this.value;
     }
 
     /**
-     * Dummy Method
+     * Is Valid
      *
-     * @return string
+     * @return If value is valid
      */
-    public String getGreeting() {
-        return "Hello world.";
+    public Boolean isValid() {
+        return true;
+    }
+
+    /**
+     * Is Empty
+     *
+     * @return if value is empty
+     */
+    public Boolean isEmpty() {
+        return Strings.isNullOrEmpty(this.value);
     }
 }

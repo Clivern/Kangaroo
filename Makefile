@@ -93,6 +93,13 @@ verify:
 	$(GRADLEW) spotlessJavaCheck --info
 
 
+## coverage: Gradle test coverage task
+coverage:
+	@echo ">> ============= Gradle test coverage task ============= <<"
+	$(GRADLEW) jacocoTestCoverageVerification --info
+	$(GRADLEW) jacocoTestReport --info
+
+
 ## ci: Run all CI tests.
 ci: check verify
 	@echo "\n==> All quality checks passed"

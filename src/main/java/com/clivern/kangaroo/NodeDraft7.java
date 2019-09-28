@@ -13,36 +13,26 @@
  */
 package com.clivern.kangaroo;
 
-/** Validator Class */
-public class Validator {
+import com.google.gson.annotations.SerializedName;
 
-    private String schema;
-    private String data;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-    /**
-     * Set Schema
-     *
-     * @param schema the json schema to validate data against
-     */
-    public void setSchema(String schema) {
-        this.schema = schema;
-    }
+/** NodeDraft7 Class */
+public class NodeDraft7 {
 
-    /**
-     * Set Data
-     *
-     * @param data the data to validate
-     */
-    public void setData(String data) {
-        this.data = data;
-    }
+    @SerializedName("description")
+    public String description;
 
-    /**
-     * Dummy Method
-     *
-     * @return string
-     */
-    public String getGreeting() {
-        return "Hello world.";
-    }
+    @SerializedName("type")
+    public String type;
+
+    @SerializedName("enum")
+    public ArrayList<String> enumerated =  new ArrayList<String>();
+
+    @SerializedName("required")
+    public ArrayList<String> required =  new ArrayList<String>();
+
+    @SerializedName("properties")
+    public HashMap<String, NodeDraft7> properties = new HashMap<String, NodeDraft7>();
 }

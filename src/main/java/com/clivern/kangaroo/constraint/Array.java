@@ -11,38 +11,9 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.kangaroo;
+package com.clivern.kangaroo.rule;
 
-/** Validator Class */
-public class Validator {
+/** Array Class */
+public class Array {
 
-    private String schema;
-    private String data;
-
-    /**
-     * Set Schema
-     *
-     * @param schema the json schema to validate data against
-     */
-    public void setSchema(String schema) {
-        this.schema = schema;
-    }
-
-    /**
-     * Set Data
-     *
-     * @param data the data to validate
-     */
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    /**
-     * Dummy Method
-     *
-     * @return string
-     */
-    public String getGreeting() {
-        return "Hello world.";
-    }
 }

@@ -15,6 +15,7 @@
 plugins {
 	id 'java-library'
 	id 'maven'
+	id 'jacoco'
 	id 'com.diffplug.gradle.spotless' version '3.24.3'
 }
 
@@ -92,6 +93,7 @@ repositories {
 dependencies {
 	// Required dependencies
 	implementation 'com.google.guava:guava:27.1-jre'
+	implementation 'com.google.code.gson:gson:2.8.5'
 
 	// Use JUnit test framework
 	testImplementation 'junit:junit:4.12'

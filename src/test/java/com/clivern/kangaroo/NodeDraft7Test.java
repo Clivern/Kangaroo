@@ -13,36 +13,26 @@
  */
 package com.clivern.kangaroo;
 
-/** Validator Class */
-public class Validator {
+import static org.junit.Assert.*;
 
-    private String schema;
-    private String data;
+import com.google.gson.Gson;
+import org.junit.Test;
 
-    /**
-     * Set Schema
-     *
-     * @param schema the json schema to validate data against
-     */
-    public void setSchema(String schema) {
-        this.schema = schema;
-    }
+/** NodeDraft7Test Class */
+public class NodeDraft7Test {
 
-    /**
-     * Set Data
-     *
-     * @param data the data to validate
-     */
-    public void setData(String data) {
-        this.data = data;
-    }
+    @Test
+    public void testNodeDraft7_01() {
 
-    /**
-     * Dummy Method
-     *
-     * @return string
-     */
-    public String getGreeting() {
-        return "Hello world.";
+        NodeDraft7 node = new NodeDraft7();
+        node.description = "Node Description";
+        node.type = "string";
+        node.required.add("item01");
+        node.enumerated.add("enum01");
+
+        Gson gson = new Gson();
+        String json = gson.toJson(node);
+
+        assertEquals("{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}", json);
     }
 }
