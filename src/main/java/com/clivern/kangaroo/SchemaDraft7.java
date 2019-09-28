@@ -18,7 +18,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/** SchemaDraft7 Class */
+/**
+ * SchemaDraft7 Class
+ *
+ * @see <a href="https://json-schema.org/understanding-json-schema/reference/object.html">Understanding JSON Schema</a>
+ */
 public class SchemaDraft7 {
 
     @SerializedName("$schema")
