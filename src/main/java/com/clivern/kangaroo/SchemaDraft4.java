@@ -41,5 +41,5 @@ public class SchemaDraft4 {
     public ArrayList<String> required =  new ArrayList<String>();
 
     @SerializedName("properties")
-    public HashMap<String, NodeDraft7> properties = new HashMap<String, NodeDraft7>();
+    public HashMap<String, NodeDraft4> properties = new HashMap<String, NodeDraft4>();
 }

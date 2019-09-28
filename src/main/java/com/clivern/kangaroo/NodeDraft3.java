@@ -18,21 +18,17 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * SchemaDraft7 Class
- *
- * @see <a href="https://json-schema.org/understanding-json-schema/reference/object.html">Understanding JSON Schema</a>
- */
-public class SchemaDraft3 {
+/** NodeDraft3 Class */
+public class NodeDraft3 {
 
-    @SerializedName("$schema")
-    public String schema;
-
-    @SerializedName("id")
-    public String id;
+    @SerializedName("description")
+    public String description;
 
     @SerializedName("type")
     public String type;
+
+    @SerializedName("enum")
+    public ArrayList<String> enumerated =  new ArrayList<String>();
 
     @SerializedName("required")
     public ArrayList<String> required =  new ArrayList<String>();
