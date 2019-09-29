@@ -22,7 +22,7 @@ public class ValidatorTest {
 
     @Test
     public void testValidatorHasAGreeting() {
-        Validator classUnderTest = new Validator();
-        assertEquals("Hello world.", classUnderTest.getGreeting());
+        Validator validator = new Validator();
+        assertEquals(true, validator.validate());
     }
 }

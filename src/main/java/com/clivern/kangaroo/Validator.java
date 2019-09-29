@@ -13,11 +13,15 @@
  */
 package com.clivern.kangaroo;
 
+import java.util.ArrayList;
+
 /** Validator Class */
 public class Validator {
 
-    private String schema;
-    private String data;
+    private String schema = "";
+    private String data = "";
+    private ArrayList<String> errors = new ArrayList<String>();
+    private Boolean isValid = true;
 
     /**
      * Set Schema
@@ -38,11 +42,38 @@ public class Validator {
     }
 
     /**
-     * Dummy Method
+     * Get Schema
      *
-     * @return string
+     * @return the JSON Schema
      */
-    public String getGreeting() {
-        return "Hello world.";
+    public String getSchema() {
+        return this.schema;
+    }
+
+    /**
+     * Get Data
+     *
+     * @return the data to validate
+     */
+    public String getData() {
+        return this.data;
+    }
+
+    /**
+     * Validate the Data against the JSON Schema
+     *
+     * @return whether data is valid or not
+     */
+    public Boolean validate() {
+        return this.isValid;
+    }
+
+    /**
+     * Get Errors List
+     *
+     * @return the errors list
+     */
+    public ArrayList<String> getErrors() {
+        return this.errors;
     }
 }
