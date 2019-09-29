@@ -13,7 +13,5 @@
  */
 package com.clivern.kangaroo.rule;
 
-/** Array Class */
-public class Array {
-
-}
+/** ArrayConstraint Class */
+public class ArrayConstraint {}
