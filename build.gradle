@@ -94,6 +94,7 @@ dependencies {
 	// Required dependencies
 	implementation 'com.google.guava:guava:27.1-jre'
 	implementation 'com.google.code.gson:gson:2.8.5'
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 
 	// Use JUnit test framework
 	testImplementation 'junit:junit:4.12'
