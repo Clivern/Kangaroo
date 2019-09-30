@@ -13,43 +13,40 @@
  */
 package com.clivern.kangaroo;
 
-import com.google.gson.Gson;
+/** Draft Class */
+public enum Draft {
+    DRAFT3 ("DRAFT3"),
+    DRAFT4 ("DRAFT4"),
+    DRAFT6 ("DRAFT6"),
+    DRAFT7 ("DRAFT7");
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-/**
- * SchemaFactory Class
- */
-public class SchemaFactory {
-
-    private Gson gson;
+    private final String name;
 
     /**
      * Class Constructor
+     *
+     * @param  s the string value
      */
-    public SchemaFactory() {
-        this.gson = new Gson();
+    private Draft(String s) {
+        name = s;
     }
 
     /**
-     * Serialize Object
+     * Compare to string
      *
-     * @param  object the object
-     * @return        the serialized object
+     * @param  otherName
+     * @return           whether value equals the argument
      */
-    public String serialize(Object object) {
-        return this.gson.toJson(object);
+    public boolean equalsName(String otherName) {
+        return name.equals(otherName);
     }
 
     /**
-     * Unserialize JSON
+     * Change to string
      *
-     * @param  json   the json value
-     * @param  object the object class
-     * @return        the object
+     * @return the string value
      */
-    public <T> T unserialize(String json, Class<T> object) {
-        return this.gson.fromJson(json, object);
+    public String toString() {
+       return this.name;
     }
 }
