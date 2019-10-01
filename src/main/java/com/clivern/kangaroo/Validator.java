@@ -13,15 +13,67 @@
  */
 package com.clivern.kangaroo;
 
+import java.util.ArrayList;
+
 /** Validator Class */
 public class Validator {
 
+    private String schema = "";
+    private String data = "";
+    private ArrayList<String> errors = new ArrayList<String>();
+    private Boolean isValid = true;
+
     /**
-     * Dummy Method
+     * Set Schema
      *
-     * @return string
+     * @param schema the json schema to validate data against
      */
-    public String getGreeting() {
-        return "Hello world.";
+    public void setSchema(String schema) {
+        this.schema = schema;
+    }
+
+    /**
+     * Set Data
+     *
+     * @param data the data to validate
+     */
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    /**
+     * Get Schema
+     *
+     * @return the JSON Schema
+     */
+    public String getSchema() {
+        return this.schema;
+    }
+
+    /**
+     * Get Data
+     *
+     * @return the data to validate
+     */
+    public String getData() {
+        return this.data;
+    }
+
+    /**
+     * Validate the Data against the JSON Schema
+     *
+     * @return whether data is valid or not
+     */
+    public Boolean validate() {
+        return this.isValid;
+    }
+
+    /**
+     * Get Errors List
+     *
+     * @return the errors list
+     */
+    public ArrayList<String> getErrors() {
+        return this.errors;
     }
 }

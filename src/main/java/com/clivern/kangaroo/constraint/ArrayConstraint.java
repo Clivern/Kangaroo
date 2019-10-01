@@ -11,18 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.kangaroo;
+package com.clivern.kangaroo.rule;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-/** ValidatorTest Class */
-public class ValidatorTest {
-
-    @Test
-    public void testValidatorHasAGreeting() {
-        Validator validator = new Validator();
-        assertEquals(true, validator.validate());
-    }
-}
+/** ArrayConstraint Class */
+public class ArrayConstraint {}

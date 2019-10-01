@@ -15,14 +15,26 @@ package com.clivern.kangaroo;
 
 import static org.junit.Assert.*;
 
+import com.google.gson.Gson;
 import org.junit.Test;
 
-/** ValidatorTest Class */
-public class ValidatorTest {
+/** NodeDraft3Test Class */
+public class NodeDraft3Test {
 
     @Test
-    public void testValidatorHasAGreeting() {
-        Validator validator = new Validator();
-        assertEquals(true, validator.validate());
+    public void testNodeDraft3_01() {
+        SchemaFactory schemaFactory = new SchemaFactory();
+        NodeDraft3 node = new NodeDraft3();
+        node.description = "Node Description";
+        node.type = "string";
+        node.required.add("item01");
+        node.enumerated.add("enum01");
+
+        String json = schemaFactory.serialize(node);
+
+        assertEquals(
+            "{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}",
+            json
+        );
     }
 }

@@ -17,12 +17,21 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** ValidatorTest Class */
-public class ValidatorTest {
+/** DraftTest Class */
+public class DraftTest {
 
     @Test
-    public void testValidatorHasAGreeting() {
-        Validator validator = new Validator();
-        assertEquals(true, validator.validate());
+    public void testDraftEnum() {
+        assertEquals(Draft.DRAFT3.name(), "DRAFT3");
+        assertTrue(Draft.DRAFT3.equalsName("DRAFT3"));
+
+        assertEquals(Draft.DRAFT4.name(), "DRAFT4");
+        assertTrue(Draft.DRAFT4.equalsName("DRAFT4"));
+
+        assertEquals(Draft.DRAFT6.name(), "DRAFT6");
+        assertTrue(Draft.DRAFT6.equalsName("DRAFT6"));
+
+        assertEquals(Draft.DRAFT7.name(), "DRAFT7");
+        assertTrue(Draft.DRAFT7.equalsName("DRAFT7"));
     }
 }

@@ -11,18 +11,30 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.kangaroo;
+package com.clivern.kangaroo.util;
 
-import static org.junit.Assert.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
-import org.junit.Test;
+/** JSONDataParser Class */
+public class JSONDataParser {
 
-/** ValidatorTest Class */
-public class ValidatorTest {
+    private JSONParser jsonParser;
 
-    @Test
-    public void testValidatorHasAGreeting() {
-        Validator validator = new Validator();
-        assertEquals(true, validator.validate());
+    /**
+     * Class Constructor
+     */
+    public JSONDataParser() {
+        this.jsonParser = new JSONParser();
+    }
+
+    /**
+     * Parse Data
+     *
+     * @param  data the JSON data
+     * @return      the JSON Object
+     */
+    public Object parseData(String data) throws ParseException {
+        return (Object) this.jsonParser.parse(data);
     }
 }

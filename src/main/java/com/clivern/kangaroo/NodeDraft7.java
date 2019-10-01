@@ -13,16 +13,26 @@
  */
 package com.clivern.kangaroo;
 
-import static org.junit.Assert.*;
+import com.google.gson.annotations.SerializedName;
 
-import org.junit.Test;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-/** ValidatorTest Class */
-public class ValidatorTest {
+/** NodeDraft7 Class */
+public class NodeDraft7 {
 
-    @Test
-    public void testValidatorHasAGreeting() {
-        Validator validator = new Validator();
-        assertEquals(true, validator.validate());
-    }
+    @SerializedName("description")
+    public String description;
+
+    @SerializedName("type")
+    public String type;
+
+    @SerializedName("enum")
+    public ArrayList<String> enumerated =  new ArrayList<String>();
+
+    @SerializedName("required")
+    public ArrayList<String> required =  new ArrayList<String>();
+
+    @SerializedName("properties")
+    public HashMap<String, NodeDraft7> properties = new HashMap<String, NodeDraft7>();
 }
