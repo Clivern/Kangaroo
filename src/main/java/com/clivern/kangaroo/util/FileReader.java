@@ -11,14 +11,21 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.kangaroo;
+package com.clivern.kangaroo.util;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import java.nio.file.*;
 
-public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+/** FileReader Class */
+public class FileReader {
+
+    /**
+     * Read File as String
+     *
+     * @param filePath absolute path to file
+     * @return String file content as string
+     * @throws Exception throws exception if file not exists
+     */
+    public String readFileAsString(String filePath) throws Exception {
+        return new String(Files.readAllBytes(Paths.get(filePath)));
     }
 }

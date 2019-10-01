@@ -11,14 +11,17 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.kangaroo;
+package com.clivern.kangaroo.exception;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+/** ValidationError Class */
+public class ValidationError extends Exception {
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    /**
+     * Class Constructor
+     *
+     * @param message the exception message
+     */
+    public ValidationError(String message) {
+        super(message);
     }
 }
