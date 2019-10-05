@@ -32,9 +32,8 @@ public class SchemaFactoryTest {
         String json = schemaFactory.serialize(schema);
 
         assertEquals(
-            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"$id\":\"SchemaId\",\"title\":\"Schema Title\",\"type\":\"object\",\"required\":[],\"properties\":{}}",
-            json
-        );
+                "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"$id\":\"SchemaId\",\"title\":\"Schema Title\",\"type\":\"object\",\"required\":[],\"properties\":{}}",
+                json);
 
         SchemaDraft7 obj = schemaFactory.unserialize(json, SchemaDraft7.class);
         assertEquals(json, schemaFactory.serialize(obj));

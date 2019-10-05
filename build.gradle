@@ -23,17 +23,12 @@ archivesBaseName = "kangaroo"
 version = '1.0.0'
 
 spotless {
-	java {
-		licenseHeaderFile '.license'
-		importOrder 'java'
-	}
-	format 'misc', {
-		target '**/*.gradle', '**/*.md', '**/.gitignore'
-
-		trimTrailingWhitespace()
-		indentWithTabs()
-		endWithNewline()
-	}
+    java {
+        licenseHeaderFile '.license'
+        importOrder 'java'
+        googleJavaFormat('1.1').aosp()
+        target 'src/**/*.java'
+    }
 }
 
 // updatePom task

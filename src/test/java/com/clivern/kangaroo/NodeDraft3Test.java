@@ -15,7 +15,6 @@ package com.clivern.kangaroo;
 
 import static org.junit.Assert.*;
 
-import com.google.gson.Gson;
 import org.junit.Test;
 
 /** NodeDraft3Test Class */
@@ -33,8 +32,7 @@ public class NodeDraft3Test {
         String json = schemaFactory.serialize(node);
 
         assertEquals(
-            "{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}",
-            json
-        );
+                "{\"description\":\"Node Description\",\"type\":\"string\",\"enum\":[\"enum01\"],\"required\":[\"item01\"],\"properties\":{}}",
+                json);
     }
 }

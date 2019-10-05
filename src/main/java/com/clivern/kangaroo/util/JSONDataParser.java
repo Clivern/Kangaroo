@@ -21,9 +21,7 @@ public class JSONDataParser {
 
     private JSONParser jsonParser;
 
-    /**
-     * Class Constructor
-     */
+    /** Class Constructor */
     public JSONDataParser() {
         this.jsonParser = new JSONParser();
     }
@@ -31,8 +29,8 @@ public class JSONDataParser {
     /**
      * Parse Data
      *
-     * @param  data the JSON data
-     * @return      the JSON Object
+     * @param data the JSON data
+     * @return the JSON Object
      */
     public Object parseData(String data) throws ParseException {
         return (Object) this.jsonParser.parse(data);

@@ -15,19 +15,12 @@ package com.clivern.kangaroo;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-/**
- * SchemaFactory Class
- */
+/** SchemaFactory Class */
 public class SchemaFactory {
 
     private Gson gson;
 
-    /**
-     * Class Constructor
-     */
+    /** Class Constructor */
     public SchemaFactory() {
         this.gson = new Gson();
     }
@@ -35,8 +28,8 @@ public class SchemaFactory {
     /**
      * Serialize Object
      *
-     * @param  object the object
-     * @return        the serialized object
+     * @param object the object
+     * @return the serialized object
      */
     public String serialize(Object object) {
         return this.gson.toJson(object);
@@ -45,9 +38,9 @@ public class SchemaFactory {
     /**
      * Unserialize JSON
      *
-     * @param  json   the json value
-     * @param  object the object class
-     * @return        the object
+     * @param json the json value
+     * @param object the object class
+     * @return the object
      */
     public <T> T unserialize(String json, Class<T> object) {
         return this.gson.fromJson(json, object);

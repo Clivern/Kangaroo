@@ -14,14 +14,15 @@
 package com.clivern.kangaroo;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * SchemaDraft7 Class
  *
- * @see <a href="https://json-schema.org/understanding-json-schema/reference/object.html">Understanding JSON Schema</a>
+ * @see <a
+ *     href="https://json-schema.org/understanding-json-schema/reference/object.html">Understanding
+ *     JSON Schema</a>
  */
 public class SchemaDraft7 {
 
@@ -38,7 +39,7 @@ public class SchemaDraft7 {
     public String type;
 
     @SerializedName("required")
-    public ArrayList<String> required =  new ArrayList<String>();
+    public ArrayList<String> required = new ArrayList<String>();
 
     @SerializedName("properties")
     public HashMap<String, NodeDraft7> properties = new HashMap<String, NodeDraft7>();

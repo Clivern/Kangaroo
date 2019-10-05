@@ -14,7 +14,6 @@
 package com.clivern.kangaroo;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -28,10 +27,10 @@ public class NodeDraft3 {
     public String type;
 
     @SerializedName("enum")
-    public ArrayList<String> enumerated =  new ArrayList<String>();
+    public ArrayList<String> enumerated = new ArrayList<String>();
 
     @SerializedName("required")
-    public ArrayList<String> required =  new ArrayList<String>();
+    public ArrayList<String> required = new ArrayList<String>();
 
     @SerializedName("properties")
     public HashMap<String, NodeDraft3> properties = new HashMap<String, NodeDraft3>();

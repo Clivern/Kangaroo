@@ -15,7 +15,6 @@ package com.clivern.kangaroo;
 
 import static org.junit.Assert.*;
 
-import com.google.gson.Gson;
 import org.junit.Test;
 
 /** SchemaDraft4Test Class */
@@ -33,9 +32,8 @@ public class SchemaDraft4Test {
         String json = schemaFactory.serialize(schema);
 
         assertEquals(
-            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[],\"properties\":{}}",
-            json
-        );
+                "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[],\"properties\":{}}",
+                json);
     }
 
     @Test
@@ -53,8 +51,7 @@ public class SchemaDraft4Test {
         String json = schemaFactory.serialize(schema);
 
         assertEquals(
-            "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}",
-            json
-        );
+                "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"id\":\"SchemaId\",\"description\":\"Schema Description\",\"type\":\"object\",\"required\":[\"itemOne\",\"itemTwo\",\"itemThree\"],\"properties\":{}}",
+                json);
     }
 }

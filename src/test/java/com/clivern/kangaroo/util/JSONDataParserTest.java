@@ -26,19 +26,13 @@ public class JSONDataParserTest {
     public void testJSONDataParser() throws ParseException {
         JSONDataParser dataParser = new JSONDataParser();
         JSONObject jsonObj = (JSONObject) dataParser.parseData("{\"id\": \"Hello\"}");
-        assertEquals(
-            "Hello",
-            (String) jsonObj.get("id")
-        );
+        assertEquals("Hello", (String) jsonObj.get("id"));
     }
 
     @Test(expected = ParseException.class)
     public void whenExceptionThrown_JSONDataParser() throws ParseException {
         JSONDataParser dataParser = new JSONDataParser();
         JSONObject jsonObj = (JSONObject) dataParser.parseData("{\"id: \"Hello\"}");
-        assertEquals(
-            "Hello",
-            (String) jsonObj.get("id")
-        );
+        assertEquals("Hello", (String) jsonObj.get("id"));
     }
 }

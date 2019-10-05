@@ -15,17 +15,17 @@ package com.clivern.kangaroo;
 
 /** Draft Class */
 public enum Draft {
-    DRAFT3 ("DRAFT3"),
-    DRAFT4 ("DRAFT4"),
-    DRAFT6 ("DRAFT6"),
-    DRAFT7 ("DRAFT7");
+    DRAFT3("DRAFT3"),
+    DRAFT4("DRAFT4"),
+    DRAFT6("DRAFT6"),
+    DRAFT7("DRAFT7");
 
     private final String name;
 
     /**
      * Class Constructor
      *
-     * @param  s the string value
+     * @param s the string value
      */
     private Draft(String s) {
         name = s;
@@ -34,8 +34,8 @@ public enum Draft {
     /**
      * Compare to string
      *
-     * @param  otherName
-     * @return           whether value equals the argument
+     * @param otherName
+     * @return whether value equals the argument
      */
     public boolean equalsName(String otherName) {
         return name.equals(otherName);
@@ -47,6 +47,6 @@ public enum Draft {
      * @return the string value
      */
     public String toString() {
-       return this.name;
+        return this.name;
     }
 }

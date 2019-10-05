@@ -14,6 +14,4 @@
 package com.clivern.kangaroo.rule;
 
 /** IntegerConstraint Class */
-public class IntegerConstraint {
-
-}
+public class IntegerConstraint {}

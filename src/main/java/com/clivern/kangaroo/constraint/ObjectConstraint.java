@@ -14,6 +14,4 @@
 package com.clivern.kangaroo.rule;
 
 /** ObjectConstraint Class */
-public class ObjectConstraint {
-
-}
+public class ObjectConstraint {}
