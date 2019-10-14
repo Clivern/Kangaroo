@@ -24,7 +24,7 @@ public class Validator {
     private Boolean isValid = true;
 
     /**
-     * Set Schema
+     * Set JSON Schema
      *
      * @param schema the json schema to validate data against
      */
@@ -33,7 +33,7 @@ public class Validator {
     }
 
     /**
-     * Set Data
+     * Set JSON Data
      *
      * @param data the data to validate
      */
@@ -42,7 +42,7 @@ public class Validator {
     }
 
     /**
-     * Get Schema
+     * Get JSON Schema
      *
      * @return the JSON Schema
      */
@@ -51,7 +51,7 @@ public class Validator {
     }
 
     /**
-     * Get Data
+     * Get JSON Data
      *
      * @return the data to validate
      */
@@ -60,7 +60,7 @@ public class Validator {
     }
 
     /**
-     * Validate the Data against the JSON Schema
+     * Validate the JSON Data against the JSON Schema
      *
      * @return whether data is valid or not
      */
