@@ -24,7 +24,7 @@ import java.util.HashMap;
  *     href="https://json-schema.org/understanding-json-schema/reference/object.html">Understanding
  *     JSON Schema</a>
  */
-public class SchemaDraft3 {
+public class SchemaDraft3 implements SchemaInterface {
 
     @SerializedName("$schema")
     public String schema;

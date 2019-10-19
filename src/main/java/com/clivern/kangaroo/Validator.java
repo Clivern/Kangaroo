@@ -18,18 +18,42 @@ import java.util.ArrayList;
 /** Validator Class */
 public class Validator {
 
+    private SchemaFactory schemaFactory;
     private String schema = "";
+    private SchemaInterface schemaObj;
+    private Draft draft = Draft.DRAFT3;
     private String data = "";
     private ArrayList<String> errors = new ArrayList<String>();
     private Boolean isValid = true;
+
+    /** Class Constructor */
+    public Validator() {
+        this.schemaFactory = new SchemaFactory();
+    }
 
     /**
      * Set JSON Schema
      *
      * @param schema the json schema to validate data against
+     * @param draft the draft version
      */
-    public void setSchema(String schema) {
+    public void setSchema(String schema, Draft draft) {
         this.schema = schema;
+        this.draft = draft;
+
+        if (this.draft.equalsName(Draft.DRAFT3.name())) {
+            this.schemaObj = new SchemaDraft3();
+            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft3.class);
+        } else if (this.draft.equalsName(Draft.DRAFT4.name())) {
+            this.schemaObj = new SchemaDraft4();
+            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft4.class);
+        } else if (this.draft.equalsName(Draft.DRAFT6.name())) {
+            this.schemaObj = new SchemaDraft6();
+            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft6.class);
+        } else if (this.draft.equalsName(Draft.DRAFT7.name())) {
+            this.schemaObj = new SchemaDraft7();
+            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft7.class);
+        }
     }
 
     /**
