@@ -100,8 +100,14 @@ coverage:
 	$(GRADLEW) jacocoTestReport --info
 
 
+## init_prop: Create gradle.properties if not exists
+init_prop:
+	@echo ">> ============= Create gradle.properties file ============= <<"
+	-cp -n gradle.properties.template gradle.properties
+
+
 ## ci: Run all CI tests.
-ci: check verify
+ci: init_prop check verify
 	@echo "\n==> All quality checks passed"
 
 
