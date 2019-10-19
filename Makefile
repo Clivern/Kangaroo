@@ -48,7 +48,7 @@ build_scan:
 ## upload: Gradle upload archives task
 upload:
 	@echo ">> ============= Gradle upload archives task ============= <<"
-	$(GRADLEW) -b maven-push.gradle uploadArchives
+	$(GRADLEW) -b build.gradle uploadArchives
 
 
 ## clean: Deletes the build directory.
