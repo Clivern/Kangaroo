@@ -10,7 +10,7 @@ help: Makefile
 
 
 ## assemble: Gradle assemble code task
-assemble:
+assemble: init_prop
 	@echo ">> ============= Gradle assemble code task ============= <<"
 	$(GRADLEW) assemble --info
 
@@ -34,7 +34,7 @@ test:
 
 
 ## build: Gradle build jar task
-build:
+build: init_prop
 	@echo ">> ============= Gradle build jar task ============= <<"
 	$(GRADLEW) build --info
 
