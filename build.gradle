@@ -20,7 +20,7 @@ plugins {
 }
 
 archivesBaseName = "kangaroo"
-version = '1.0.0'
+version = '0.0.1'
 
 spotless {
     java {
@@ -38,7 +38,7 @@ task updatePom {
 			project {
 				groupId 'com.clivern'
 				artifactId 'kangaroo'
-				version '1.0.0'
+				version '0.0.1'
 				name 'Kangaroo'
 				description "JSON Schema Validation Package for Java."
 				url 'https://github.com/Clivern/Kangaroo'
