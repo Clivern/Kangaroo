@@ -18,16 +18,16 @@
 To add a dependency using Maven, use the following:
 ```xml
 <dependency>
-	<groupId>com.clivern</groupId>
-	<artifactId>kangaroo</artifactId>
-	<version>0.0.1</version>
+    <groupId>com.clivern</groupId>
+    <artifactId>kangaroo</artifactId>
+    <version>0.0.1</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-	compile 'com.clivern:kangaroo:0.0.1'
+    compile 'com.clivern:kangaroo:0.0.1'
 }
 ```
 
