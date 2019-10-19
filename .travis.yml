@@ -18,9 +18,6 @@ cache:
         - $HOME/.gradle/caches/
         - $HOME/.gradle/wrapper/
 
-before_script:
-    - make assemble
-
 script:
     # make format
     - make ci
