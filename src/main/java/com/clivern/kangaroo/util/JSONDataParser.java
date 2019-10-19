@@ -31,6 +31,7 @@ public class JSONDataParser {
      *
      * @param data the JSON data
      * @return the JSON Object
+     * @throws ParseException unable to parse JSON string
      */
     public Object parseData(String data) throws ParseException {
         return (Object) this.jsonParser.parse(data);

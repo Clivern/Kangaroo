@@ -40,6 +40,7 @@ public class SchemaFactory {
      *
      * @param json the json value
      * @param object the object class
+     * @param <T> an object
      * @return the object
      */
     public <T> T unserialize(String json, Class<T> object) {

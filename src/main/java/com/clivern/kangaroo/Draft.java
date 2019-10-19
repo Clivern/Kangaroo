@@ -34,7 +34,7 @@ public enum Draft {
     /**
      * Compare to string
      *
-     * @param otherName
+     * @param otherName the string value to compare against
      * @return whether value equals the argument
      */
     public boolean equalsName(String otherName) {
