@@ -76,4 +76,22 @@ public class Validator {
     public ArrayList<String> getErrors() {
         return this.errors;
     }
+
+    /**
+     * If validation has errors
+     *
+     * @return the errors count
+     */
+    public int hasErrors() {
+        return this.errors.size();
+    }
+
+    /**
+     * Add Error
+     *
+     * @param error the error
+     */
+    private void addError(String error) {
+        this.errors.add(error);
+    }
 }
