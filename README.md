@@ -1,5 +1,5 @@
 <p align="center">
-	<img alt="Kangaroo Logo" src="https://raw.githubusercontent.com/Clivern/Kangaroo/master/images/logo.png" height="100" />
+	<img alt="Kangaroo Logo" src="https://raw.githubusercontent.com/Clivern/Kangaroo/master/images/logo.png" height="90" />
 	<h3 align="center">Kangaroo</h3>
 	<p align="center">JSON Schema Validation Package for Java.</p>
 	<p align="center">
