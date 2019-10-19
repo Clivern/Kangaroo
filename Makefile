@@ -90,7 +90,9 @@ format:
 ## verify: Gradle verify code format task
 verify:
 	@echo ">> ============= Gradle verify code format task ============= <<"
+	$(GRADLEW) classes --info
 	$(GRADLEW) spotlessJavaCheck --info
+	$(GRADLEW) javadoc --info
 
 
 ## coverage: Gradle test coverage task
