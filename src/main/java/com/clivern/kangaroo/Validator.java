@@ -14,82 +14,184 @@
 package com.clivern.kangaroo;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /** Validator Class */
 public class Validator {
 
-    private SchemaFactory schemaFactory;
-    private String schema = "";
-    private SchemaInterface schemaObj;
-    private Draft draft = Draft.DRAFT3;
-    private String data = "";
     private ArrayList<String> errors = new ArrayList<String>();
     private Boolean isValid = true;
 
-    /** Class Constructor */
-    public Validator() {
-        this.schemaFactory = new SchemaFactory();
-    }
-
     /**
-     * Set JSON Schema
+     * Validate the JSON Data against the JSON Schema draft 3
      *
-     * @param schema the json schema to validate data against
-     * @param draft the draft version
-     */
-    public void setSchema(String schema, Draft draft) {
-        this.schema = schema;
-        this.draft = draft;
-
-        if (this.draft.equalsName(Draft.DRAFT3.name())) {
-            this.schemaObj = new SchemaDraft3();
-            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft3.class);
-        } else if (this.draft.equalsName(Draft.DRAFT4.name())) {
-            this.schemaObj = new SchemaDraft4();
-            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft4.class);
-        } else if (this.draft.equalsName(Draft.DRAFT6.name())) {
-            this.schemaObj = new SchemaDraft6();
-            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft6.class);
-        } else if (this.draft.equalsName(Draft.DRAFT7.name())) {
-            this.schemaObj = new SchemaDraft7();
-            this.schemaObj = this.schemaFactory.unserialize(this.schema, SchemaDraft7.class);
-        }
-    }
-
-    /**
-     * Set JSON Data
-     *
-     * @param data the data to validate
-     */
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    /**
-     * Get JSON Schema
-     *
-     * @return the JSON Schema
-     */
-    public String getSchema() {
-        return this.schema;
-    }
-
-    /**
-     * Get JSON Data
-     *
-     * @return the data to validate
-     */
-    public String getData() {
-        return this.data;
-    }
-
-    /**
-     * Validate the JSON Data against the JSON Schema
-     *
+     * @param schema the draft Object
+     * @param data the data
      * @return whether data is valid or not
      */
-    public Boolean validate() {
+    public Boolean validate(SchemaDraft3 schema, String data) {
+        // Check if required items exist
+
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft3) item.getValue());
+        }
+
         return this.isValid;
+    }
+
+    /**
+     * Validate the JSON Data against the JSON Schema draft 4
+     *
+     * @param schema the draft Object
+     * @param data the data
+     * @return whether data is valid or not
+     */
+    public Boolean validate(SchemaDraft4 schema, String data) {
+        // Check if required items exist
+
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft4) item.getValue());
+        }
+
+        return this.isValid;
+    }
+
+    /**
+     * Validate the JSON Data against the JSON Schema draft 6
+     *
+     * @param schema the draft Object
+     * @param data the data
+     * @return whether data is valid or not
+     */
+    public Boolean validate(SchemaDraft6 schema, String data) {
+        // Check if required items exist
+
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft6) item.getValue());
+        }
+
+        return this.isValid;
+    }
+
+    /**
+     * Validate the JSON Data against the JSON Schema draft 7
+     *
+     * @param schema the draft Object
+     * @param data the data
+     * @return whether data is valid or not
+     */
+    public Boolean validate(SchemaDraft7 schema, String data) {
+        // Check if required items exist
+
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft7) item.getValue());
+        }
+
+        return this.isValid;
+    }
+
+    /**
+     * Validate a Draft3 Node
+     *
+     * @param parents node parents
+     * @param node draft3 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft3 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft3) item.getValue());
+        }
+
+        return status;
+    }
+
+    /**
+     * Validate a Draft4 Node
+     *
+     * @param parents node parents
+     * @param node draft4 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft4 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft4) item.getValue());
+        }
+
+        return status;
+    }
+
+    /**
+     * Validate a Draft6 Node
+     *
+     * @param parents node parents
+     * @param node draft6 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft6 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft6) item.getValue());
+        }
+
+        return status;
+    }
+
+    /**
+     * Validate a Draft7 Node
+     *
+     * @param parents node parents
+     * @param node draft7 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft7 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft7) item.getValue());
+        }
+
+        return status;
     }
 
     /**
