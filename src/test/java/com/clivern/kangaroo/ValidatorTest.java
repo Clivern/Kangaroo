@@ -23,6 +23,12 @@ public class ValidatorTest {
     @Test
     public void testValidatorHasAGreeting() {
         Validator validator = new Validator();
-        assertEquals(true, validator.validate());
+
+        SchemaFactory schemaFactory = new SchemaFactory();
+        SchemaDraft7 draft =
+                schemaFactory.unserialize(
+                        "{\"$id\":\"https://example.com/address.schema.json\",\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"description\":\"An address similar to http://microformats.org/wiki/h-card\",\"type\":\"object\",\"properties\":{\"post-office-box\":{\"description\":\"post-office-box\",\"type\":\"object\",\"properties\":{\"street-address\":{\"type\":\"string\",\"description\":\"post-office-box.street-address\"},\"locality\":{\"type\":\"string\",\"description\":\"post-office-box.locality\"},\"region\":{\"type\":\"object\",\"description\":\"post-office-box.region\",\"properties\":{\"postal-code\":{\"type\":\"string\",\"description\":\"post-office-box.region.postal-code\"},\"country-name\":{\"type\":\"string\",\"description\":\"post-office-box.region.country-name\"}}}}},\"extended-address\":{\"description\":\"extended-address\",\"type\":\"string\"}}}",
+                        SchemaDraft7.class);
+        assertEquals(true, validator.validate(draft, "{}"));
     }
 }

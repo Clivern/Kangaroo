@@ -13,59 +13,203 @@
  */
 package com.clivern.kangaroo;
 
+import com.clivern.kangaroo.constraint.ConstraintType;
 import java.util.ArrayList;
+import java.util.Map;
 
 /** Validator Class */
 public class Validator {
 
-    private String schema = "";
-    private String data = "";
+    private String data = "{}";
     private ArrayList<String> errors = new ArrayList<String>();
     private Boolean isValid = true;
 
     /**
-     * Set JSON Schema
+     * Validate the JSON Data against the JSON Schema draft 3
      *
-     * @param schema the json schema to validate data against
-     */
-    public void setSchema(String schema) {
-        this.schema = schema;
-    }
-
-    /**
-     * Set JSON Data
-     *
-     * @param data the data to validate
-     */
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    /**
-     * Get JSON Schema
-     *
-     * @return the JSON Schema
-     */
-    public String getSchema() {
-        return this.schema;
-    }
-
-    /**
-     * Get JSON Data
-     *
-     * @return the data to validate
-     */
-    public String getData() {
-        return this.data;
-    }
-
-    /**
-     * Validate the JSON Data against the JSON Schema
-     *
+     * @param schema the draft Object
+     * @param data the data
      * @return whether data is valid or not
      */
-    public Boolean validate() {
+    public Boolean validate(SchemaDraft3 schema, String data) {
+        this.data = data;
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft3) item.getValue());
+        }
+
         return this.isValid;
+    }
+
+    /**
+     * Validate the JSON Data against the JSON Schema draft 4
+     *
+     * @param schema the draft Object
+     * @param data the data
+     * @return whether data is valid or not
+     */
+    public Boolean validate(SchemaDraft4 schema, String data) {
+        this.data = data;
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft4) item.getValue());
+        }
+
+        return this.isValid;
+    }
+
+    /**
+     * Validate the JSON Data against the JSON Schema draft 6
+     *
+     * @param schema the draft Object
+     * @param data the data
+     * @return whether data is valid or not
+     */
+    public Boolean validate(SchemaDraft6 schema, String data) {
+        this.data = data;
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft6) item.getValue());
+        }
+
+        return this.isValid;
+    }
+
+    /**
+     * Validate the JSON Data against the JSON Schema draft 7
+     *
+     * @param schema the draft Object
+     * @param data the data
+     * @return whether data is valid or not
+     */
+    public Boolean validate(SchemaDraft7 schema, String data) {
+        this.data = data;
+        for (Map.Entry item : schema.properties.entrySet()) {
+            ArrayList<String> parents = new ArrayList<String>();
+            parents.add((String) item.getKey());
+            this.isValid &= this.validateNode(parents, (NodeDraft7) item.getValue());
+        }
+
+        return this.isValid;
+    }
+
+    /**
+     * Validate a Draft3 Node
+     *
+     * @param parents node parents
+     * @param node draft3 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft3 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft3) item.getValue());
+        }
+
+        return status;
+    }
+
+    /**
+     * Validate a Draft4 Node
+     *
+     * @param parents node parents
+     * @param node draft4 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft4 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft4) item.getValue());
+        }
+
+        return status;
+    }
+
+    /**
+     * Validate a Draft6 Node
+     *
+     * @param parents node parents
+     * @param node draft6 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft6 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft6) item.getValue());
+        }
+
+        return status;
+    }
+
+    /**
+     * Validate a Draft7 Node
+     *
+     * @param parents node parents
+     * @param node draft7 node
+     * @return whether node is valid or not
+     */
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft7 node) {
+        Boolean status = true;
+        // Validate node
+
+        //System.out.println(node.description);
+        //System.out.println(parents);
+
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
+
+        // Validate sub-nodes
+        for (Map.Entry item : node.properties.entrySet()) {
+            ArrayList<String> nodeParents = new ArrayList<>(parents);
+            nodeParents.add((String) item.getKey());
+            status &= this.validateNode(nodeParents, (NodeDraft7) item.getValue());
+        }
+
+        return status;
     }
 
     /**
@@ -75,5 +219,23 @@ public class Validator {
      */
     public ArrayList<String> getErrors() {
         return this.errors;
+    }
+
+    /**
+     * If validation has errors
+     *
+     * @return the errors count
+     */
+    public int hasErrors() {
+        return this.errors.size();
+    }
+
+    /**
+     * Add Error
+     *
+     * @param error the error
+     */
+    private void addError(String error) {
+        this.errors.add(error);
     }
 }

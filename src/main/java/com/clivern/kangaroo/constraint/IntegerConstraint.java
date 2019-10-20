@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.kangaroo.rule;
+package com.clivern.kangaroo.constraint;
 
 /** IntegerConstraint Class */
 public class IntegerConstraint {}

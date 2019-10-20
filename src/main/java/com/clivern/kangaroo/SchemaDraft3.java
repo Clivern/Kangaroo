@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * SchemaDraft7 Class
+ * SchemaDraft3 Class
  *
  * @see <a
  *     href="https://json-schema.org/understanding-json-schema/reference/object.html">Understanding
  *     JSON Schema</a>
  */
-public class SchemaDraft3 {
+public class SchemaDraft3 implements SchemaInterface {
 
     @SerializedName("$schema")
     public String schema;
