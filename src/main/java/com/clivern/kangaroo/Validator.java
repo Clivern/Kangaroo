@@ -13,12 +13,14 @@
  */
 package com.clivern.kangaroo;
 
+import com.clivern.kangaroo.constraint.ConstraintType;
 import java.util.ArrayList;
 import java.util.Map;
 
 /** Validator Class */
 public class Validator {
 
+    private String data = "{}";
     private ArrayList<String> errors = new ArrayList<String>();
     private Boolean isValid = true;
 
@@ -30,8 +32,7 @@ public class Validator {
      * @return whether data is valid or not
      */
     public Boolean validate(SchemaDraft3 schema, String data) {
-        // Check if required items exist
-
+        this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
@@ -49,8 +50,7 @@ public class Validator {
      * @return whether data is valid or not
      */
     public Boolean validate(SchemaDraft4 schema, String data) {
-        // Check if required items exist
-
+        this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
@@ -68,8 +68,7 @@ public class Validator {
      * @return whether data is valid or not
      */
     public Boolean validate(SchemaDraft6 schema, String data) {
-        // Check if required items exist
-
+        this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
@@ -87,8 +86,7 @@ public class Validator {
      * @return whether data is valid or not
      */
     public Boolean validate(SchemaDraft7 schema, String data) {
-        // Check if required items exist
-
+        this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
@@ -111,6 +109,11 @@ public class Validator {
 
         //System.out.println(node.description);
         //System.out.println(parents);
+
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
 
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
@@ -136,6 +139,11 @@ public class Validator {
         //System.out.println(node.description);
         //System.out.println(parents);
 
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
+
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
@@ -160,6 +168,11 @@ public class Validator {
         //System.out.println(node.description);
         //System.out.println(parents);
 
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
+
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
@@ -183,6 +196,11 @@ public class Validator {
 
         //System.out.println(node.description);
         //System.out.println(parents);
+
+        // Skip if node not object
+        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+            return status;
+        }
 
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
