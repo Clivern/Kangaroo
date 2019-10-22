@@ -16,42 +16,26 @@ package com.clivern.kangaroo.constraint;
 import com.google.common.base.Strings;
 
 /** StringConstraint Class */
-public class StringConstraint {
+public class StringConstraint implements ConstraintInterface<String> {
 
     public String value;
 
-    /**
-     * Set Value
-     *
-     * @param value the value
-     */
+    @Override
     public void setValue(String value) {
         this.value = value;
     }
 
-    /**
-     * Get Value
-     *
-     * @return the value
-     */
+    @Override
     public String getValue() {
         return this.value;
     }
 
-    /**
-     * Is Valid
-     *
-     * @return If value is valid
-     */
+    @Override
     public Boolean isValid() {
         return true;
     }
 
-    /**
-     * Is Empty
-     *
-     * @return if value is empty
-     */
+    @Override
     public Boolean isEmpty() {
         return Strings.isNullOrEmpty(this.value);
     }

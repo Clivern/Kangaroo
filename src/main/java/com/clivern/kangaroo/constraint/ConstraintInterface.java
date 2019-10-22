@@ -14,4 +14,33 @@
 package com.clivern.kangaroo.constraint;
 
 /** Constraint Interface */
-public interface ConstraintInterface {}
+public interface ConstraintInterface<T> {
+
+    /**
+     * Set Value
+     *
+     * @param value the value
+     */
+    public void setValue(T value);
+
+    /**
+     * Get Value
+     *
+     * @return the value
+     */
+    public T getValue();
+
+    /**
+     * Is Valid
+     *
+     * @return If value is valid
+     */
+    public Boolean isValid();
+
+    /**
+     * Is Empty
+     *
+     * @return if value is empty
+     */
+    public Boolean isEmpty();
+}
