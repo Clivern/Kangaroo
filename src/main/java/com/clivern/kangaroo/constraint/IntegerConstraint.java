@@ -14,4 +14,43 @@
 package com.clivern.kangaroo.constraint;
 
 /** IntegerConstraint Class */
-public class IntegerConstraint {}
+public class IntegerConstraint implements ConstraintInterface<Object> {
+
+    public Object value;
+
+    @Override
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    @Override
+    public Object getValue() {
+        try {
+            return ((this.value == null) || !(this.value instanceof Integer))
+                    ? 0
+                    : (int) this.value;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    @Override
+    public Boolean isValid() {
+        try {
+            return ((this.value == null) || !(this.value instanceof Integer)) ? false : true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean isEmpty() {
+        try {
+            return ((this.value == null) || !(this.value instanceof Integer))
+                    ? (int) this.value == 0
+                    : false;
+        } catch (Exception e) {
+            return true;
+        }
+    }
+}
