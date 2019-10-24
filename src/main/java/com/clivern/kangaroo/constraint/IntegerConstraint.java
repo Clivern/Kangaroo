@@ -28,7 +28,7 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
         try {
             return ((this.value == null) || !(this.value instanceof Integer))
                     ? 0
-                    : (int) this.value;
+                    : (Integer) this.value;
         } catch (Exception e) {
             return 0;
         }
