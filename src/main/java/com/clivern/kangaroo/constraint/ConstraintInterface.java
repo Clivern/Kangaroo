@@ -14,7 +14,7 @@
 package com.clivern.kangaroo.constraint;
 
 /** Constraint Interface */
-public interface ConstraintInterface<T> {
+public interface ConstraintInterface<T, S> {
 
     /**
      * Set Value
@@ -28,7 +28,7 @@ public interface ConstraintInterface<T> {
      *
      * @return the value
      */
-    public T getValue();
+    public S getValue();
 
     /**
      * Is Valid

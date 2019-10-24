@@ -27,17 +27,17 @@ public class IntegerConstraintTest {
         IntegerConstraint intConstraint = new IntegerConstraint();
 
         intConstraint.setValue(1);
-        assertEquals((int) intConstraint.getValue(), 1);
+        assertEquals(intConstraint.getValue(), new Integer("1"));
         assertEquals(intConstraint.isEmpty(), false);
         assertEquals(intConstraint.isValid(), true);
 
         intConstraint.setValue("");
-        assertEquals((int) intConstraint.getValue(), 0);
+        assertEquals(intConstraint.getValue(), new Integer("0"));
         assertEquals(intConstraint.isEmpty(), true);
         assertEquals(intConstraint.isValid(), false);
 
         intConstraint.setValue(null);
-        assertEquals((int) intConstraint.getValue(), 0);
+        assertEquals(intConstraint.getValue(), new Integer("0"));
         assertEquals(intConstraint.isEmpty(), true);
         assertEquals(intConstraint.isValid(), false);
 
@@ -47,7 +47,7 @@ public class IntegerConstraintTest {
         list.add("C");
         intConstraint.setValue(list);
         assertEquals(intConstraint.isEmpty(), true);
-        assertEquals((int) intConstraint.getValue(), 0);
+        assertEquals(intConstraint.getValue(), new Integer("0"));
         assertEquals(intConstraint.isValid(), false);
     }
 }

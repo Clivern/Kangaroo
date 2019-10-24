@@ -14,7 +14,7 @@
 package com.clivern.kangaroo.constraint;
 
 /** IntegerConstraint Class */
-public class IntegerConstraint implements ConstraintInterface<Object> {
+public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
     public Object value;
 
@@ -24,7 +24,7 @@ public class IntegerConstraint implements ConstraintInterface<Object> {
     }
 
     @Override
-    public Object getValue() {
+    public Integer getValue() {
         try {
             return ((this.value == null) || !(this.value instanceof Integer))
                     ? 0

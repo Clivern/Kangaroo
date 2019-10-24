@@ -16,7 +16,7 @@ package com.clivern.kangaroo.constraint;
 import com.google.common.base.Strings;
 
 /** StringConstraint Class */
-public class StringConstraint implements ConstraintInterface<Object> {
+public class StringConstraint implements ConstraintInterface<Object, String> {
 
     public Object value;
 
@@ -26,7 +26,7 @@ public class StringConstraint implements ConstraintInterface<Object> {
     }
 
     @Override
-    public Object getValue() {
+    public String getValue() {
         try {
             return ((this.value == null) || !(this.value instanceof String))
                     ? ""

@@ -27,17 +27,17 @@ public class StringConstraintTest {
         StringConstraint stringConstraint = new StringConstraint();
 
         stringConstraint.setValue("Hello");
-        assertEquals((String) stringConstraint.getValue(), "Hello");
+        assertEquals(stringConstraint.getValue(), "Hello");
         assertEquals(stringConstraint.isEmpty(), false);
         assertEquals(stringConstraint.isValid(), true);
 
         stringConstraint.setValue("");
-        assertEquals((String) stringConstraint.getValue(), "");
+        assertEquals(stringConstraint.getValue(), "");
         assertEquals(stringConstraint.isEmpty(), true);
         assertEquals(stringConstraint.isValid(), true);
 
         stringConstraint.setValue(null);
-        assertEquals((String) stringConstraint.getValue(), "");
+        assertEquals(stringConstraint.getValue(), "");
         assertEquals(stringConstraint.isEmpty(), true);
         assertEquals(stringConstraint.isValid(), false);
 
@@ -47,7 +47,7 @@ public class StringConstraintTest {
         list.add("C");
         stringConstraint.setValue(list);
         assertEquals(stringConstraint.isEmpty(), true);
-        assertEquals((String) stringConstraint.getValue(), "");
+        assertEquals(stringConstraint.getValue(), "");
         assertEquals(stringConstraint.isValid(), false);
     }
 }
