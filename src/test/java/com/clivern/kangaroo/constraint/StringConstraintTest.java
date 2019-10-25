@@ -28,26 +28,22 @@ public class StringConstraintTest {
 
         stringConstraint.setValue("Hello");
         assertEquals(stringConstraint.getValue(), "Hello");
-        assertEquals(stringConstraint.isEmpty(), false);
-        assertEquals(stringConstraint.isValid(), true);
+        assertEquals(stringConstraint.isValidType(), true);
 
         stringConstraint.setValue("");
         assertEquals(stringConstraint.getValue(), "");
-        assertEquals(stringConstraint.isEmpty(), true);
-        assertEquals(stringConstraint.isValid(), true);
+        assertEquals(stringConstraint.isValidType(), true);
 
         stringConstraint.setValue(null);
         assertEquals(stringConstraint.getValue(), "");
-        assertEquals(stringConstraint.isEmpty(), true);
-        assertEquals(stringConstraint.isValid(), false);
+        assertEquals(stringConstraint.isValidType(), false);
 
         ArrayList<String> list = new ArrayList<String>();
         list.add("A");
         list.add("B");
         list.add("C");
         stringConstraint.setValue(list);
-        assertEquals(stringConstraint.isEmpty(), true);
         assertEquals(stringConstraint.getValue(), "");
-        assertEquals(stringConstraint.isValid(), false);
+        assertEquals(stringConstraint.isValidType(), false);
     }
 }

@@ -13,6 +13,8 @@
  */
 package com.clivern.kangaroo.constraint;
 
+import com.clivern.kangaroo.util.Validate;
+
 /** IntegerConstraint Class */
 public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
@@ -25,32 +27,11 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
     /** {@inheritDoc} */
     public Integer getValue() {
-        try {
-            return ((this.value == null) || !(this.value instanceof Integer))
-                    ? 0
-                    : (Integer) this.value;
-        } catch (Exception e) {
-            return 0;
-        }
+        return Validate.isInteger(this.value) ? (Integer) this.value : 0;
     }
 
     /** {@inheritDoc} */
-    public Boolean isValid() {
-        try {
-            return ((this.value == null) || !(this.value instanceof Integer)) ? false : true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /** {@inheritDoc} */
-    public Boolean isEmpty() {
-        try {
-            return ((this.value == null) || !(this.value instanceof Integer))
-                    ? (int) this.value == 0
-                    : false;
-        } catch (Exception e) {
-            return true;
-        }
+    public Boolean isValidType() {
+        return Validate.isInteger(this.value);
     }
 }

@@ -35,12 +35,5 @@ public interface ConstraintInterface<T, S> {
      *
      * @return If value is valid
      */
-    public Boolean isValid();
-
-    /**
-     * Is Empty
-     *
-     * @return if value is empty
-     */
-    public Boolean isEmpty();
+    public Boolean isValidType();
 }

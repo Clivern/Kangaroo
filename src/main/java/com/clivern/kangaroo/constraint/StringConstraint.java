@@ -13,12 +13,92 @@
  */
 package com.clivern.kangaroo.constraint;
 
-import com.google.common.base.Strings;
+import com.clivern.kangaroo.util.Validate;
 
 /** StringConstraint Class */
 public class StringConstraint implements ConstraintInterface<Object, String> {
 
     public Object value;
+
+    public int minLength;
+
+    public int maxLength;
+
+    public String pattern;
+
+    public String format;
+
+    /**
+     * Set Min Length
+     *
+     * @param minLength the min length
+     */
+    public void setMinLength(int minLength) {
+        this.minLength = minLength;
+    }
+
+    /**
+     * Set Max Length
+     *
+     * @param maxLength the max length
+     */
+    public void setMaxLength(int maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    /**
+     * Set Pattern
+     *
+     * @param pattern the pattern
+     */
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
+    /**
+     * Set Format
+     *
+     * @param format the format
+     */
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    /**
+     * Get Min Length
+     *
+     * @return the min length
+     */
+    public int getMinLength() {
+        return this.minLength;
+    }
+
+    /**
+     * Get Max Length
+     *
+     * @return the max length
+     */
+    public int getMaxLength() {
+        return this.maxLength;
+    }
+
+    /**
+     * Get Pattern
+     *
+     * @return the pattern
+     */
+    public String getPattern() {
+        return this.pattern;
+    }
+
+    /**
+     * Get Format
+     *
+     * @return the format
+     */
+    public String getFormat() {
+        return this.format;
+    }
 
     /** {@inheritDoc} */
     public void setValue(Object value) {
@@ -27,32 +107,11 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
 
     /** {@inheritDoc} */
     public String getValue() {
-        try {
-            return ((this.value == null) || !(this.value instanceof String))
-                    ? ""
-                    : (String) this.value;
-        } catch (Exception e) {
-            return "";
-        }
+        return Validate.isString(this.value) ? (String) this.value : "";
     }
 
     /** {@inheritDoc} */
-    public Boolean isValid() {
-        try {
-            return ((this.value == null) || !(this.value instanceof String)) ? false : true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /** {@inheritDoc} */
-    public Boolean isEmpty() {
-        try {
-            return ((this.value == null) || !(this.value instanceof String))
-                    ? true
-                    : Strings.isNullOrEmpty((String) this.value);
-        } catch (Exception e) {
-            return true;
-        }
+    public Boolean isValidType() {
+        return Validate.isString(this.value);
     }
 }
