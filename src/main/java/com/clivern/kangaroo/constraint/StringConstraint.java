@@ -20,12 +20,12 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
 
     public Object value;
 
-    @Override
+    /** {@inheritDoc} */
     public void setValue(Object value) {
         this.value = value;
     }
 
-    @Override
+    /** {@inheritDoc} */
     public String getValue() {
         try {
             return ((this.value == null) || !(this.value instanceof String))
@@ -36,7 +36,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
         }
     }
 
-    @Override
+    /** {@inheritDoc} */
     public Boolean isValid() {
         try {
             return ((this.value == null) || !(this.value instanceof String)) ? false : true;
@@ -45,7 +45,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
         }
     }
 
-    @Override
+    /** {@inheritDoc} */
     public Boolean isEmpty() {
         try {
             return ((this.value == null) || !(this.value instanceof String))

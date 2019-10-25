@@ -11,6 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.clivern.kangaroo.constraint;
 
 /** IntegerConstraint Class */
@@ -18,12 +19,12 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
     public Object value;
 
-    @Override
+    /** {@inheritDoc} */
     public void setValue(Object value) {
         this.value = value;
     }
 
-    @Override
+    /** {@inheritDoc} */
     public Integer getValue() {
         try {
             return ((this.value == null) || !(this.value instanceof Integer))
@@ -34,7 +35,7 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
         }
     }
 
-    @Override
+    /** {@inheritDoc} */
     public Boolean isValid() {
         try {
             return ((this.value == null) || !(this.value instanceof Integer)) ? false : true;
@@ -43,7 +44,7 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
         }
     }
 
-    @Override
+    /** {@inheritDoc} */
     public Boolean isEmpty() {
         try {
             return ((this.value == null) || !(this.value instanceof Integer))
