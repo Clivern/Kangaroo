@@ -10,6 +10,8 @@
 	</p>
 </p>
 
+Kangaroo is a Java implementation for the [JSON Schema standard](https://json-schema.org/) (`draft-03`, `draft-04`, `draft-06` and `draft-07`), that will help you validate all sorts of JSON documents, whether they are configuration files or a set of data sent to a RESTful API endpoint.
+
 
 ## Documentation
 
