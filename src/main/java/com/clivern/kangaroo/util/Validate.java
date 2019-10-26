@@ -53,22 +53,24 @@ public class Validate {
      * @return whether input is empty or nor
      */
     public static Boolean isEmpty(String value) {
+        value = value.trim();
         return Strings.isNullOrEmpty(value);
     }
 
     /**
-     * Validate String Length
+     * Validate String Length equals a specific value
      *
      * @param value input value
      * @param length string length
      * @return whether input is valid or not
      */
     public static Boolean lengthEq(String value, int length) {
-        return false;
+        value = value.trim();
+        return value.length() == length;
     }
 
     /**
-     * Validate String Length
+     * Validate String Length is between two values
      *
      * @param value input value
      * @param minLength minimum string length
@@ -76,7 +78,32 @@ public class Validate {
      * @return whether input is valid or not
      */
     public static Boolean lengthBetween(String value, int minLength, int maxLength) {
-        return false;
+        value = value.trim();
+        return (value.length() >= minLength) && (value.length() <= maxLength);
+    }
+
+    /**
+     * Validate String Length less than a specific value
+     *
+     * @param value input value
+     * @param maxLength maximum string length
+     * @return whether input is valid or not
+     */
+    public static Boolean lengthLessThanEq(String value, int maxLength) {
+        value = value.trim();
+        return (value.length() <= maxLength);
+    }
+
+    /**
+     * Validate String Length more than a specific value
+     *
+     * @param value input value
+     * @param minLength minimum string length
+     * @return whether input is valid or not
+     */
+    public static Boolean lengthMoreThanEq(String value, int minLength) {
+        value = value.trim();
+        return (value.length() >= minLength);
     }
 
     /**
