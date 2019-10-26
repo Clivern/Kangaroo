@@ -14,11 +14,14 @@
 package com.clivern.kangaroo.constraint;
 
 import com.clivern.kangaroo.util.Validate;
+import java.util.ArrayList;
 
 /** IntegerConstraint Class */
 public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
     public Object value;
+
+    private ArrayList<String> errors = new ArrayList<String>();
 
     /** {@inheritDoc} */
     public void setValue(Object value) {
@@ -33,5 +36,20 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
     /** {@inheritDoc} */
     public Boolean isValidType() {
         return Validate.isInteger(this.value);
+    }
+
+    /** {@inheritDoc} */
+    public Boolean validate() {
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    public ArrayList<String> getErrors() {
+        return this.errors;
+    }
+
+    /** {@inheritDoc} */
+    public Boolean hasErrors() {
+        return this.errors.size() > 0;
     }
 }

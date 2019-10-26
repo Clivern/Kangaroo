@@ -45,5 +45,6 @@ public class StringConstraintTest {
         stringConstraint.setValue(list);
         assertEquals(stringConstraint.getValue(), "");
         assertEquals(stringConstraint.isValidType(), false);
+        assertEquals(stringConstraint.getMaxLength(), null);
     }
 }

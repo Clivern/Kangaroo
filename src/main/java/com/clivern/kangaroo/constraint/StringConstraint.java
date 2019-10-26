@@ -14,26 +14,29 @@
 package com.clivern.kangaroo.constraint;
 
 import com.clivern.kangaroo.util.Validate;
+import java.util.ArrayList;
 
 /** StringConstraint Class */
 public class StringConstraint implements ConstraintInterface<Object, String> {
 
     public Object value;
 
-    public int minLength;
+    public Integer minLength;
 
-    public int maxLength;
+    public Integer maxLength;
 
     public String pattern;
 
     public String format;
+
+    private ArrayList<String> errors = new ArrayList<String>();
 
     /**
      * Set Min Length
      *
      * @param minLength the min length
      */
-    public void setMinLength(int minLength) {
+    public void setMinLength(Integer minLength) {
         this.minLength = minLength;
     }
 
@@ -42,7 +45,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      *
      * @param maxLength the max length
      */
-    public void setMaxLength(int maxLength) {
+    public void setMaxLength(Integer maxLength) {
         this.maxLength = maxLength;
     }
 
@@ -69,7 +72,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      *
      * @return the min length
      */
-    public int getMinLength() {
+    public Integer getMinLength() {
         return this.minLength;
     }
 
@@ -78,7 +81,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      *
      * @return the max length
      */
-    public int getMaxLength() {
+    public Integer getMaxLength() {
         return this.maxLength;
     }
 
@@ -113,5 +116,20 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
     /** {@inheritDoc} */
     public Boolean isValidType() {
         return Validate.isString(this.value);
+    }
+
+    /** {@inheritDoc} */
+    public Boolean validate() {
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    public ArrayList<String> getErrors() {
+        return this.errors;
+    }
+
+    /** {@inheritDoc} */
+    public Boolean hasErrors() {
+        return this.errors.size() > 0;
     }
 }
