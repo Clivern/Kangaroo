@@ -21,8 +21,8 @@ public class Validate {
     /**
      * Validate if a value is string
      *
-     * @param value input value
-     * @return whether input is string or not
+     * @param value field value
+     * @return whether field is string or not
      */
     public static Boolean isString(Object value) {
         try {
@@ -35,8 +35,8 @@ public class Validate {
     /**
      * Validate if a value is integer
      *
-     * @param value input value
-     * @return whether input is integer or not
+     * @param value field value
+     * @return whether field is integer or not
      */
     public static Boolean isInteger(Object value) {
         try {
@@ -49,8 +49,8 @@ public class Validate {
     /**
      * Validate if a value is boolean
      *
-     * @param value input value
-     * @return whether input is boolean or not
+     * @param value field value
+     * @return whether field is boolean or not
      */
     public static Boolean isBoolean(Object value) {
         try {
@@ -63,8 +63,8 @@ public class Validate {
     /**
      * Validate if a string is empty or not
      *
-     * @param value input value
-     * @return whether input is empty or nor
+     * @param value field value
+     * @return whether field is empty or nor
      */
     public static Boolean isEmpty(String value) {
         value = value.trim();
@@ -74,9 +74,9 @@ public class Validate {
     /**
      * Validate String Length equals a specific value
      *
-     * @param value input value
+     * @param value field value
      * @param length string length
-     * @return whether input is valid or not
+     * @return whether field is valid or not
      */
     public static Boolean lengthEq(String value, int length) {
         value = value.trim();
@@ -86,10 +86,10 @@ public class Validate {
     /**
      * Validate String Length is between two values
      *
-     * @param value input value
+     * @param value field value
      * @param minLength minimum string length
      * @param maxLength maximum string length
-     * @return whether input is valid or not
+     * @return whether field is valid or not
      */
     public static Boolean lengthBetween(String value, int minLength, int maxLength) {
         value = value.trim();
@@ -99,9 +99,9 @@ public class Validate {
     /**
      * Validate String Length less than a specific value
      *
-     * @param value input value
+     * @param value field value
      * @param maxLength maximum string length
-     * @return whether input is valid or not
+     * @return whether field is valid or not
      */
     public static Boolean lengthLessThanEq(String value, int maxLength) {
         value = value.trim();
@@ -111,9 +111,9 @@ public class Validate {
     /**
      * Validate String Length more than a specific value
      *
-     * @param value input value
+     * @param value field value
      * @param minLength minimum string length
-     * @return whether input is valid or not
+     * @return whether field is valid or not
      */
     public static Boolean lengthMoreThanEq(String value, int minLength) {
         value = value.trim();
@@ -123,9 +123,9 @@ public class Validate {
     /**
      * Validate Against a Regex
      *
-     * @param value input value
+     * @param value field value
      * @param regex the regex to validate against
-     * @return whether input is valid or not
+     * @return whether field is valid or not
      */
     public static Boolean regex(String value, String regex) {
         return false;
@@ -134,8 +134,8 @@ public class Validate {
     /**
      * Validate Datetime
      *
-     * @param value input value
-     * @return whether input is valid or not
+     * @param value field value
+     * @return whether field is valid or not
      */
     public static Boolean datetime(String value) {
         return false;
@@ -144,8 +144,8 @@ public class Validate {
     /**
      * Validate Date
      *
-     * @param value input value
-     * @return whether input is valid or not
+     * @param value field value
+     * @return whether field is valid or not
      */
     public static Boolean date(String value) {
         return false;
@@ -154,8 +154,8 @@ public class Validate {
     /**
      * Validate Time
      *
-     * @param value input value
-     * @return whether input is valid or not
+     * @param value field value
+     * @return whether field is valid or not
      */
     public static Boolean time(String value) {
         return false;
@@ -164,8 +164,8 @@ public class Validate {
     /**
      * Validate Email
      *
-     * @param value input value
-     * @return whether input is valid or not
+     * @param value field value
+     * @return whether field is valid or not
      */
     public static Boolean email(String value) {
         return false;
@@ -174,8 +174,8 @@ public class Validate {
     /**
      * Validate ipv4
      *
-     * @param value input value
-     * @return whether input is valid or not
+     * @param value field value
+     * @return whether field is valid or not
      */
     public static Boolean ipv4(String value) {
         return false;
@@ -184,8 +184,8 @@ public class Validate {
     /**
      * Validate ipv6
      *
-     * @param value input value
-     * @return whether input is valid or not
+     * @param value field value
+     * @return whether field is valid or not
      */
     public static Boolean ipv6(String value) {
         return false;
