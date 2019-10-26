@@ -8,6 +8,7 @@
 - With pull requests:
 - Open your pull request against `master` or `develop` if exists.
 - Run `make ci` locally to make sure unit and quality testing passed.
+- Run `make format` locally to format the new code changes.
 - Your pull request should have no more than two commits, if not you should squash them.
 - It should pass all tests in the available continuous integrations systems such as TravisCI.
 - You should add/modify tests to cover your proposed code changes.
