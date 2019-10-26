@@ -57,12 +57,14 @@ public class BooleanConstraint implements ConstraintInterface<Object, Boolean> {
 
     /** {@inheritDoc} */
     public Boolean validate() {
-        if (this.isValidType()) {
-            return true;
+        Boolean status = true;
+
+        if (!this.isValidType()) {
+            status &= false;
+            this.errors.add(String.format("Error! Input %s must be boolean.", this.inputName));
         }
 
-        this.errors.add(String.format("Error! Input %s must be boolean.", this.inputName));
-        return false;
+        return status;
     }
 
     /** {@inheritDoc} */
