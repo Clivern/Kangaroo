@@ -24,15 +24,15 @@ import java.util.ArrayList;
  */
 public class BooleanConstraint implements ConstraintInterface<Object, Boolean> {
 
-    private String inputName;
+    private String fieldName;
 
     private Object value;
 
     private ArrayList<String> errors = new ArrayList<String>();
 
     /** {@inheritDoc} */
-    public void setInputName(String inputName) {
-        this.inputName = inputName;
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
 
     /** {@inheritDoc} */
@@ -46,8 +46,8 @@ public class BooleanConstraint implements ConstraintInterface<Object, Boolean> {
     }
 
     /** {@inheritDoc} */
-    public String getInputName() {
-        return this.inputName;
+    public String getFieldName() {
+        return this.fieldName;
     }
 
     /** {@inheritDoc} */
@@ -61,7 +61,7 @@ public class BooleanConstraint implements ConstraintInterface<Object, Boolean> {
 
         if (!this.isValidType()) {
             status &= false;
-            this.errors.add(String.format("Error! Input %s must be boolean.", this.inputName));
+            this.errors.add(String.format("Error! Field %s must be boolean.", this.fieldName));
         }
 
         return status;

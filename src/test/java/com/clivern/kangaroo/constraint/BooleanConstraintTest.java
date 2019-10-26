@@ -25,8 +25,8 @@ public class BooleanConstraintTest {
     @Test
     public void testBooleanValidation() {
         BooleanConstraint booleanConstraint1 = new BooleanConstraint();
-        booleanConstraint1.setInputName("inputName");
-        assertEquals(booleanConstraint1.getInputName(), "inputName");
+        booleanConstraint1.setFieldName("fieldName");
+        assertEquals(booleanConstraint1.getFieldName(), "fieldName");
         booleanConstraint1.setValue(true);
         assertEquals(booleanConstraint1.getValue(), true);
         assertEquals(booleanConstraint1.validate(), true);
@@ -34,8 +34,8 @@ public class BooleanConstraintTest {
         assertEquals(booleanConstraint1.getErrors(), new ArrayList<String>());
 
         BooleanConstraint booleanConstraint2 = new BooleanConstraint();
-        booleanConstraint2.setInputName("inputName");
-        assertEquals(booleanConstraint2.getInputName(), "inputName");
+        booleanConstraint2.setFieldName("fieldName");
+        assertEquals(booleanConstraint2.getFieldName(), "fieldName");
         booleanConstraint2.setValue(false);
         assertEquals(booleanConstraint2.getValue(), false);
         assertEquals(booleanConstraint2.validate(), true);
@@ -43,12 +43,12 @@ public class BooleanConstraintTest {
         assertEquals(booleanConstraint2.getErrors(), new ArrayList<String>());
 
         BooleanConstraint booleanConstraint3 = new BooleanConstraint();
-        booleanConstraint3.setInputName("inputName");
-        assertEquals(booleanConstraint3.getInputName(), "inputName");
+        booleanConstraint3.setFieldName("fieldName");
+        assertEquals(booleanConstraint3.getFieldName(), "fieldName");
         ArrayList<String> errors = new ArrayList<String>();
         errors.add(
                 String.format(
-                        "Error! Input %s must be boolean.", booleanConstraint3.getInputName()));
+                        "Error! Field %s must be boolean.", booleanConstraint3.getFieldName()));
 
         booleanConstraint3.setValue("true");
         assertEquals(booleanConstraint3.getValue(), false);
@@ -57,8 +57,8 @@ public class BooleanConstraintTest {
         assertEquals(booleanConstraint3.getErrors(), errors);
 
         BooleanConstraint booleanConstraint4 = new BooleanConstraint();
-        booleanConstraint4.setInputName("inputName");
-        assertEquals(booleanConstraint4.getInputName(), "inputName");
+        booleanConstraint4.setFieldName("fieldName");
+        assertEquals(booleanConstraint4.getFieldName(), "fieldName");
         booleanConstraint4.setValue("false");
         assertEquals(booleanConstraint4.getValue(), false);
         assertEquals(booleanConstraint4.validate(), false);

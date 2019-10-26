@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /** StringConstraint Class */
 public class StringConstraint implements ConstraintInterface<Object, String> {
 
-    private String inputName;
+    private String fieldName;
 
     private Object value;
 
@@ -34,8 +34,8 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
     private ArrayList<String> errors = new ArrayList<String>();
 
     /** {@inheritDoc} */
-    public void setInputName(String inputName) {
-        this.inputName = inputName;
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
 
     /**
@@ -121,8 +121,8 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
     }
 
     /** {@inheritDoc} */
-    public String getInputName() {
-        return this.inputName;
+    public String getFieldName() {
+        return this.fieldName;
     }
 
     /** {@inheritDoc} */

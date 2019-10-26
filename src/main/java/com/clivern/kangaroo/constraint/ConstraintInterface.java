@@ -28,9 +28,9 @@ public interface ConstraintInterface<T, V> {
     /**
      * Set Input Name
      *
-     * @param inputName the input name
+     * @param fieldName the input name
      */
-    public void setInputName(String inputName);
+    public void setFieldName(String fieldName);
 
     /**
      * Get Value
@@ -44,7 +44,7 @@ public interface ConstraintInterface<T, V> {
      *
      * @return the input name
      */
-    public String getInputName();
+    public String getFieldName();
 
     /**
      * Is Valid

@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class NumberConstraint implements ConstraintInterface<Object, Integer> {
 
-    private String inputName;
+    private String fieldName;
 
     private Object value;
 
@@ -36,8 +36,8 @@ public class NumberConstraint implements ConstraintInterface<Object, Integer> {
     }
 
     /** {@inheritDoc} */
-    public void setInputName(String inputName) {
-        this.inputName = inputName;
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
 
     /** {@inheritDoc} */
@@ -46,8 +46,8 @@ public class NumberConstraint implements ConstraintInterface<Object, Integer> {
     }
 
     /** {@inheritDoc} */
-    public String getInputName() {
-        return this.inputName;
+    public String getFieldName() {
+        return this.fieldName;
     }
 
     /** {@inheritDoc} */
