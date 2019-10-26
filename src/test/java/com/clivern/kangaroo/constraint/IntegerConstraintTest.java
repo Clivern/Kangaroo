@@ -28,26 +28,22 @@ public class IntegerConstraintTest {
 
         intConstraint.setValue(1);
         assertEquals(intConstraint.getValue(), new Integer("1"));
-        assertEquals(intConstraint.isEmpty(), false);
-        assertEquals(intConstraint.isValid(), true);
+        assertEquals(intConstraint.isValidType(), true);
 
         intConstraint.setValue("");
         assertEquals(intConstraint.getValue(), new Integer("0"));
-        assertEquals(intConstraint.isEmpty(), true);
-        assertEquals(intConstraint.isValid(), false);
+        assertEquals(intConstraint.isValidType(), false);
 
         intConstraint.setValue(null);
         assertEquals(intConstraint.getValue(), new Integer("0"));
-        assertEquals(intConstraint.isEmpty(), true);
-        assertEquals(intConstraint.isValid(), false);
+        assertEquals(intConstraint.isValidType(), false);
 
         ArrayList<String> list = new ArrayList<String>();
         list.add("A");
         list.add("B");
         list.add("C");
         intConstraint.setValue(list);
-        assertEquals(intConstraint.isEmpty(), true);
         assertEquals(intConstraint.getValue(), new Integer("0"));
-        assertEquals(intConstraint.isValid(), false);
+        assertEquals(intConstraint.isValidType(), false);
     }
 }

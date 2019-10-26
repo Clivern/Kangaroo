@@ -13,8 +13,10 @@
  */
 package com.clivern.kangaroo.constraint;
 
+import java.util.ArrayList;
+
 /** Constraint Interface */
-public interface ConstraintInterface<T, S> {
+public interface ConstraintInterface<T, V> {
 
     /**
      * Set Value
@@ -24,23 +26,51 @@ public interface ConstraintInterface<T, S> {
     public void setValue(T value);
 
     /**
+     * Set Input Name
+     *
+     * @param inputName the input name
+     */
+    public void setInputName(String inputName);
+
+    /**
      * Get Value
      *
      * @return the value
      */
-    public S getValue();
+    public V getValue();
+
+    /**
+     * Get Input Name
+     *
+     * @return the input name
+     */
+    public String getInputName();
 
     /**
      * Is Valid
      *
      * @return If value is valid
      */
-    public Boolean isValid();
+    public Boolean isValidType();
 
     /**
-     * Is Empty
+     * Validate input value
      *
-     * @return if value is empty
+     * @return whether input value is valid or not
      */
-    public Boolean isEmpty();
+    public Boolean validate();
+
+    /**
+     * Get Errors List
+     *
+     * @return the errors list
+     */
+    public ArrayList<String> getErrors();
+
+    /**
+     * If validation has errors
+     *
+     * @return whether there is errors
+     */
+    public Boolean hasErrors();
 }

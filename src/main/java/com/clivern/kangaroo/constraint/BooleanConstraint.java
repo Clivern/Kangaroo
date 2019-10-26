@@ -17,12 +17,12 @@ import com.clivern.kangaroo.util.Validate;
 import java.util.ArrayList;
 
 /**
- * IntegerConstraint Class
+ * BooleanConstraint Class
  *
- * @see <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html">Numeric
+ * @see <a href="https://json-schema.org/understanding-json-schema/reference/boolean.html">Boolean
  *     types</a>
  */
-public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
+public class BooleanConstraint implements ConstraintInterface<Object, Boolean> {
 
     private String inputName;
 
@@ -41,8 +41,8 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
     }
 
     /** {@inheritDoc} */
-    public Integer getValue() {
-        return Validate.isInteger(this.value) ? (Integer) this.value : 0;
+    public Boolean getValue() {
+        return Validate.isBoolean(this.value) ? (Boolean) this.value : false;
     }
 
     /** {@inheritDoc} */
@@ -52,11 +52,16 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
     /** {@inheritDoc} */
     public Boolean isValidType() {
-        return Validate.isInteger(this.value);
+        return Validate.isBoolean(this.value);
     }
 
     /** {@inheritDoc} */
     public Boolean validate() {
+        if (this.isValidType()) {
+            return true;
+        }
+
+        this.errors.add(String.format("Error! Input %s must be boolean.", this.inputName));
         return false;
     }
 

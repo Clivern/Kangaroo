@@ -13,5 +13,60 @@
  */
 package com.clivern.kangaroo.constraint;
 
-/** NumberConstraint Class */
-public class NumberConstraint {}
+import com.clivern.kangaroo.util.Validate;
+import java.util.ArrayList;
+
+/**
+ * NumberConstraint Class
+ *
+ * @see <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html">Numeric
+ *     types</a>
+ */
+public class NumberConstraint implements ConstraintInterface<Object, Integer> {
+
+    private String inputName;
+
+    private Object value;
+
+    private ArrayList<String> errors = new ArrayList<String>();
+
+    /** {@inheritDoc} */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    /** {@inheritDoc} */
+    public void setInputName(String inputName) {
+        this.inputName = inputName;
+    }
+
+    /** {@inheritDoc} */
+    public Integer getValue() {
+        return Validate.isInteger(this.value) ? (Integer) this.value : 0;
+    }
+
+    /** {@inheritDoc} */
+    public String getInputName() {
+        return this.inputName;
+    }
+
+    /** {@inheritDoc} */
+    public Boolean isValidType() {
+        return Validate.isInteger(this.value);
+    }
+
+    /** {@inheritDoc} */
+    public Boolean validate() {
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    public ArrayList<String> getErrors() {
+        return this.errors;
+    }
+
+    /** {@inheritDoc} */
+    public Boolean hasErrors() {
+        return this.errors.size() > 0;
+    }
+}

@@ -13,12 +13,102 @@
  */
 package com.clivern.kangaroo.constraint;
 
-import com.google.common.base.Strings;
+import com.clivern.kangaroo.util.Validate;
+import java.util.ArrayList;
 
 /** StringConstraint Class */
 public class StringConstraint implements ConstraintInterface<Object, String> {
 
-    public Object value;
+    private String inputName;
+
+    private Object value;
+
+    private Integer minLength;
+
+    private Integer maxLength;
+
+    private String pattern;
+
+    private String format;
+
+    private ArrayList<String> errors = new ArrayList<String>();
+
+    /** {@inheritDoc} */
+    public void setInputName(String inputName) {
+        this.inputName = inputName;
+    }
+
+    /**
+     * Set Min Length
+     *
+     * @param minLength the min length
+     */
+    public void setMinLength(Integer minLength) {
+        this.minLength = minLength;
+    }
+
+    /**
+     * Set Max Length
+     *
+     * @param maxLength the max length
+     */
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    /**
+     * Set Pattern
+     *
+     * @param pattern the pattern
+     */
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
+    /**
+     * Set Format
+     *
+     * @param format the format
+     */
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    /**
+     * Get Min Length
+     *
+     * @return the min length
+     */
+    public Integer getMinLength() {
+        return this.minLength;
+    }
+
+    /**
+     * Get Max Length
+     *
+     * @return the max length
+     */
+    public Integer getMaxLength() {
+        return this.maxLength;
+    }
+
+    /**
+     * Get Pattern
+     *
+     * @return the pattern
+     */
+    public String getPattern() {
+        return this.pattern;
+    }
+
+    /**
+     * Get Format
+     *
+     * @return the format
+     */
+    public String getFormat() {
+        return this.format;
+    }
 
     /** {@inheritDoc} */
     public void setValue(Object value) {
@@ -27,32 +117,31 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
 
     /** {@inheritDoc} */
     public String getValue() {
-        try {
-            return ((this.value == null) || !(this.value instanceof String))
-                    ? ""
-                    : (String) this.value;
-        } catch (Exception e) {
-            return "";
-        }
+        return Validate.isString(this.value) ? (String) this.value : "";
     }
 
     /** {@inheritDoc} */
-    public Boolean isValid() {
-        try {
-            return ((this.value == null) || !(this.value instanceof String)) ? false : true;
-        } catch (Exception e) {
-            return false;
-        }
+    public String getInputName() {
+        return this.inputName;
     }
 
     /** {@inheritDoc} */
-    public Boolean isEmpty() {
-        try {
-            return ((this.value == null) || !(this.value instanceof String))
-                    ? true
-                    : Strings.isNullOrEmpty((String) this.value);
-        } catch (Exception e) {
-            return true;
-        }
+    public Boolean isValidType() {
+        return Validate.isString(this.value);
+    }
+
+    /** {@inheritDoc} */
+    public Boolean validate() {
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    public ArrayList<String> getErrors() {
+        return this.errors;
+    }
+
+    /** {@inheritDoc} */
+    public Boolean hasErrors() {
+        return this.errors.size() > 0;
     }
 }
