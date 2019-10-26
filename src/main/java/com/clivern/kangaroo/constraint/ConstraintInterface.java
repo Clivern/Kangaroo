@@ -26,11 +26,25 @@ public interface ConstraintInterface<T, V> {
     public void setValue(T value);
 
     /**
+     * Set Input Name
+     *
+     * @param inputName the input name
+     */
+    public void setInputName(String inputName);
+
+    /**
      * Get Value
      *
      * @return the value
      */
     public V getValue();
+
+    /**
+     * Get Input Name
+     *
+     * @return the input name
+     */
+    public String getInputName();
 
     /**
      * Is Valid

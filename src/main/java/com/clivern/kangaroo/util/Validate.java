@@ -47,6 +47,20 @@ public class Validate {
     }
 
     /**
+     * Validate if a value is boolean
+     *
+     * @param value input value
+     * @return whether input is boolean or not
+     */
+    public static Boolean isBoolean(Object value) {
+        try {
+            return ((value == null) || !(value instanceof Boolean)) ? false : true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
      * Validate if a string is empty or not
      *
      * @param value input value

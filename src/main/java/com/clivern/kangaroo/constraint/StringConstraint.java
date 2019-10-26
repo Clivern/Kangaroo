@@ -19,17 +19,24 @@ import java.util.ArrayList;
 /** StringConstraint Class */
 public class StringConstraint implements ConstraintInterface<Object, String> {
 
-    public Object value;
+    private String inputName;
 
-    public Integer minLength;
+    private Object value;
 
-    public Integer maxLength;
+    private Integer minLength;
 
-    public String pattern;
+    private Integer maxLength;
 
-    public String format;
+    private String pattern;
+
+    private String format;
 
     private ArrayList<String> errors = new ArrayList<String>();
+
+    /** {@inheritDoc} */
+    public void setInputName(String inputName) {
+        this.inputName = inputName;
+    }
 
     /**
      * Set Min Length
@@ -111,6 +118,11 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
     /** {@inheritDoc} */
     public String getValue() {
         return Validate.isString(this.value) ? (String) this.value : "";
+    }
+
+    /** {@inheritDoc} */
+    public String getInputName() {
+        return this.inputName;
     }
 
     /** {@inheritDoc} */
