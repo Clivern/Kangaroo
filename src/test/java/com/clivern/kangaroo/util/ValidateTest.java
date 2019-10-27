@@ -36,7 +36,9 @@ public class ValidateTest {
         assertEquals(Validate.isInteger("1"), false);
         assertEquals(Validate.isInteger(null), false);
         assertEquals(Validate.isInteger(1.2), false);
+        assertEquals(Validate.isInteger(-1.2), false);
         assertEquals(Validate.isInteger(new Float(1.2)), false);
+        assertEquals(Validate.isInteger(new Float(-1.2)), false);
     }
 
     @Test
@@ -45,6 +47,7 @@ public class ValidateTest {
         assertEquals(Validate.isNumber(1), true);
         assertEquals(Validate.isNumber(-1), true);
         assertEquals(Validate.isNumber(new Float(1.2)), true);
+        assertEquals(Validate.isNumber(new Float(-1.2)), true);
         assertEquals(Validate.isNumber("1"), false);
         assertEquals(Validate.isNumber(null), false);
     }
