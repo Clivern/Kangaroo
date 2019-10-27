@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** NodeDraft7Test Class */
+/** Node Draft7 Test Cases */
 public class NodeDraft7Test {
 
     @Test

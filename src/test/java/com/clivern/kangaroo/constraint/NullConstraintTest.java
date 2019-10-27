@@ -19,7 +19,7 @@ import com.clivern.kangaroo.constraint.NullConstraint;
 import java.util.ArrayList;
 import org.junit.Test;
 
-/** NullConstraintTest Class */
+/** Null Constraint Test Cases */
 public class NullConstraintTest {
 
     @Test

@@ -13,5 +13,5 @@
  */
 package com.clivern.kangaroo.constraint;
 
-/** ObjectConstraint Class */
+/** Object Constraint Class */
 public class ObjectConstraint {}

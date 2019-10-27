@@ -19,7 +19,7 @@ import com.clivern.kangaroo.constraint.StringConstraint;
 import java.util.ArrayList;
 import org.junit.Test;
 
-/** StringConstraintTest Class */
+/** String Constraint Test Cases */
 public class StringConstraintTest {
 
     @Test

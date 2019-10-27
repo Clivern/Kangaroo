@@ -13,5 +13,5 @@
  */
 package com.clivern.kangaroo;
 
-/** SchemaInterface */
+/** Schema Interface */
 public interface SchemaInterface {}

@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** SchemaDraft4Test Class */
+/** Schema Draft4 Test Cases */
 public class SchemaDraft4Test {
 
     @Test

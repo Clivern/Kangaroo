@@ -19,7 +19,7 @@ import com.clivern.kangaroo.constraint.IntegerConstraint;
 import java.util.ArrayList;
 import org.junit.Test;
 
-/** IntegerConstraintTest Class */
+/** Integer Constraint Test Cases */
 public class IntegerConstraintTest {
 
     @Test

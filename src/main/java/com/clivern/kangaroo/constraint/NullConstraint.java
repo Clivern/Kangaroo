@@ -17,7 +17,7 @@ import com.clivern.kangaroo.util.Validate;
 import java.util.ArrayList;
 
 /**
- * NullConstraint Class
+ * Null Constraint Class
  *
  * @see <a href="https://json-schema.org/understanding-json-schema/reference/null.html">Null
  *     types</a>

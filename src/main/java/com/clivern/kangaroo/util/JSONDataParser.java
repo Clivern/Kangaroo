@@ -16,7 +16,7 @@ package com.clivern.kangaroo.util;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-/** JSONDataParser Class */
+/** JSON Data Parser Class */
 public class JSONDataParser {
 
     private JSONParser jsonParser;

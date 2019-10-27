@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** SchemaFactoryTest Class */
+/** Schema Factory Test Cases */
 public class SchemaFactoryTest {
 
     @Test

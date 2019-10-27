@@ -13,7 +13,7 @@
  */
 package com.clivern.kangaroo.exception;
 
-/** ValidationError Class */
+/** Validation Error Class */
 public class ValidationError extends Exception {
 
     /**

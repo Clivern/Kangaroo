@@ -15,7 +15,7 @@ package com.clivern.kangaroo.util;
 
 import java.nio.file.*;
 
-/** FileReader Class */
+/** File Reader Class */
 public class FileReader {
 
     /**

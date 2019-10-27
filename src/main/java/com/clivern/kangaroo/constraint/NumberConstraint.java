@@ -17,7 +17,7 @@ import com.clivern.kangaroo.util.Validate;
 import java.util.ArrayList;
 
 /**
- * NumberConstraint Class
+ * Number Constraint Class
  *
  * @see <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html">Numeric
  *     types</a>

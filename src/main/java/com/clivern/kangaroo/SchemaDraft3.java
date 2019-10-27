@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * SchemaDraft3 Class
+ * Schema Draft3 Class
  *
  * @see <a
  *     href="https://json-schema.org/understanding-json-schema/reference/object.html">Understanding
