@@ -83,5 +83,14 @@ public class IntegerConstraintTest {
         assertEquals(integerConstraint6.validate(), true);
         assertEquals(integerConstraint6.hasErrors(), false);
         assertEquals(integerConstraint6.getErrors(), new ArrayList<String>());
+
+        IntegerConstraint integerConstraint7 = new IntegerConstraint();
+        integerConstraint7.setFieldName("fieldName");
+        assertEquals(integerConstraint7.getFieldName(), "fieldName");
+        integerConstraint7.setValue("10");
+        assertEquals(integerConstraint7.getValue(), new Integer("0"));
+        assertEquals(integerConstraint7.validate(), false);
+        assertEquals(integerConstraint7.hasErrors(), true);
+        assertEquals(integerConstraint7.getErrors(), errors);
     }
 }
