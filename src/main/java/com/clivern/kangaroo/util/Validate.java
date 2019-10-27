@@ -47,6 +47,22 @@ public class Validate {
     }
 
     /**
+     * Validate if a value is number
+     *
+     * @param value field value
+     * @return whether field is number or not
+     */
+    public static Boolean isNumber(Object value) {
+        try {
+            return ((value == null) || (!(value instanceof Integer) && !(value instanceof Float)))
+                    ? false
+                    : true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
      * Validate if a value is boolean
      *
      * @param value field value

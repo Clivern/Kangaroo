@@ -30,9 +30,23 @@ public class ValidateTest {
 
     @Test
     public void testIsInteger() {
+        assertEquals(Validate.isInteger(0), true);
         assertEquals(Validate.isInteger(1), true);
+        assertEquals(Validate.isInteger(-1), true);
         assertEquals(Validate.isInteger("1"), false);
         assertEquals(Validate.isInteger(null), false);
+        assertEquals(Validate.isInteger(1.2), false);
+        assertEquals(Validate.isInteger(new Float(1.2)), false);
+    }
+
+    @Test
+    public void testIsNumber() {
+        assertEquals(Validate.isNumber(0), true);
+        assertEquals(Validate.isNumber(1), true);
+        assertEquals(Validate.isNumber(-1), true);
+        assertEquals(Validate.isNumber(new Float(1.2)), true);
+        assertEquals(Validate.isNumber("1"), false);
+        assertEquals(Validate.isNumber(null), false);
     }
 
     @Test
