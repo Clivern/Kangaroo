@@ -57,7 +57,14 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
     /** {@inheritDoc} */
     public Boolean validate() {
-        return false;
+        Boolean status = true;
+
+        if (!this.isValidType()) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be an integer.", this.fieldName));
+        }
+
+        return status;
     }
 
     /** {@inheritDoc} */
