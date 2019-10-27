@@ -61,6 +61,20 @@ public class Validate {
     }
 
     /**
+     * Validate if a value is null
+     *
+     * @param value field value
+     * @return whether field is null or not
+     */
+    public static Boolean isNull(Object value) {
+        try {
+            return (value == null) ? true : false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
      * Validate if a string is empty or not
      *
      * @param value field value
