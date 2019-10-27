@@ -23,7 +23,7 @@ import org.junit.Test;
 public class IntegerConstraintTest {
 
     @Test
-    public void testStringValidation() {
+    public void testIntegerValidation() {
         IntegerConstraint integerConstraint1 = new IntegerConstraint();
         integerConstraint1.setFieldName("fieldName");
         assertEquals(integerConstraint1.getFieldName(), "fieldName");
