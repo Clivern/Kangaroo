@@ -15,7 +15,7 @@ package com.clivern.kangaroo;
 
 import com.google.gson.Gson;
 
-/** SchemaFactory Class */
+/** Schema Factory Class */
 public class SchemaFactory {
 
     private Gson gson;

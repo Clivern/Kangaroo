@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/** NodeDraft3 Class */
+/** Node Draft3 Class */
 public class NodeDraft3 {
 
     @SerializedName("description")

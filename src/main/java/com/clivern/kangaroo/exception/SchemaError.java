@@ -13,7 +13,7 @@
  */
 package com.clivern.kangaroo.exception;
 
-/** SchemaError Class */
+/** Schema Error Class */
 public class SchemaError extends Exception {
 
     /**

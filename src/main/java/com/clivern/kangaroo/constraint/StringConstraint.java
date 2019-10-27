@@ -16,7 +16,7 @@ package com.clivern.kangaroo.constraint;
 import com.clivern.kangaroo.util.Validate;
 import java.util.ArrayList;
 
-/** StringConstraint Class */
+/** String Constraint Class */
 public class StringConstraint implements ConstraintInterface<Object, String> {
 
     private String fieldName;

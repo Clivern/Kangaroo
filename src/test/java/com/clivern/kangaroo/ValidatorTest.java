@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** ValidatorTest Class */
+/** Validator Test Cases */
 public class ValidatorTest {
 
     @Test

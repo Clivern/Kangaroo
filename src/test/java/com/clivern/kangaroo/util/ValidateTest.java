@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** ValidateTest Class */
+/** Validate Test Cases */
 public class ValidateTest {
 
     @Test
@@ -33,6 +33,14 @@ public class ValidateTest {
         assertEquals(Validate.isInteger(1), true);
         assertEquals(Validate.isInteger("1"), false);
         assertEquals(Validate.isInteger(null), false);
+    }
+
+    @Test
+    public void testIsNull() {
+        assertEquals(Validate.isNull(null), true);
+        assertEquals(Validate.isNull("1"), false);
+        assertEquals(Validate.isNull(false), false);
+        assertEquals(Validate.isNull(true), false);
     }
 
     @Test

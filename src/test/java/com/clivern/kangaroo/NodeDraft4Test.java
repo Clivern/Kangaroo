@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** NodeDraft4Test Class */
+/** Node Draft4 Test Cases */
 public class NodeDraft4Test {
 
     @Test

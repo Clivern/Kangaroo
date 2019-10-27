@@ -19,7 +19,7 @@ import com.clivern.kangaroo.constraint.BooleanConstraint;
 import java.util.ArrayList;
 import org.junit.Test;
 
-/** BooleanConstraintTest Class */
+/** Boolean Constraint Test Cases */
 public class BooleanConstraintTest {
 
     @Test

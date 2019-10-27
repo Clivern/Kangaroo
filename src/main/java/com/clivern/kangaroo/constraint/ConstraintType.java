@@ -13,7 +13,7 @@
  */
 package com.clivern.kangaroo.constraint;
 
-/** ConstraintType Class */
+/** Constraint Type Class */
 public enum ConstraintType {
     OBJECT("OBJECT"),
     INTEGER("INTEGER"),

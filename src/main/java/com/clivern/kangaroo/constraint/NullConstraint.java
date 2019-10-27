@@ -17,12 +17,12 @@ import com.clivern.kangaroo.util.Validate;
 import java.util.ArrayList;
 
 /**
- * Integer Constraint Class
+ * Null Constraint Class
  *
- * @see <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html">Numeric
+ * @see <a href="https://json-schema.org/understanding-json-schema/reference/null.html">Null
  *     types</a>
  */
-public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
+public class NullConstraint implements ConstraintInterface<Object, Boolean> {
 
     private String fieldName;
 
@@ -41,8 +41,8 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
     }
 
     /** {@inheritDoc} */
-    public Integer getValue() {
-        return Validate.isInteger(this.value) ? (Integer) this.value : 0;
+    public Boolean getValue() {
+        return Validate.isNull(this.value) ? null : false;
     }
 
     /** {@inheritDoc} */
@@ -52,7 +52,7 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
     /** {@inheritDoc} */
     public Boolean isValidType() {
-        return Validate.isInteger(this.value);
+        return Validate.isNull(this.value);
     }
 
     /** {@inheritDoc} */
@@ -61,7 +61,7 @@ public class IntegerConstraint implements ConstraintInterface<Object, Integer> {
 
         if (!this.isValidType()) {
             status &= false;
-            this.errors.add(String.format("Error! Field %s must be an integer.", this.fieldName));
+            this.errors.add(String.format("Error! Field %s must be null.", this.fieldName));
         }
 
         return status;

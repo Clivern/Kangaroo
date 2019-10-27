@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/** DraftTest Class */
+/** Draft Test Cases */
 public class DraftTest {
 
     @Test

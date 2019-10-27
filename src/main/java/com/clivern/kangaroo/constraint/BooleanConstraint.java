@@ -17,7 +17,7 @@ import com.clivern.kangaroo.util.Validate;
 import java.util.ArrayList;
 
 /**
- * BooleanConstraint Class
+ * Boolean Constraint Class
  *
  * @see <a href="https://json-schema.org/understanding-json-schema/reference/boolean.html">Boolean
  *     types</a>

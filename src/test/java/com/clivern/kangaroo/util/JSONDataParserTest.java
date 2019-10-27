@@ -19,7 +19,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
-/** JSONDataParserTest Class */
+/** JSON Data Parser Test Cases */
 public class JSONDataParserTest {
 
     @Test
