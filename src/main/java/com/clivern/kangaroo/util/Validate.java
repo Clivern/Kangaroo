@@ -15,6 +15,7 @@ package com.clivern.kangaroo.util;
 
 import com.google.common.base.Strings;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.apache.commons.validator.routines.UrlValidator;
 
 /** Validate Class */
 public class Validate {
@@ -221,5 +222,16 @@ public class Validate {
      */
     public static Boolean isIpv6(String value) {
         return false;
+    }
+
+    /**
+     * Validate URL
+     *
+     * @param value field value
+     * @return whether field is valid or not
+     */
+    public static Boolean isURL(String value, String[] schemes) {
+        UrlValidator urlValidator = new UrlValidator(schemes);
+        return urlValidator.isValid(value);
     }
 }

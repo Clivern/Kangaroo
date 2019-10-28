@@ -105,4 +105,16 @@ public class ValidateTest {
         assertEquals(Validate.isEmail("hello@clivern"), false);
         assertEquals(Validate.isEmail("clivern"), false);
     }
+
+    @Test
+    public void testIsURL() {
+        TestUtils.print("Test Validate::isURL");
+        assertEquals(Validate.isURL("http://clivern.com", new String[] {"http", "https"}), true);
+        assertEquals(Validate.isURL("https://clivern.com", new String[] {"http", "https"}), true);
+        assertEquals(Validate.isURL("ftp://clivern.com", new String[] {"http", "https"}), false);
+        assertEquals(
+                Validate.isURL("ftp://clivern.com", new String[] {"ftp", "http", "https"}), true);
+        assertEquals(Validate.isURL("clivern.com", new String[] {"http", "https"}), false);
+        assertEquals(Validate.isURL("http://clivern.com", new String[] {}), false);
+    }
 }
