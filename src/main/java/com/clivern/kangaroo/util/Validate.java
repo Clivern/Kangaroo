@@ -230,6 +230,7 @@ public class Validate {
      * Validate URL
      *
      * @param value field value
+     * @param schemes the url scheme
      * @return whether field is valid or not
      */
     public static Boolean isURL(String value, String[] schemes) {
