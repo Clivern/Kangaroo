@@ -15,6 +15,7 @@ package com.clivern.kangaroo.util;
 
 import com.google.common.base.Strings;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.commons.validator.routines.RegexValidator;
 import org.apache.commons.validator.routines.UrlValidator;
 
@@ -213,7 +214,8 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isIpv4(String value) {
-        return false;
+        InetAddressValidator validator = InetAddressValidator.getInstance();
+        return validator.isValidInet4Address(value);
     }
 
     /**
@@ -223,7 +225,8 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isIpv6(String value) {
-        return false;
+        InetAddressValidator validator = InetAddressValidator.getInstance();
+        return validator.isValidInet6Address(value);
     }
 
     /**

@@ -125,4 +125,21 @@ public class ValidateTest {
         assertEquals(Validate.regex("cliv ern", "\\w+\\s\\w+"), true);
         assertEquals(Validate.regex("hello@clivern.com", "\\w+@\\w+.\\w+"), true);
     }
+
+    @Test
+    public void testIsIpv4() {
+        TestUtils.print("Test Validate::isIpv4");
+        assertEquals(Validate.isIpv4("127.0.0.1"), true);
+        assertEquals(Validate.isIpv4("208.98.192.170"), true);
+        assertEquals(Validate.isIpv4("128.9.2"), false);
+    }
+
+    @Test
+    public void testIsIpv6() {
+        TestUtils.print("Test Validate::isIpv6");
+        assertEquals(Validate.isIpv6("2001:0db8:85a3:0000:0000:8a2e:0370:7334"), true);
+        assertEquals(Validate.isIpv6("2001:0db8:85a3:0000:0000:8a2e:03707334"), false);
+        assertEquals(Validate.isIpv6("208.98.192.170"), false);
+        assertEquals(Validate.isIpv6("128.9.2"), false);
+    }
 }
