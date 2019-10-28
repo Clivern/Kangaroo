@@ -15,6 +15,7 @@ package com.clivern.kangaroo.util;
 
 import static org.junit.Assert.*;
 
+import com.clivern.kangaroo.TestUtils;
 import org.junit.Test;
 
 /** Validate Test Cases */
@@ -22,6 +23,7 @@ public class ValidateTest {
 
     @Test
     public void testIsString() {
+        TestUtils.print("Test Validate::isString");
         assertEquals(Validate.isString(null), false);
         assertEquals(Validate.isString("Hello"), true);
         assertEquals(Validate.isString(""), true);
@@ -30,6 +32,7 @@ public class ValidateTest {
 
     @Test
     public void testIsInteger() {
+        TestUtils.print("Test Validate::isInteger");
         assertEquals(Validate.isInteger(0), true);
         assertEquals(Validate.isInteger(1), true);
         assertEquals(Validate.isInteger(-1), true);
@@ -43,6 +46,7 @@ public class ValidateTest {
 
     @Test
     public void testIsNumber() {
+        TestUtils.print("Test Validate::isNumber");
         assertEquals(Validate.isNumber(0), true);
         assertEquals(Validate.isNumber(1), true);
         assertEquals(Validate.isNumber(-1), true);
@@ -50,10 +54,13 @@ public class ValidateTest {
         assertEquals(Validate.isNumber(new Float(-1.2)), true);
         assertEquals(Validate.isNumber("1"), false);
         assertEquals(Validate.isNumber(null), false);
+        assertEquals(Validate.isNumber(new Float(2.99792458e8)), true);
+        assertEquals(Validate.isNumber(new Float(-2.99792458e8)), true);
     }
 
     @Test
     public void testIsNull() {
+        TestUtils.print("Test Validate::isNull");
         assertEquals(Validate.isNull(null), true);
         assertEquals(Validate.isNull("1"), false);
         assertEquals(Validate.isNull(false), false);
@@ -62,27 +69,32 @@ public class ValidateTest {
 
     @Test
     public void testIsEmpty() {
+        TestUtils.print("Test Validate::isEmpty");
         assertEquals(Validate.isEmpty(""), true);
         assertEquals(Validate.isEmpty(" "), true);
     }
 
     @Test
     public void testLengthEq() {
+        TestUtils.print("Test Validate::lengthEq");
         assertEquals(Validate.lengthEq("H ", 1), true);
     }
 
     @Test
     public void testLengthBetween() {
+        TestUtils.print("Test Validate::lengthBetween");
         assertEquals(Validate.lengthBetween("A B", 3, 4), true);
     }
 
     @Test
     public void testLengthLessThanEq() {
+        TestUtils.print("Test Validate::lengthLessThanEq");
         assertEquals(Validate.lengthLessThanEq("A B ", 3), true);
     }
 
     @Test
     public void testLengthMoreThanEq() {
+        TestUtils.print("Test Validate::lengthMoreThanEq");
         assertEquals(Validate.lengthMoreThanEq(" AB", 2), true);
     }
 }

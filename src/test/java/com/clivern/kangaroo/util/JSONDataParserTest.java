@@ -15,6 +15,7 @@ package com.clivern.kangaroo.util;
 
 import static org.junit.Assert.*;
 
+import com.clivern.kangaroo.TestUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
@@ -24,6 +25,7 @@ public class JSONDataParserTest {
 
     @Test
     public void testJSONDataParser() throws ParseException {
+        TestUtils.print("Test JSONDataParser success");
         JSONDataParser dataParser = new JSONDataParser();
         JSONObject jsonObj = (JSONObject) dataParser.parseData("{\"id\": \"Hello\"}");
         assertEquals("Hello", (String) jsonObj.get("id"));
@@ -31,6 +33,7 @@ public class JSONDataParserTest {
 
     @Test(expected = ParseException.class)
     public void whenExceptionThrown_JSONDataParser() throws ParseException {
+        TestUtils.print("Test JSONDataParser failure");
         JSONDataParser dataParser = new JSONDataParser();
         JSONObject jsonObj = (JSONObject) dataParser.parseData("{\"id: \"Hello\"}");
         assertEquals("Hello", (String) jsonObj.get("id"));
