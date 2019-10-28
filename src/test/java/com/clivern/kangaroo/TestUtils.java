@@ -27,6 +27,7 @@ public class TestUtils {
      * @param message the message
      */
     public static void print(String message) {
-        System.out.println(String.format("%s%s%s", TestUtils.CYAN, message, TestUtils.DEFAULT));
+        System.out.println(
+                String.format("%s===> %s <===%s", TestUtils.CYAN, message, TestUtils.DEFAULT));
     }
 }
