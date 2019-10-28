@@ -14,6 +14,7 @@
 package com.clivern.kangaroo.util;
 
 import com.google.common.base.Strings;
+import org.apache.commons.validator.routines.EmailValidator;
 
 /** Validate Class */
 public class Validate {
@@ -167,7 +168,7 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean datetime(String value) {
+    public static Boolean isDatetime(String value) {
         return false;
     }
 
@@ -177,7 +178,7 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean date(String value) {
+    public static Boolean isDate(String value) {
         return false;
     }
 
@@ -187,7 +188,7 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean time(String value) {
+    public static Boolean isTime(String value) {
         return false;
     }
 
@@ -197,8 +198,9 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean email(String value) {
-        return false;
+    public static Boolean isEmail(String value) {
+        EmailValidator validator = EmailValidator.getInstance();
+        return validator.isValid(value);
     }
 
     /**
@@ -207,7 +209,7 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean ipv4(String value) {
+    public static Boolean isIpv4(String value) {
         return false;
     }
 
@@ -217,7 +219,7 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean ipv6(String value) {
+    public static Boolean isIpv6(String value) {
         return false;
     }
 }

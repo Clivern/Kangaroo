@@ -97,4 +97,12 @@ public class ValidateTest {
         TestUtils.print("Test Validate::lengthMoreThanEq");
         assertEquals(Validate.lengthMoreThanEq(" AB", 2), true);
     }
+
+    @Test
+    public void testIsEmail() {
+        TestUtils.print("Test Validate::isEmail");
+        assertEquals(Validate.isEmail("hello@clivern.com"), true);
+        assertEquals(Validate.isEmail("hello@clivern"), false);
+        assertEquals(Validate.isEmail("clivern"), false);
+    }
 }
