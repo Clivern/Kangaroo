@@ -117,4 +117,12 @@ public class ValidateTest {
         assertEquals(Validate.isURL("clivern.com", new String[] {"http", "https"}), false);
         assertEquals(Validate.isURL("http://clivern.com", new String[] {}), false);
     }
+
+    @Test
+    public void testRegex() {
+        TestUtils.print("Test Validate::regex");
+        assertEquals(Validate.regex("clivern", "\\w+"), true);
+        assertEquals(Validate.regex("cliv ern", "\\w+\\s\\w+"), true);
+        assertEquals(Validate.regex("hello@clivern.com", "\\w+@\\w+.\\w+"), true);
+    }
 }

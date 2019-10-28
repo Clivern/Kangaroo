@@ -15,6 +15,7 @@ package com.clivern.kangaroo.util;
 
 import com.google.common.base.Strings;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.apache.commons.validator.routines.RegexValidator;
 import org.apache.commons.validator.routines.UrlValidator;
 
 /** Validate Class */
@@ -160,7 +161,8 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean regex(String value, String regex) {
-        return false;
+        RegexValidator validator = new RegexValidator(new String[] {regex});
+        return validator.isValid(value);
     }
 
     /**
