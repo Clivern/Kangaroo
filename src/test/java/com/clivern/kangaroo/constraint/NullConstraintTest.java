@@ -24,6 +24,8 @@ public class NullConstraintTest {
 
     @Test
     public void testNullValidation() {
+        TestUtils.print("Test Null Constraint");
+
         NullConstraint nullConstraint1 = new NullConstraint();
         nullConstraint1.setFieldName("fieldName");
         assertEquals(nullConstraint1.getFieldName(), "fieldName");

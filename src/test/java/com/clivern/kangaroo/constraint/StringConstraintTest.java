@@ -24,6 +24,8 @@ public class StringConstraintTest {
 
     @Test
     public void testStringValidation() {
+        TestUtils.print("Test String Constraint");
+
         StringConstraint stringConstraint = new StringConstraint();
 
         stringConstraint.setValue("Hello");

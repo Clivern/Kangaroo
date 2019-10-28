@@ -24,6 +24,8 @@ public class BooleanConstraintTest {
 
     @Test
     public void testBooleanValidation() {
+        TestUtils.print("Test Boolean Constraint");
+
         BooleanConstraint booleanConstraint1 = new BooleanConstraint();
         booleanConstraint1.setFieldName("fieldName");
         assertEquals(booleanConstraint1.getFieldName(), "fieldName");

@@ -15,6 +15,7 @@ package com.clivern.kangaroo.util;
 
 import static org.junit.Assert.*;
 
+import com.clivern.kangaroo.TestUtils;
 import org.junit.Test;
 
 /** File Reader Test Cases */
@@ -22,6 +23,7 @@ public class FileReaderTest {
 
     @Test
     public void testReadFileAsString() throws Exception {
+        TestUtils.print("Test FileReader::readFileAsString success");
         FileReader fileReader = new FileReader();
         assertEquals(
                 "{\"id\": \"Hello\"}",
@@ -30,6 +32,7 @@ public class FileReaderTest {
 
     @Test(expected = Exception.class)
     public void whenExceptionThrown_ReadFileAsString() throws Exception {
+        TestUtils.print("Test FileReader::readFileAsString failure due to non existent file");
         FileReader fileReader = new FileReader();
         fileReader.readFileAsString("src/test/resources/non_existent_file.json");
     }
