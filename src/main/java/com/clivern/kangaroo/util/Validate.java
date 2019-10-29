@@ -15,7 +15,6 @@ package com.clivern.kangaroo.util;
 
 import com.google.common.base.Strings;
 import org.apache.commons.validator.GenericValidator;
-import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.commons.validator.routines.RegexValidator;
 import org.apache.commons.validator.routines.UrlValidator;
@@ -176,10 +175,28 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isDatetime(String value, String format, Boolean strict) {
-        if (format.equals("")) {
-            format = "yyyy-MM-dd HH:mm:ss";
-        }
         return GenericValidator.isDate(value, format, strict);
+    }
+
+    /**
+     * Validate Datetime
+     *
+     * @param value field value
+     * @param format the date format
+     * @return whether field is valid or not
+     */
+    public static Boolean isDatetime(String value, String format) {
+        return GenericValidator.isDate(value, format, true);
+    }
+
+    /**
+     * Validate Datetime
+     *
+     * @param value field value
+     * @return whether field is valid or not
+     */
+    public static Boolean isDatetime(String value) {
+        return GenericValidator.isDate(value, "yyyy-MM-dd HH:mm:ss", true);
     }
 
     /**
@@ -191,10 +208,28 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isDate(String value, String format, Boolean strict) {
-        if (format.equals("")) {
-            format = "yyyy-MM-dd";
-        }
         return GenericValidator.isDate(value, format, strict);
+    }
+
+    /**
+     * Validate Date
+     *
+     * @param value field value
+     * @param format the date format
+     * @return whether field is valid or not
+     */
+    public static Boolean isDate(String value, String format) {
+        return GenericValidator.isDate(value, format, true);
+    }
+
+    /**
+     * Validate Date
+     *
+     * @param value field value
+     * @return whether field is valid or not
+     */
+    public static Boolean isDate(String value) {
+        return GenericValidator.isDate(value, "yyyy-MM-dd", true);
     }
 
     /**
@@ -206,10 +241,28 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isTime(String value, String format, Boolean strict) {
-        if (format.equals("")) {
-            format = "HH:mm:ss";
-        }
         return GenericValidator.isDate(value, format, strict);
+    }
+
+    /**
+     * Validate Time
+     *
+     * @param value field value
+     * @param format the date format
+     * @return whether field is valid or not
+     */
+    public static Boolean isTime(String value, String format) {
+        return GenericValidator.isDate(value, format, true);
+    }
+
+    /**
+     * Validate Time
+     *
+     * @param value field value
+     * @return whether field is valid or not
+     */
+    public static Boolean isTime(String value) {
+        return GenericValidator.isDate(value, "HH:mm:ss", true);
     }
 
     /**
@@ -219,8 +272,7 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isEmail(String value) {
-        EmailValidator validator = EmailValidator.getInstance();
-        return validator.isValid(value);
+        return GenericValidator.isEmail(value);
     }
 
     /**
@@ -255,5 +307,15 @@ public class Validate {
     public static Boolean isURL(String value, String[] schemes) {
         UrlValidator urlValidator = new UrlValidator(schemes);
         return urlValidator.isValid(value);
+    }
+
+    /**
+     * Validate URL
+     *
+     * @param value field value
+     * @return whether field is valid or not
+     */
+    public static Boolean isURL(String value) {
+        return GenericValidator.isUrl(value);
     }
 }
