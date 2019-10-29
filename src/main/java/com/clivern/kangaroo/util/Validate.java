@@ -22,6 +22,12 @@ import org.apache.commons.validator.routines.UrlValidator;
 /** Validate Class */
 public class Validate {
 
+    public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
+
+    public static final String DEFAULT_TIME_FORMAT = "HH:mm:ss";
+
+    public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
     /**
      * Validate if a value is string
      *
@@ -196,7 +202,7 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isDatetime(String value) {
-        return GenericValidator.isDate(value, "yyyy-MM-dd HH:mm:ss", true);
+        return GenericValidator.isDate(value, Validate.DEFAULT_DATE_TIME_FORMAT, true);
     }
 
     /**
@@ -229,7 +235,7 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isDate(String value) {
-        return GenericValidator.isDate(value, "yyyy-MM-dd", true);
+        return GenericValidator.isDate(value, Validate.DEFAULT_DATE_FORMAT, true);
     }
 
     /**
@@ -262,7 +268,7 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean isTime(String value) {
-        return GenericValidator.isDate(value, "HH:mm:ss", true);
+        return GenericValidator.isDate(value, Validate.DEFAULT_TIME_FORMAT, true);
     }
 
     /**
