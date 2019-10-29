@@ -14,9 +14,19 @@
 package com.clivern.kangaroo.util;
 
 import com.google.common.base.Strings;
+import org.apache.commons.validator.GenericValidator;
+import org.apache.commons.validator.routines.InetAddressValidator;
+import org.apache.commons.validator.routines.RegexValidator;
+import org.apache.commons.validator.routines.UrlValidator;
 
 /** Validate Class */
 public class Validate {
+
+    public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
+
+    public static final String DEFAULT_TIME_FORMAT = "HH:mm:ss";
+
+    public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * Validate if a value is string
@@ -41,6 +51,22 @@ public class Validate {
     public static Boolean isInteger(Object value) {
         try {
             return ((value == null) || !(value instanceof Integer)) ? false : true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Validate if a value is number
+     *
+     * @param value field value
+     * @return whether field is number or not
+     */
+    public static Boolean isNumber(Object value) {
+        try {
+            return ((value == null) || (!(value instanceof Integer) && !(value instanceof Float)))
+                    ? false
+                    : true;
         } catch (Exception e) {
             return false;
         }
@@ -142,7 +168,31 @@ public class Validate {
      * @return whether field is valid or not
      */
     public static Boolean regex(String value, String regex) {
-        return false;
+        RegexValidator validator = new RegexValidator(new String[] {regex});
+        return validator.isValid(value);
+    }
+
+    /**
+     * Validate Datetime
+     *
+     * @param value field value
+     * @param format the date format
+     * @param strict whether a strict validation
+     * @return whether field is valid or not
+     */
+    public static Boolean isDatetime(String value, String format, Boolean strict) {
+        return GenericValidator.isDate(value, format, strict);
+    }
+
+    /**
+     * Validate Datetime
+     *
+     * @param value field value
+     * @param format the date format
+     * @return whether field is valid or not
+     */
+    public static Boolean isDatetime(String value, String format) {
+        return GenericValidator.isDate(value, format, true);
     }
 
     /**
@@ -151,8 +201,31 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean datetime(String value) {
-        return false;
+    public static Boolean isDatetime(String value) {
+        return GenericValidator.isDate(value, Validate.DEFAULT_DATE_TIME_FORMAT, true);
+    }
+
+    /**
+     * Validate Date
+     *
+     * @param value field value
+     * @param format the date format
+     * @param strict whether a strict validation
+     * @return whether field is valid or not
+     */
+    public static Boolean isDate(String value, String format, Boolean strict) {
+        return GenericValidator.isDate(value, format, strict);
+    }
+
+    /**
+     * Validate Date
+     *
+     * @param value field value
+     * @param format the date format
+     * @return whether field is valid or not
+     */
+    public static Boolean isDate(String value, String format) {
+        return GenericValidator.isDate(value, format, true);
     }
 
     /**
@@ -161,8 +234,31 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean date(String value) {
-        return false;
+    public static Boolean isDate(String value) {
+        return GenericValidator.isDate(value, Validate.DEFAULT_DATE_FORMAT, true);
+    }
+
+    /**
+     * Validate Time
+     *
+     * @param value field value
+     * @param format the date format
+     * @param strict whether a strict validation
+     * @return whether field is valid or not
+     */
+    public static Boolean isTime(String value, String format, Boolean strict) {
+        return GenericValidator.isDate(value, format, strict);
+    }
+
+    /**
+     * Validate Time
+     *
+     * @param value field value
+     * @param format the date format
+     * @return whether field is valid or not
+     */
+    public static Boolean isTime(String value, String format) {
+        return GenericValidator.isDate(value, format, true);
     }
 
     /**
@@ -171,8 +267,8 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean time(String value) {
-        return false;
+    public static Boolean isTime(String value) {
+        return GenericValidator.isDate(value, Validate.DEFAULT_TIME_FORMAT, true);
     }
 
     /**
@@ -181,8 +277,8 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean email(String value) {
-        return false;
+    public static Boolean isEmail(String value) {
+        return GenericValidator.isEmail(value);
     }
 
     /**
@@ -191,8 +287,9 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean ipv4(String value) {
-        return false;
+    public static Boolean isIpv4(String value) {
+        InetAddressValidator validator = InetAddressValidator.getInstance();
+        return validator.isValidInet4Address(value);
     }
 
     /**
@@ -201,7 +298,30 @@ public class Validate {
      * @param value field value
      * @return whether field is valid or not
      */
-    public static Boolean ipv6(String value) {
-        return false;
+    public static Boolean isIpv6(String value) {
+        InetAddressValidator validator = InetAddressValidator.getInstance();
+        return validator.isValidInet6Address(value);
+    }
+
+    /**
+     * Validate URL
+     *
+     * @param value field value
+     * @param schemes the url scheme
+     * @return whether field is valid or not
+     */
+    public static Boolean isURL(String value, String[] schemes) {
+        UrlValidator urlValidator = new UrlValidator(schemes);
+        return urlValidator.isValid(value);
+    }
+
+    /**
+     * Validate URL
+     *
+     * @param value field value
+     * @return whether field is valid or not
+     */
+    public static Boolean isURL(String value) {
+        return GenericValidator.isUrl(value);
     }
 }

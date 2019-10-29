@@ -24,6 +24,8 @@ public class IntegerConstraintTest {
 
     @Test
     public void testIntegerValidation() {
+        TestUtils.print("Test Integer Constraint");
+
         IntegerConstraint integerConstraint1 = new IntegerConstraint();
         integerConstraint1.setFieldName("fieldName");
         assertEquals(integerConstraint1.getFieldName(), "fieldName");

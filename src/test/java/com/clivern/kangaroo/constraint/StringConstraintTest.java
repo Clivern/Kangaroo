@@ -23,21 +23,33 @@ import org.junit.Test;
 public class StringConstraintTest {
 
     @Test
-    public void testStringValidation() {
+    public void testStringValidation_if_value_is_string() {
+        TestUtils.print("Test String Constraint");
         StringConstraint stringConstraint = new StringConstraint();
-
         stringConstraint.setValue("Hello");
         assertEquals(stringConstraint.getValue(), "Hello");
         assertEquals(stringConstraint.isValidType(), true);
+    }
 
+    @Test
+    public void testStringValidation_if_value_is_empty() {
+        StringConstraint stringConstraint = new StringConstraint();
         stringConstraint.setValue("");
         assertEquals(stringConstraint.getValue(), "");
         assertEquals(stringConstraint.isValidType(), true);
+    }
 
+    @Test
+    public void testStringValidation_if_value_is_null() {
+        StringConstraint stringConstraint = new StringConstraint();
         stringConstraint.setValue(null);
         assertEquals(stringConstraint.getValue(), "");
         assertEquals(stringConstraint.isValidType(), false);
+    }
 
+    @Test
+    public void testStringValidation_if_value_is_list() {
+        StringConstraint stringConstraint = new StringConstraint();
         ArrayList<String> list = new ArrayList<String>();
         list.add("A");
         list.add("B");
