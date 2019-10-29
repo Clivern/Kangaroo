@@ -142,4 +142,29 @@ public class ValidateTest {
         assertEquals(Validate.isIpv6("208.98.192.170"), false);
         assertEquals(Validate.isIpv6("128.9.2"), false);
     }
+
+    @Test
+    public void testIsDate() {
+        TestUtils.print("Test Validate::isDate");
+        assertEquals(Validate.isDate("2019-02-28", "yyyy-MM-dd", true), true);
+        assertEquals(Validate.isDate("2019-02-2", "yyyy-MM-dd", true), false);
+        assertEquals(Validate.isDate("2019-10-29 11:34:14", "yyyy-MM-dd HH:mm:ss", true), true);
+    }
+
+    @Test
+    public void testIsTime() {
+        TestUtils.print("Test Validate::isTime");
+        assertEquals(Validate.isDate("20:34:12", "HH:mm:ss", true), true);
+        assertEquals(Validate.isDate("11:34", "HH:mm:ss", true), false);
+        assertEquals(Validate.isDate("11:34:14", "HH:mm:ss", true), true);
+    }
+
+    @Test
+    public void testIsDateTime() {
+        TestUtils.print("Test Validate::isDateTime");
+        assertEquals(Validate.isDate("2019-02-28 11:34:14", "yyyy-MM-dd HH:mm:ss", true), true);
+        assertEquals(Validate.isDate("2019-02-2 20:34:12", "yyyy-MM-dd HH:mm:ss", true), false);
+        assertEquals(Validate.isDate("2019-10-29 11:34:14", "yyyy-MM-dd HH:mm:ss", true), true);
+        assertEquals(Validate.isDate("2019-10-29-11:34:14", "yyyy-MM-dd HH:mm:ss", true), false);
+    }
 }

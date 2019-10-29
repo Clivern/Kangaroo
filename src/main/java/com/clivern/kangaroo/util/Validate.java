@@ -14,6 +14,7 @@
 package com.clivern.kangaroo.util;
 
 import com.google.common.base.Strings;
+import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.commons.validator.routines.RegexValidator;
@@ -170,30 +171,45 @@ public class Validate {
      * Validate Datetime
      *
      * @param value field value
+     * @param format the date format
+     * @param strict whether a strict validation
      * @return whether field is valid or not
      */
-    public static Boolean isDatetime(String value) {
-        return false;
+    public static Boolean isDatetime(String value, String format, Boolean strict) {
+        if (format.equals("")) {
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        return GenericValidator.isDate(value, format, strict);
     }
 
     /**
      * Validate Date
      *
      * @param value field value
+     * @param format the date format
+     * @param strict whether a strict validation
      * @return whether field is valid or not
      */
-    public static Boolean isDate(String value) {
-        return false;
+    public static Boolean isDate(String value, String format, Boolean strict) {
+        if (format.equals("")) {
+            format = "yyyy-MM-dd";
+        }
+        return GenericValidator.isDate(value, format, strict);
     }
 
     /**
      * Validate Time
      *
      * @param value field value
+     * @param format the date format
+     * @param strict whether a strict validation
      * @return whether field is valid or not
      */
-    public static Boolean isTime(String value) {
-        return false;
+    public static Boolean isTime(String value, String format, Boolean strict) {
+        if (format.equals("")) {
+            format = "HH:mm:ss";
+        }
+        return GenericValidator.isDate(value, format, strict);
     }
 
     /**
