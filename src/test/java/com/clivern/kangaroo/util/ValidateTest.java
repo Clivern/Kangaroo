@@ -167,4 +167,58 @@ public class ValidateTest {
         assertEquals(Validate.isDate("2019-10-29 11:34:14", "yyyy-MM-dd HH:mm:ss", true), true);
         assertEquals(Validate.isDate("2019-10-29-11:34:14", "yyyy-MM-dd HH:mm:ss", true), false);
     }
+
+    @Test
+    public void testGreaterThan() {
+        TestUtils.print("Test Validate::greaterThan");
+
+        assertEquals(Validate.greaterThan(new Float("1"), new Float("2")), false);
+        assertEquals(Validate.greaterThan(new Float("1"), new Float("1")), false);
+        assertEquals(Validate.greaterThan(new Float("0"), new Float("0")), false);
+        assertEquals(Validate.greaterThan(new Float("1.2"), new Float("1.2")), false);
+        assertEquals(Validate.greaterThan(new Float("10.2"), new Float("10.103")), true);
+        assertEquals(Validate.greaterThan(new Float("39"), new Float("10")), true);
+    }
+
+    @Test
+    public void testGreaterThanEq() {
+        TestUtils.print("Test Validate::greaterThanEq");
+        assertEquals(Validate.greaterThanEq(new Float("1"), new Float("2")), false);
+        assertEquals(Validate.greaterThanEq(new Float("1"), new Float("1")), true);
+        assertEquals(Validate.greaterThanEq(new Float("0"), new Float("0")), true);
+        assertEquals(Validate.greaterThanEq(new Float("1.2"), new Float("1.2")), true);
+        assertEquals(Validate.greaterThanEq(new Float("10.2"), new Float("10.103")), true);
+        assertEquals(Validate.greaterThanEq(new Float("39"), new Float("10")), true);
+    }
+
+    @Test
+    public void testLessThan() {
+        TestUtils.print("Test Validate::lessThan");
+        assertEquals(Validate.lessThan(new Float("1"), new Float("2")), true);
+        assertEquals(Validate.lessThan(new Float("1"), new Float("1")), false);
+        assertEquals(Validate.lessThan(new Float("0"), new Float("0")), false);
+        assertEquals(Validate.lessThan(new Float("1.2"), new Float("1.2")), false);
+        assertEquals(Validate.lessThan(new Float("10.102"), new Float("10.2")), true);
+        assertEquals(Validate.lessThan(new Float("39"), new Float("10")), false);
+    }
+
+    @Test
+    public void testLessThanEq() {
+        TestUtils.print("Test Validate::lessThanEq");
+        assertEquals(Validate.lessThanEq(new Float("1"), new Float("2")), true);
+        assertEquals(Validate.lessThanEq(new Float("1"), new Float("1")), true);
+        assertEquals(Validate.lessThanEq(new Float("0"), new Float("0")), true);
+        assertEquals(Validate.lessThanEq(new Float("20"), new Float("10.2")), false);
+        assertEquals(Validate.lessThanEq(new Float("39"), new Float("10")), false);
+    }
+
+    @Test
+    public void testMultipleOf() {
+        TestUtils.print("Test Validate::multipleOf");
+        assertEquals(Validate.multipleOf(new Float("0"), new Float("10")), true);
+        assertEquals(Validate.multipleOf(new Float("10"), new Float("10")), true);
+        assertEquals(Validate.multipleOf(new Float("20"), new Float("10")), true);
+        assertEquals(Validate.multipleOf(new Float("21"), new Float("10")), false);
+        assertEquals(Validate.multipleOf(new Float("39"), new Float("10")), false);
+    }
 }
