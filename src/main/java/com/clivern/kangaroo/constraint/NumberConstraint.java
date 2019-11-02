@@ -81,7 +81,7 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
         }
 
         if (!this.getMultipleOf().equals("")
-                && Validate.multipleOf(
+                && !Validate.multipleOf(
                         Float.valueOf(this.getValue()), Float.valueOf(this.getMultipleOf()))) {
             status &= false;
             this.errors.add(
@@ -91,7 +91,7 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
         }
 
         if (!this.getMinimum().equals("")
-                && Validate.greaterThanEq(
+                && !Validate.greaterThanEq(
                         Float.valueOf(this.getValue()), Float.valueOf(this.getMinimum()))) {
             status &= false;
             this.errors.add(
@@ -101,7 +101,7 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
         }
 
         if (!this.getMaximum().equals("")
-                && Validate.lessThanEq(
+                && !Validate.lessThanEq(
                         Float.valueOf(this.getValue()), Float.valueOf(this.getMaximum()))) {
             status &= false;
             this.errors.add(
@@ -111,7 +111,7 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
         }
 
         if (!this.getExclusiveMinimum().equals("")
-                && Validate.greaterThan(
+                && !Validate.greaterThan(
                         Float.valueOf(this.getValue()),
                         Float.valueOf(this.getExclusiveMinimum()))) {
             status &= false;
@@ -122,7 +122,7 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
         }
 
         if (!this.getExclusiveMaximum().equals("")
-                && Validate.lessThan(
+                && !Validate.lessThan(
                         Float.valueOf(this.getValue()),
                         Float.valueOf(this.getExclusiveMaximum()))) {
             status &= false;
