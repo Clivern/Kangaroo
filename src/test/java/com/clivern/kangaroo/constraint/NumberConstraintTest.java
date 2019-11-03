@@ -310,4 +310,65 @@ public class NumberConstraintTest {
         assertEquals(numberConstraint.getNumberType(), NumberConstraint.IN_VALID);
         assertEquals(numberConstraint.getErrors(), errors);
     }
+
+    @Test
+    public void test_a_valid_integer_number_with_all_conditions() {
+        TestUtils.print("Test a Valid Integer Number With All Conditions");
+        NumberConstraint numberConstraint = new NumberConstraint();
+        numberConstraint.setValue(new Integer("10"));
+        numberConstraint.setFieldName("fieldName");
+        numberConstraint.setMultipleOf(new Integer("10"));
+        numberConstraint.setMinimum(new Integer("10"));
+        numberConstraint.setMaximum(new Integer("11"));
+        numberConstraint.setExclusiveMinimum(new Integer("9"));
+        numberConstraint.setExclusiveMaximum(new Integer("11"));
+        assertEquals(numberConstraint.getFieldName(), "fieldName");
+        assertEquals(numberConstraint.getMultipleOf(), "10");
+        assertEquals(numberConstraint.getMinimum(), "10");
+        assertEquals(numberConstraint.getMaximum(), "11");
+        assertEquals(numberConstraint.getExclusiveMinimum(), "9");
+        assertEquals(numberConstraint.getExclusiveMaximum(), "11");
+        assertEquals(numberConstraint.getValue(), "10");
+        assertEquals(numberConstraint.validate(), true);
+        assertEquals(numberConstraint.hasErrors(), false);
+        assertEquals(numberConstraint.getNumberType(), NumberConstraint.INTEGER);
+        assertEquals(numberConstraint.getErrors(), new ArrayList<String>());
+    }
+
+    @Test
+    public void test_invalid_integer_number_with_all_conditions() {
+        TestUtils.print("Test Invalid Integer Number With All Conditions");
+        ArrayList<String> errors = new ArrayList<String>();
+        NumberConstraint numberConstraint = new NumberConstraint();
+        numberConstraint.setValue(new Integer("19"));
+        numberConstraint.setFieldName("fieldName");
+        numberConstraint.setMultipleOf(new Integer("10"));
+        numberConstraint.setMinimum(new Integer("10"));
+        numberConstraint.setMaximum(new Integer("11"));
+        numberConstraint.setExclusiveMinimum(new Integer("9"));
+        numberConstraint.setExclusiveMaximum(new Integer("11"));
+        assertEquals(numberConstraint.getFieldName(), "fieldName");
+        assertEquals(numberConstraint.getMultipleOf(), "10");
+        assertEquals(numberConstraint.getMinimum(), "10");
+        assertEquals(numberConstraint.getMaximum(), "11");
+        assertEquals(numberConstraint.getExclusiveMinimum(), "9");
+        assertEquals(numberConstraint.getExclusiveMaximum(), "11");
+        assertEquals(numberConstraint.getValue(), "19");
+        assertEquals(numberConstraint.validate(), false);
+        assertEquals(numberConstraint.hasErrors(), true);
+        errors.add(
+                String.format(
+                        "Error! Field %s must be multiple of %s.",
+                        numberConstraint.getFieldName(), numberConstraint.getMultipleOf()));
+        errors.add(
+                String.format(
+                        "Error! Field %s must be less than or equal %s.",
+                        numberConstraint.getFieldName(), numberConstraint.getMaximum()));
+        errors.add(
+                String.format(
+                        "Error! Field %s must be less than %s.",
+                        numberConstraint.getFieldName(), numberConstraint.getExclusiveMaximum()));
+        assertEquals(numberConstraint.getNumberType(), NumberConstraint.INTEGER);
+        assertEquals(numberConstraint.getErrors(), errors);
+    }
 }
