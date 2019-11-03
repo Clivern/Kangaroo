@@ -23,40 +23,166 @@ import org.junit.Test;
 public class StringConstraintTest {
 
     @Test
-    public void testStringValidation_if_value_is_string() {
-        TestUtils.print("Test String Constraint");
+    public void test_a_valid_string() {
+        TestUtils.print("Test a Valid String");
         StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
         stringConstraint.setValue("Hello");
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
         assertEquals(stringConstraint.getValue(), "Hello");
-        assertEquals(stringConstraint.isValidType(), true);
+        assertEquals(stringConstraint.validate(), true);
+        assertEquals(stringConstraint.hasErrors(), false);
+        assertEquals(stringConstraint.getErrors(), new ArrayList<String>());
     }
 
     @Test
-    public void testStringValidation_if_value_is_empty() {
+    public void test_a_valid_empty_string() {
+        TestUtils.print("Test a Valid Empty String");
         StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
         stringConstraint.setValue("");
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
         assertEquals(stringConstraint.getValue(), "");
-        assertEquals(stringConstraint.isValidType(), true);
+        assertEquals(stringConstraint.validate(), true);
+        assertEquals(stringConstraint.hasErrors(), false);
+        assertEquals(stringConstraint.getErrors(), new ArrayList<String>());
     }
 
     @Test
-    public void testStringValidation_if_value_is_null() {
+    public void test_invalid_null_string_type() {
+        TestUtils.print("Test a Null String");
+        ArrayList<String> errors = new ArrayList<String>();
         StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
         stringConstraint.setValue(null);
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
         assertEquals(stringConstraint.getValue(), "");
-        assertEquals(stringConstraint.isValidType(), false);
+        assertEquals(stringConstraint.validate(), false);
+        assertEquals(stringConstraint.hasErrors(), true);
+        errors.add(
+                String.format(
+                        "Error! Field %s must be a string.", stringConstraint.getFieldName()));
+        assertEquals(stringConstraint.getErrors(), errors);
     }
 
     @Test
-    public void testStringValidation_if_value_is_list() {
+    public void test_invalid_list_string_type() {
+        TestUtils.print("Test a List String");
+        ArrayList<String> errors = new ArrayList<String>();
         StringConstraint stringConstraint = new StringConstraint();
         ArrayList<String> list = new ArrayList<String>();
         list.add("A");
         list.add("B");
         list.add("C");
+        stringConstraint.setFieldName("fieldName");
         stringConstraint.setValue(list);
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
         assertEquals(stringConstraint.getValue(), "");
-        assertEquals(stringConstraint.isValidType(), false);
-        assertEquals(stringConstraint.getMaxLength(), null);
+        assertEquals(stringConstraint.validate(), false);
+        assertEquals(stringConstraint.hasErrors(), true);
+        errors.add(
+                String.format(
+                        "Error! Field %s must be a string.", stringConstraint.getFieldName()));
+        assertEquals(stringConstraint.getErrors(), errors);
+    }
+
+    @Test
+    public void test_a_valid_string_with_min_length_set1() {
+        TestUtils.print("Test a Valid String With minLength Set");
+        StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
+        stringConstraint.setValue("Hello");
+        stringConstraint.setMinLength(new Integer(5));
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
+        assertEquals(stringConstraint.getValue(), "Hello");
+        assertEquals(stringConstraint.getMinLength(), new Integer(5));
+        assertEquals(stringConstraint.validate(), true);
+        assertEquals(stringConstraint.hasErrors(), false);
+        assertEquals(stringConstraint.getErrors(), new ArrayList<String>());
+    }
+
+    @Test
+    public void test_a_valid_string_with_min_length_set2() {
+        TestUtils.print("Test a Valid String With minLength Set");
+        StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
+        stringConstraint.setValue("Hello");
+        stringConstraint.setMinLength(new Integer(4));
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
+        assertEquals(stringConstraint.getValue(), "Hello");
+        assertEquals(stringConstraint.getMinLength(), new Integer(4));
+        assertEquals(stringConstraint.validate(), true);
+        assertEquals(stringConstraint.hasErrors(), false);
+        assertEquals(stringConstraint.getErrors(), new ArrayList<String>());
+    }
+
+    @Test
+    public void test_invalid_string_with_min_length_set() {
+        TestUtils.print("Test Invalid String With minLength Set");
+        ArrayList<String> errors = new ArrayList<String>();
+        StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
+        stringConstraint.setValue("Hello");
+        stringConstraint.setMinLength(new Integer(6));
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
+        assertEquals(stringConstraint.getValue(), "Hello");
+        assertEquals(stringConstraint.getMinLength(), new Integer(6));
+        assertEquals(stringConstraint.validate(), false);
+        assertEquals(stringConstraint.hasErrors(), true);
+        errors.add(
+                String.format(
+                        "Error! Field %s length must be more than or equal %d.",
+                        stringConstraint.getFieldName(), stringConstraint.getMinLength()));
+        assertEquals(stringConstraint.getErrors(), errors);
+    }
+
+    @Test
+    public void test_a_valid_string_with_max_length_set1() {
+        TestUtils.print("Test a Valid String With maxLength Set");
+        StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
+        stringConstraint.setValue("Hello");
+        stringConstraint.setMaxLength(new Integer(5));
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
+        assertEquals(stringConstraint.getValue(), "Hello");
+        assertEquals(stringConstraint.getMaxLength(), new Integer(5));
+        assertEquals(stringConstraint.validate(), true);
+        assertEquals(stringConstraint.hasErrors(), false);
+        assertEquals(stringConstraint.getErrors(), new ArrayList<String>());
+    }
+
+    @Test
+    public void test_a_valid_string_with_max_length_set2() {
+        TestUtils.print("Test a Valid String With maxLength Set");
+        StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
+        stringConstraint.setValue("Hello");
+        stringConstraint.setMaxLength(new Integer(6));
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
+        assertEquals(stringConstraint.getValue(), "Hello");
+        assertEquals(stringConstraint.getMaxLength(), new Integer(6));
+        assertEquals(stringConstraint.validate(), true);
+        assertEquals(stringConstraint.hasErrors(), false);
+        assertEquals(stringConstraint.getErrors(), new ArrayList<String>());
+    }
+
+    @Test
+    public void test_invalid_string_with_max_length_set() {
+        TestUtils.print("Test a Valid String With maxLength Set");
+        ArrayList<String> errors = new ArrayList<String>();
+        StringConstraint stringConstraint = new StringConstraint();
+        stringConstraint.setFieldName("fieldName");
+        stringConstraint.setValue("Hello");
+        stringConstraint.setMaxLength(new Integer(4));
+        assertEquals(stringConstraint.getFieldName(), "fieldName");
+        assertEquals(stringConstraint.getValue(), "Hello");
+        assertEquals(stringConstraint.getMaxLength(), new Integer(4));
+        assertEquals(stringConstraint.validate(), false);
+        assertEquals(stringConstraint.hasErrors(), true);
+        errors.add(
+                String.format(
+                        "Error! Field %s length must be less than or equal %d.",
+                        stringConstraint.getFieldName(), stringConstraint.getMaxLength()));
+        assertEquals(stringConstraint.getErrors(), errors);
     }
 }

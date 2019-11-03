@@ -30,9 +30,9 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
 
     private Object value;
 
-    private Integer minLength;
+    private String minLength;
 
-    private Integer maxLength;
+    private String maxLength;
 
     private String pattern;
 
@@ -85,7 +85,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      * @param minLength the min length
      */
     public void setMinLength(Integer minLength) {
-        this.minLength = minLength;
+        this.minLength = String.valueOf(minLength);
     }
 
     /**
@@ -94,7 +94,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      * @param maxLength the max length
      */
     public void setMaxLength(Integer maxLength) {
-        this.maxLength = maxLength;
+        this.maxLength = String.valueOf(maxLength);
     }
 
     /**
@@ -146,7 +146,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      * @return the min length
      */
     public Integer getMinLength() {
-        return this.minLength;
+        return (this.minLength != null) ? Integer.valueOf(this.minLength) : 0;
     }
 
     /**
@@ -155,7 +155,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      * @return the max length
      */
     public Integer getMaxLength() {
-        return this.maxLength;
+        return (this.maxLength != null) ? Integer.valueOf(this.maxLength) : 0;
     }
 
     /**
@@ -198,7 +198,32 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
 
     /** {@inheritDoc} */
     public Boolean validate() {
-        return false;
+        Boolean status = true;
+
+        if (!this.isValidType()) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be a string.", this.fieldName));
+        }
+
+        if ((this.minLength != null)
+                && !Validate.lengthMoreThanEq(this.getValue(), this.getMinLength())) {
+            status &= false;
+            this.errors.add(
+                    String.format(
+                            "Error! Field %s length must be more than or equal %d.",
+                            this.fieldName, this.getMinLength()));
+        }
+
+        if ((this.maxLength != null)
+                && !Validate.lengthLessThanEq(this.getValue(), this.getMaxLength())) {
+            status &= false;
+            this.errors.add(
+                    String.format(
+                            "Error! Field %s length must be less than or equal %d.",
+                            this.fieldName, this.getMaxLength()));
+        }
+
+        return status;
     }
 
     /** {@inheritDoc} */
