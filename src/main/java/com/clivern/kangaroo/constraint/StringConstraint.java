@@ -223,6 +223,8 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
                             this.fieldName, this.getMaxLength()));
         }
 
+        // @TODO --> #21 Validate String Format
+
         return status;
     }
 
