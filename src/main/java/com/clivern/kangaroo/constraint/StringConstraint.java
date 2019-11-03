@@ -13,10 +13,17 @@
  */
 package com.clivern.kangaroo.constraint;
 
+import com.clivern.kangaroo.exception.SchemaError;
 import com.clivern.kangaroo.util.Validate;
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
-/** String Constraint Class */
+/**
+ * String Constraint Class
+ *
+ * @see <a href="https://json-schema.org/understanding-json-schema/reference/string.html">String
+ *     types</a>
+ */
 public class StringConstraint implements ConstraintInterface<Object, String> {
 
     private String fieldName;
@@ -32,6 +39,40 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
     private String format;
 
     private ArrayList<String> errors = new ArrayList<String>();
+
+    public static final String DATE_TIME = "date-time";
+
+    public static final String TIME = "time";
+
+    public static final String DATE = "date";
+
+    public static final String EMAIL = "email";
+
+    public static final String IDN_EMAIL = "idn-email";
+
+    public static final String HOSTNAME = "hostname";
+
+    public static final String IDN_HOSTNAME = "idn-hostname";
+
+    public static final String IPV4 = "ipv4";
+
+    public static final String IPV6 = "ipv6";
+
+    public static final String URI = "uri";
+
+    public static final String URI_REFERENCE = "uri-reference";
+
+    public static final String IRI = "iri";
+
+    public static final String IRI_REFERENCE = "iri-reference";
+
+    public static final String URI_TEMPLATE = "uri-template";
+
+    public static final String JSON_POINTER = "json-pointer";
+
+    public static final String RELATIVE_JSON_POINTER = "relative-json-pointer";
+
+    public static final String REGEX = "regex";
 
     /** {@inheritDoc} */
     public void setFieldName(String fieldName) {
@@ -69,8 +110,33 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      * Set Format
      *
      * @param format the format
+     * @throws SchemaError schema error
      */
-    public void setFormat(String format) {
+    public void setFormat(String format) throws SchemaError {
+        String[] formats = {
+            StringConstraint.DATE_TIME,
+            StringConstraint.TIME,
+            StringConstraint.DATE,
+            StringConstraint.EMAIL,
+            StringConstraint.IDN_EMAIL,
+            StringConstraint.HOSTNAME,
+            StringConstraint.IDN_HOSTNAME,
+            StringConstraint.IPV4,
+            StringConstraint.IPV6,
+            StringConstraint.URI,
+            StringConstraint.URI_REFERENCE,
+            StringConstraint.IRI,
+            StringConstraint.IRI_REFERENCE,
+            StringConstraint.URI_TEMPLATE,
+            StringConstraint.JSON_POINTER,
+            StringConstraint.RELATIVE_JSON_POINTER,
+            StringConstraint.REGEX
+        };
+
+        if (!Stream.of(formats).anyMatch(x -> x.equals(format))) {
+            throw new SchemaError(String.format("Invalid string constraint format %s.", format));
+        }
+
         this.format = format;
     }
 
