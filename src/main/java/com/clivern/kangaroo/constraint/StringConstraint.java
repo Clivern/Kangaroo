@@ -245,6 +245,11 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
             this.errors.add(String.format("Error! Field %s must be an email.", this.fieldName));
         }
 
+        if (this.getFormat().equals(StringConstraint.IDN_EMAIL) && !Validate.isEmail(this.getValue())) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be an idn-email.", this.fieldName));
+        }
+
         if (this.getFormat().equals(StringConstraint.IPV4) && !Validate.isIpv4(this.getValue())) {
             status &= false;
             this.errors.add(String.format("Error! Field %s must be IPv4.", this.fieldName));
