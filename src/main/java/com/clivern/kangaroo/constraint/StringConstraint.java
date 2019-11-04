@@ -173,7 +173,7 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      * @return the format
      */
     public String getFormat() {
-        return this.format;
+        return (this.format != null) ? this.format : "";
     }
 
     /** {@inheritDoc} */
@@ -224,6 +224,36 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
         }
 
         // @TODO --> #21 Validate String Format
+        if (this.getFormat().equals(StringConstraint.DATE_TIME)
+                && !Validate.isDatetime(this.getValue())) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be a datetime.", this.fieldName));
+        }
+
+        if (this.getFormat().equals(StringConstraint.TIME) && !Validate.isTime(this.getValue())) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be a time.", this.fieldName));
+        }
+
+        if (this.getFormat().equals(StringConstraint.DATE) && !Validate.isDate(this.getValue())) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be a date.", this.fieldName));
+        }
+
+        if (this.getFormat().equals(StringConstraint.EMAIL) && !Validate.isEmail(this.getValue())) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be an email.", this.fieldName));
+        }
+
+        if (this.getFormat().equals(StringConstraint.IPV4) && !Validate.isIpv4(this.getValue())) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be IPv4.", this.fieldName));
+        }
+
+        if (this.getFormat().equals(StringConstraint.IPV6) && !Validate.isIpv6(this.getValue())) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be IPv6.", this.fieldName));
+        }
 
         return status;
     }
