@@ -185,7 +185,6 @@ repositories {
 ext {
     googleJsonSimpleVersion = '1.1.1'
     googleGsonVersion = '2.8.5'
-    googleInjectGuiceVersion = '4.1.0'
     commonsValidatorVersion = '1.6'
     junitVersion = '4.12'
 }
@@ -194,7 +193,6 @@ dependencies {
 	// Required dependencies
 	implementation "com.google.code.gson:gson:$googleGsonVersion"
 	implementation "com.googlecode.json-simple:json-simple:$googleJsonSimpleVersion"
-	implementation "com.google.inject:guice:$googleInjectGuiceVersion"
 	implementation "commons-validator:commons-validator:$commonsValidatorVersion"
 
 	// Use JUnit test framework
