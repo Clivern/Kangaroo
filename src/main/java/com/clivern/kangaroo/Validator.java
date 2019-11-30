@@ -13,6 +13,7 @@
  */
 package com.clivern.kangaroo;
 
+import com.clivern.kangaroo.constraint.*;
 import com.clivern.kangaroo.constraint.ConstraintType;
 import java.util.ArrayList;
 import java.util.Map;
@@ -104,14 +105,27 @@ public class Validator {
      * @return whether node is valid or not
      */
     public Boolean validateNode(ArrayList<String> parents, NodeDraft3 node) {
-        Boolean status = true;
-        // Validate node
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
         }
 
@@ -133,14 +147,27 @@ public class Validator {
      * @return whether node is valid or not
      */
     public Boolean validateNode(ArrayList<String> parents, NodeDraft4 node) {
-        Boolean status = true;
-        // Validate node
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
         }
 
@@ -162,14 +189,27 @@ public class Validator {
      * @return whether node is valid or not
      */
     public Boolean validateNode(ArrayList<String> parents, NodeDraft6 node) {
-        Boolean status = true;
-        // Validate node
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
         }
 
@@ -191,14 +231,27 @@ public class Validator {
      * @return whether node is valid or not
      */
     public Boolean validateNode(ArrayList<String> parents, NodeDraft7 node) {
-        Boolean status = true;
-        // Validate node
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
         }
 
@@ -237,5 +290,14 @@ public class Validator {
      */
     private void addError(String error) {
         this.errors.add(error);
+    }
+
+    /**
+     * Add Errors
+     *
+     * @param errors the errors
+     */
+    private void addErrors(ArrayList<String> errors) {
+        this.errors.addAll(errors);
     }
 }

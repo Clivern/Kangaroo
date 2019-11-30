@@ -17,7 +17,11 @@ package com.clivern.kangaroo.constraint;
 public enum ConstraintType {
     OBJECT("OBJECT"),
     INTEGER("INTEGER"),
+    NUMBER("NUMBER"),
+    NULL("NULL"),
+    BOOLEAN("BOOLEAN"),
     STRING("STRING"),
+    ENUM("ENUM"),
     ARRAY("ARRAY");
 
     private final String name;

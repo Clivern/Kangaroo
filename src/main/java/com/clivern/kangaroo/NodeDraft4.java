@@ -24,7 +24,7 @@ public class NodeDraft4 {
     public String description;
 
     @SerializedName("type")
-    public String type;
+    public Object type;
 
     @SerializedName("enum")
     public ArrayList<String> enumerated = new ArrayList<String>();
