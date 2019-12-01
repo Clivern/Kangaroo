@@ -423,10 +423,10 @@ public class Validator {
     /**
      * If validation has errors
      *
-     * @return the errors count
+     * @return Whether there is errors or not
      */
-    public int hasErrors() {
-        return this.errors.size();
+    public Boolean hasErrors() {
+        return this.errors.size() > 0;
     }
 
     /**

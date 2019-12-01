@@ -39,6 +39,90 @@ libraryDependencies += "com.clivern" % "kangaroo" % "0.0.1"
 ```
 
 
+### Usage
+
+First import & initialize all required classes.
+
+```java
+import com.clivern.kangaroo.util.FileReader;
+import com.clivern.kangaroo.SchemaFactory;
+import com.clivern.kangaroo.Validator;
+
+
+FileReader fileReader = new FileReader();
+SchemaFactory schemaFactory = new SchemaFactory();
+Validator validator = new Validator();
+```
+
+Then validate the `JSON` string against the `JSON Schema`.
+
+```java
+import com.clivern.kangaroo.SchemaDraft3;
+
+
+// For SchemaDraft3
+SchemaDraft3 schemaDraft3 = schemaFactory.unserialize(
+    fileReader.readFileAsString("path/to/endpoint/schema03_definition.json"),
+    SchemaDraft3.class
+);
+
+validator.validate(schemaDraft3, "{...JSON_DATA_HERE...}");  // returns Boolean (true || false)
+validator.hasErrors();                                       // returns Boolean (true || false)
+validator.getErrors();                                       // returns ArrayList<String>
+```
+
+```java
+import com.clivern.kangaroo.SchemaDraft4;
+
+
+// For SchemaDraft4
+SchemaDraft4 schemaDraft4 = schemaFactory.unserialize(
+    fileReader.readFileAsString("path/to/endpoint/schema04_definition.json"),
+    SchemaDraft4.class
+);
+
+validator.validate(schemaDraft4, "{...JSON_DATA_HERE...}");  // returns Boolean (true || false)
+validator.hasErrors();                                       // returns Boolean (true || false)
+validator.getErrors();                                       // returns ArrayList<String>
+```
+
+```java
+import com.clivern.kangaroo.SchemaDraft6;
+
+
+// For SchemaDraft6
+SchemaDraft6 schemaDraft6 = schemaFactory.unserialize(
+    fileReader.readFileAsString("path/to/endpoint/schema06_definition.json"),
+    SchemaDraft6.class
+);
+
+validator.validate(schemaDraft6, "{...JSON_DATA_HERE...}");  // returns Boolean (true || false)
+validator.hasErrors();                                       // returns Boolean (true || false)
+validator.getErrors();                                       // returns ArrayList<String>
+```
+
+```java
+import com.clivern.kangaroo.SchemaDraft7;
+
+
+// For SchemaDraft7
+SchemaDraft7 schemaDraft7 = schemaFactory.unserialize(
+    fileReader.readFileAsString("path/to/endpoint/schema07_definition.json"),
+    SchemaDraft7.class
+);
+
+validator.validate(schemaDraft7, "{...JSON_DATA_HERE...}");  // returns Boolean (true || false)
+validator.hasErrors();                                       // returns Boolean (true || false)
+validator.getErrors();                                       // returns ArrayList<String>
+```
+
+
+### Examples
+
+```java
+#
+```
+
 ## Versioning
 
 For transparency into our release cycle and in striving to maintain backward compatibility, Kangaroo is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
