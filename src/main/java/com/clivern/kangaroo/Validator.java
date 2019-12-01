@@ -13,7 +13,10 @@
  */
 package com.clivern.kangaroo;
 
+import com.clivern.kangaroo.constraint.*;
 import com.clivern.kangaroo.constraint.ConstraintType;
+import com.clivern.kangaroo.exception.SchemaError;
+import com.clivern.kangaroo.util.Json;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -30,13 +33,15 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft3 schema, String data) {
+    public Boolean validate(SchemaDraft3 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft3) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft3) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -48,13 +53,15 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft4 schema, String data) {
+    public Boolean validate(SchemaDraft4 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft4) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft4) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -66,13 +73,15 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft6 schema, String data) {
+    public Boolean validate(SchemaDraft6 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft6) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft6) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -84,13 +93,15 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft7 schema, String data) {
+    public Boolean validate(SchemaDraft7 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft7) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft7) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -101,25 +112,72 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft3 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft3 node) {
-        Boolean status = true;
-        // Validate node
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft3 node, ArrayList<String> required)
+            throws SchemaError {
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
+        }
+
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
         }
 
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft3) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft3) item.getValue(), node.required);
         }
 
         return status;
@@ -130,25 +188,72 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft4 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft4 node) {
-        Boolean status = true;
-        // Validate node
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft4 node, ArrayList<String> required)
+            throws SchemaError {
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
+        }
+
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
         }
 
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft4) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft4) item.getValue(), node.required);
         }
 
         return status;
@@ -159,25 +264,72 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft6 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft6 node) {
-        Boolean status = true;
-        // Validate node
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft6 node, ArrayList<String> required)
+            throws SchemaError {
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
+        }
+
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
         }
 
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft6) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft6) item.getValue(), node.required);
         }
 
         return status;
@@ -188,25 +340,72 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft7 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft7 node) {
-        Boolean status = true;
-        // Validate node
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft7 node, ArrayList<String> required)
+            throws SchemaError {
+        Boolean status = false;
 
-        //System.out.println(node.description);
-        //System.out.println(parents);
+        // Validate node
+        Type type = new Type(node.type);
+
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
+
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
 
         // Skip if node not object
-        if (node.type.toUpperCase() != ConstraintType.OBJECT.name()) {
+        if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
+        }
+
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
         }
 
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft7) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft7) item.getValue(), node.required);
         }
 
         return status;
@@ -224,10 +423,10 @@ public class Validator {
     /**
      * If validation has errors
      *
-     * @return the errors count
+     * @return Whether there is errors or not
      */
-    public int hasErrors() {
-        return this.errors.size();
+    public Boolean hasErrors() {
+        return this.errors.size() > 0;
     }
 
     /**
@@ -237,5 +436,14 @@ public class Validator {
      */
     private void addError(String error) {
         this.errors.add(error);
+    }
+
+    /**
+     * Add Errors
+     *
+     * @param errors the errors
+     */
+    private void addErrors(ArrayList<String> errors) {
+        this.errors.addAll(errors);
     }
 }

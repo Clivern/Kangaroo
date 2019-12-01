@@ -24,7 +24,7 @@ public class NodeDraft7 {
     public String description;
 
     @SerializedName("type")
-    public String type;
+    public Object type;
 
     @SerializedName("enum")
     public ArrayList<String> enumerated = new ArrayList<String>();
@@ -32,6 +32,20 @@ public class NodeDraft7 {
     @SerializedName("required")
     public ArrayList<String> required = new ArrayList<String>();
 
+    // String Specific Properties
+    @SerializedName("minLength")
+    public Integer minLength;
+
+    @SerializedName("maxLength")
+    public Integer maxLength;
+
+    @SerializedName("pattern")
+    public String pattern;
+
+    @SerializedName("format")
+    public String format;
+
+    // When type is object
     @SerializedName("properties")
     public HashMap<String, NodeDraft7> properties = new HashMap<String, NodeDraft7>();
 }

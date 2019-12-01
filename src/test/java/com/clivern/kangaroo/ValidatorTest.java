@@ -15,20 +15,25 @@ package com.clivern.kangaroo;
 
 import static org.junit.Assert.*;
 
+import com.clivern.kangaroo.util.*;
+import java.util.ArrayList;
 import org.junit.Test;
 
 /** Validator Test Cases */
 public class ValidatorTest {
 
     @Test
-    public void testValidatorHasAGreeting() {
+    public void testValidator() throws Exception {
+        FileReader fileReader = new FileReader();
+        SchemaFactory schemaFactory = new SchemaFactory();
         Validator validator = new Validator();
 
-        SchemaFactory schemaFactory = new SchemaFactory();
-        SchemaDraft7 draft =
+        SchemaDraft7 schemaDraft7 =
                 schemaFactory.unserialize(
-                        "{\"$id\":\"https://example.com/address.schema.json\",\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"description\":\"An address similar to http://microformats.org/wiki/h-card\",\"type\":\"object\",\"properties\":{\"post-office-box\":{\"description\":\"post-office-box\",\"type\":\"object\",\"properties\":{\"street-address\":{\"type\":\"string\",\"description\":\"post-office-box.street-address\"},\"locality\":{\"type\":\"string\",\"description\":\"post-office-box.locality\"},\"region\":{\"type\":\"object\",\"description\":\"post-office-box.region\",\"properties\":{\"postal-code\":{\"type\":\"string\",\"description\":\"post-office-box.region.postal-code\"},\"country-name\":{\"type\":\"string\",\"description\":\"post-office-box.region.country-name\"}}}}},\"extended-address\":{\"description\":\"extended-address\",\"type\":\"string\"}}}",
+                        fileReader.readFileAsString("src/test/resources/schema01.json"),
                         SchemaDraft7.class);
-        assertEquals(true, validator.validate(draft, "{}"));
+
+        assertEquals(validator.validate(schemaDraft7, "{\"id\":\"1\"}"), true);
+        assertEquals(validator.getErrors(), new ArrayList<String>());
     }
 }
