@@ -167,6 +167,12 @@ public class Validator {
             return status;
         }
 
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
+        }
+
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
@@ -235,6 +241,12 @@ public class Validator {
         // Skip if node not object
         if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
+        }
+
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
         }
 
         // Validate sub-nodes
@@ -307,6 +319,12 @@ public class Validator {
             return status;
         }
 
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
+        }
+
         // Validate sub-nodes
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
@@ -375,6 +393,12 @@ public class Validator {
         // Skip if node not object
         if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
             return status;
+        }
+
+        // Skip if the object node is optional and not part of the incoming data
+        if (Json.get(this.data, parents) == null
+                && !required.contains(parents.get(parents.size() - 1))) {
+            return true;
         }
 
         // Validate sub-nodes

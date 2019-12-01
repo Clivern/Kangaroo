@@ -31,12 +31,16 @@ public class Json {
         int size = keys.size();
         JSONObject jsonObj = new JSONObject(data);
 
-        for (String key : keys) {
-            if (i == (size - 1)) {
-                return jsonObj.get(key);
+        try {
+            for (String key : keys) {
+                if (i == (size - 1)) {
+                    return jsonObj.get(key);
+                }
+                jsonObj = jsonObj.getJSONObject(key);
+                i += 1;
             }
-            jsonObj = jsonObj.getJSONObject(key);
-            i += 1;
+        } catch (Exception e) {
+            return null;
         }
 
         return null;
@@ -54,14 +58,17 @@ public class Json {
         int size = keys.length;
         JSONObject jsonObj = new JSONObject(data);
 
-        for (String key : keys) {
-            if (i == (size - 1)) {
-                return jsonObj.get(key);
+        try {
+            for (String key : keys) {
+                if (i == (size - 1)) {
+                    return jsonObj.get(key);
+                }
+                jsonObj = jsonObj.getJSONObject(key);
+                i += 1;
             }
-            jsonObj = jsonObj.getJSONObject(key);
-            i += 1;
+        } catch (Exception e) {
+            return null;
         }
-
         return null;
     }
 }

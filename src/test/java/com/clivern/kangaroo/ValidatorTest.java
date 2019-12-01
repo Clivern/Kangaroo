@@ -15,11 +15,25 @@ package com.clivern.kangaroo;
 
 import static org.junit.Assert.*;
 
+import com.clivern.kangaroo.util.*;
+import java.util.ArrayList;
 import org.junit.Test;
 
 /** Validator Test Cases */
 public class ValidatorTest {
 
     @Test
-    public void testValidator() {}
+    public void testValidator() throws Exception {
+        FileReader fileReader = new FileReader();
+        SchemaFactory schemaFactory = new SchemaFactory();
+        Validator validator = new Validator();
+
+        SchemaDraft7 schemaDraft7 =
+                schemaFactory.unserialize(
+                        fileReader.readFileAsString("src/test/resources/schema01.json"),
+                        SchemaDraft7.class);
+
+        assertEquals(validator.validate(schemaDraft7, "{\"id\":\"1\"}"), true);
+        assertEquals(validator.getErrors(), new ArrayList<String>());
+    }
 }
