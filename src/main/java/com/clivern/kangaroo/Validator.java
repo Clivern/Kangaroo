@@ -40,7 +40,8 @@ public class Validator {
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft3) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft3) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -59,7 +60,8 @@ public class Validator {
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft4) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft4) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -78,7 +80,8 @@ public class Validator {
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft6) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft6) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -97,7 +100,8 @@ public class Validator {
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
             parents.add((String) item.getKey());
-            this.isValid &= this.validateNode(parents, (NodeDraft7) item.getValue());
+            this.isValid &=
+                    this.validateNode(parents, (NodeDraft7) item.getValue(), schema.required);
         }
 
         return this.isValid;
@@ -108,10 +112,13 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft3 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
      * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft3 node) throws SchemaError {
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft3 node, ArrayList<String> required)
+            throws SchemaError {
         Boolean status = false;
 
         // Validate node
@@ -161,7 +168,7 @@ public class Validator {
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft3) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft3) item.getValue(), node.required);
         }
 
         return status;
@@ -172,10 +179,13 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft4 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
      * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft4 node) throws SchemaError {
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft4 node, ArrayList<String> required)
+            throws SchemaError {
         Boolean status = false;
 
         // Validate node
@@ -225,7 +235,7 @@ public class Validator {
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft4) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft4) item.getValue(), node.required);
         }
 
         return status;
@@ -236,10 +246,13 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft6 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
      * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft6 node) throws SchemaError {
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft6 node, ArrayList<String> required)
+            throws SchemaError {
         Boolean status = false;
 
         // Validate node
@@ -289,7 +302,7 @@ public class Validator {
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft6) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft6) item.getValue(), node.required);
         }
 
         return status;
@@ -300,10 +313,13 @@ public class Validator {
      *
      * @param parents node parents
      * @param node draft7 node
+     * @param required the required items from the parent node
      * @return whether node is valid or not
      * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft7 node) throws SchemaError {
+    public Boolean validateNode(
+            ArrayList<String> parents, NodeDraft7 node, ArrayList<String> required)
+            throws SchemaError {
         Boolean status = false;
 
         // Validate node
@@ -353,7 +369,7 @@ public class Validator {
         for (Map.Entry item : node.properties.entrySet()) {
             ArrayList<String> nodeParents = new ArrayList<>(parents);
             nodeParents.add((String) item.getKey());
-            status &= this.validateNode(nodeParents, (NodeDraft7) item.getValue());
+            status &= this.validateNode(nodeParents, (NodeDraft7) item.getValue(), node.required);
         }
 
         return status;
