@@ -16,6 +16,7 @@ package com.clivern.kangaroo;
 import com.clivern.kangaroo.constraint.*;
 import com.clivern.kangaroo.constraint.ConstraintType;
 import com.clivern.kangaroo.exception.SchemaError;
+import com.clivern.kangaroo.util.Json;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -120,6 +121,7 @@ public class Validator {
             StringConstraint stringNode = new StringConstraint();
 
             stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
 
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);
@@ -183,6 +185,7 @@ public class Validator {
             StringConstraint stringNode = new StringConstraint();
 
             stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
 
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);
@@ -246,6 +249,7 @@ public class Validator {
             StringConstraint stringNode = new StringConstraint();
 
             stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
 
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);
@@ -309,6 +313,7 @@ public class Validator {
             StringConstraint stringNode = new StringConstraint();
 
             stringNode.setFieldName(parents.get(parents.size() - 1));
+            stringNode.setValue(Json.get(this.data, parents));
 
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);

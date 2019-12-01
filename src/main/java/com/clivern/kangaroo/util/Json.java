@@ -25,9 +25,8 @@ public class Json {
      * @param data the JSON
      * @param keys the keys
      * @return the key value
-     * @throws Exception when key not exist
      */
-    public static Object get(String data, ArrayList<String> keys) throws Exception {
+    public static Object get(String data, ArrayList<String> keys) {
         int i = 0;
         int size = keys.size();
         JSONObject jsonObj = new JSONObject(data);
@@ -40,7 +39,7 @@ public class Json {
             i += 1;
         }
 
-        throw new Exception(String.format("Keys %s not found", keys.toString()));
+        return null;
     }
 
     /**
@@ -49,9 +48,8 @@ public class Json {
      * @param data the JSON
      * @param keys the keys
      * @return the key value
-     * @throws Exception when key not exist
      */
-    public static Object get(String data, String[] keys) throws Exception {
+    public static Object get(String data, String[] keys) {
         int i = 0;
         int size = keys.length;
         JSONObject jsonObj = new JSONObject(data);
@@ -64,6 +62,6 @@ public class Json {
             i += 1;
         }
 
-        throw new Exception(String.format("Keys %s not found", keys.toString()));
+        return null;
     }
 }
