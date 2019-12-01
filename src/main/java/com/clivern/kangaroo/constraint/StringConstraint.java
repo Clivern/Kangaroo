@@ -38,6 +38,8 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
 
     private String format;
 
+    private Boolean required;
+
     private ArrayList<String> errors = new ArrayList<String>();
 
     public static final String DATE_TIME = "date-time";
@@ -141,6 +143,15 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
     }
 
     /**
+     * Set Required
+     *
+     * @param required whether required or not
+     */
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    /**
      * Get Min Length
      *
      * @return the min length
@@ -174,6 +185,15 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
      */
     public String getFormat() {
         return this.format;
+    }
+
+    /**
+     * Get Required
+     *
+     * @return whether required or not
+     */
+    public Boolean getRequired() {
+        return this.required;
     }
 
     /** {@inheritDoc} */

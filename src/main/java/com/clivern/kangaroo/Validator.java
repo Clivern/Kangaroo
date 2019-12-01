@@ -130,6 +130,9 @@ public class Validator {
             stringNode.setFieldName(parents.get(parents.size() - 1));
             stringNode.setValue(Json.get(this.data, parents));
 
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);
             }
@@ -197,6 +200,9 @@ public class Validator {
             stringNode.setFieldName(parents.get(parents.size() - 1));
             stringNode.setValue(Json.get(this.data, parents));
 
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);
             }
@@ -264,6 +270,9 @@ public class Validator {
             stringNode.setFieldName(parents.get(parents.size() - 1));
             stringNode.setValue(Json.get(this.data, parents));
 
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);
             }
@@ -331,6 +340,9 @@ public class Validator {
             stringNode.setFieldName(parents.get(parents.size() - 1));
             stringNode.setValue(Json.get(this.data, parents));
 
+            if (required != null && required.size() > 0) {
+                stringNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
             if (node.minLength != null) {
                 stringNode.setMinLength(node.minLength);
             }
