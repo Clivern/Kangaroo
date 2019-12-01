@@ -225,6 +225,13 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
             this.errors.add(String.format("Error! Field %s must be a string.", this.fieldName));
         }
 
+        if (this.required != null
+                && this.required
+                && !Validate.lengthMoreThanEq(this.getValue(), 1)) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s is required.", this.fieldName));
+        }
+
         if ((this.minLength != null)
                 && !Validate.lengthMoreThanEq(this.getValue(), this.getMinLength())) {
             status &= false;
