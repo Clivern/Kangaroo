@@ -15,6 +15,7 @@ package com.clivern.kangaroo;
 
 import com.clivern.kangaroo.constraint.*;
 import com.clivern.kangaroo.constraint.ConstraintType;
+import com.clivern.kangaroo.exception.SchemaError;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -31,8 +32,9 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft3 schema, String data) {
+    public Boolean validate(SchemaDraft3 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
@@ -49,8 +51,9 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft4 schema, String data) {
+    public Boolean validate(SchemaDraft4 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
@@ -67,8 +70,9 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft6 schema, String data) {
+    public Boolean validate(SchemaDraft6 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
@@ -85,8 +89,9 @@ public class Validator {
      * @param schema the draft Object
      * @param data the data
      * @return whether data is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validate(SchemaDraft7 schema, String data) {
+    public Boolean validate(SchemaDraft7 schema, String data) throws SchemaError {
         this.data = data;
         for (Map.Entry item : schema.properties.entrySet()) {
             ArrayList<String> parents = new ArrayList<String>();
@@ -103,14 +108,35 @@ public class Validator {
      * @param parents node parents
      * @param node draft3 node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft3 node) {
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft3 node) throws SchemaError {
         Boolean status = false;
 
         // Validate node
         Type type = new Type(node.type);
 
-        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
 
@@ -145,14 +171,35 @@ public class Validator {
      * @param parents node parents
      * @param node draft4 node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft4 node) {
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft4 node) throws SchemaError {
         Boolean status = false;
 
         // Validate node
         Type type = new Type(node.type);
 
-        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
 
@@ -187,14 +234,35 @@ public class Validator {
      * @param parents node parents
      * @param node draft6 node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft6 node) {
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft6 node) throws SchemaError {
         Boolean status = false;
 
         // Validate node
         Type type = new Type(node.type);
 
-        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
 
@@ -229,14 +297,35 @@ public class Validator {
      * @param parents node parents
      * @param node draft7 node
      * @return whether node is valid or not
+     * @throws SchemaError schema error
      */
-    public Boolean validateNode(ArrayList<String> parents, NodeDraft7 node) {
+    public Boolean validateNode(ArrayList<String> parents, NodeDraft7 node) throws SchemaError {
         Boolean status = false;
 
         // Validate node
         Type type = new Type(node.type);
 
-        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.STRING.name().toLowerCase())) {
+            StringConstraint stringNode = new StringConstraint();
+
+            stringNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (node.minLength != null) {
+                stringNode.setMinLength(node.minLength);
+            }
+            if (node.maxLength != null) {
+                stringNode.setMaxLength(node.maxLength);
+            }
+            if (node.pattern != null) {
+                stringNode.setPattern(node.pattern);
+            }
+            if (node.format != null) {
+                stringNode.setFormat(node.format);
+            }
+
+            status |= stringNode.validate();
+            this.addErrors(stringNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
 
