@@ -27,7 +27,7 @@ public class FileReaderTest {
         FileReader fileReader = new FileReader();
         assertEquals(
                 "{\"id\": \"Hello\"}",
-                fileReader.readFileAsString("src/test/resources/scheme.json"));
+                fileReader.readFileAsString("src/test/resources/schema.json"));
     }
 
     @Test(expected = Exception.class)

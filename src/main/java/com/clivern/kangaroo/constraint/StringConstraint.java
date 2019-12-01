@@ -38,6 +38,8 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
 
     private String format;
 
+    private Boolean required;
+
     private ArrayList<String> errors = new ArrayList<String>();
 
     public static final String DATE_TIME = "date-time";
@@ -141,6 +143,15 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
     }
 
     /**
+     * Set Required
+     *
+     * @param required whether required or not
+     */
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    /**
      * Get Min Length
      *
      * @return the min length
@@ -176,6 +187,15 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
         return (this.format != null) ? this.format : "";
     }
 
+    /**
+     * Get Required
+     *
+     * @return whether required or not
+     */
+    public Boolean getRequired() {
+        return this.required;
+    }
+
     /** {@inheritDoc} */
     public void setValue(Object value) {
         this.value = value;
@@ -203,6 +223,13 @@ public class StringConstraint implements ConstraintInterface<Object, String> {
         if (!this.isValidType()) {
             status &= false;
             this.errors.add(String.format("Error! Field %s must be a string.", this.fieldName));
+        }
+
+        if (this.required != null
+                && this.required
+                && !Validate.lengthMoreThanEq(this.getValue(), 1)) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s is required.", this.fieldName));
         }
 
         if ((this.minLength != null)
