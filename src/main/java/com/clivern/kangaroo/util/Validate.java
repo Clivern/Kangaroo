@@ -13,7 +13,6 @@
  */
 package com.clivern.kangaroo.util;
 
-import com.google.common.base.Strings;
 import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.commons.validator.routines.RegexValidator;
@@ -107,8 +106,11 @@ public class Validate {
      * @return whether field is empty or nor
      */
     public static Boolean isEmpty(String value) {
+        if (value == null) {
+            return true;
+        }
         value = value.trim();
-        return Strings.isNullOrEmpty(value);
+        return value.equals("");
     }
 
     /**

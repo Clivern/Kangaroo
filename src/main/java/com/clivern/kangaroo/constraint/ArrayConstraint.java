@@ -13,5 +13,10 @@
  */
 package com.clivern.kangaroo.constraint;
 
-/** Array Constraint Class */
+/**
+ * Array Constraint Class
+ *
+ * @see <a href="https://json-schema.org/understanding-json-schema/reference/array.html">Array
+ *     types</a>
+ */
 public class ArrayConstraint {}

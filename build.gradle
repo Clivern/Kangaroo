@@ -183,7 +183,6 @@ repositories {
 }
 
 ext {
-  guavaVersion = "27.1-jre"
   gsonVersion = "2.8.5"
   commonsValidatorVersion = "1.6"
   jsonVersion = "20190722"
@@ -192,7 +191,6 @@ ext {
 
 dependencies {
   // Required dependencies
-  implementation "com.google.guava:guava:$guavaVersion"
   implementation "com.google.code.gson:gson:$gsonVersion"
   implementation "commons-validator:commons-validator:$commonsValidatorVersion"
   implementation "org.json:json:$jsonVersion"
