@@ -61,6 +61,20 @@ public interface ConstraintInterface<T, V> {
     public Boolean validate();
 
     /**
+     * Set Required
+     *
+     * @param required whether required or not
+     */
+    public void setRequired(Boolean required);
+
+    /**
+     * Get Required
+     *
+     * @return whether required or not
+     */
+    public Boolean getRequired();
+
+    /**
      * Get Errors List
      *
      * @return the errors list

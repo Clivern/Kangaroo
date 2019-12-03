@@ -28,6 +28,8 @@ public class BooleanConstraint implements ConstraintInterface<Object, Boolean> {
 
     private Object value;
 
+    private Boolean required;
+
     private ArrayList<String> errors = new ArrayList<String>();
 
     /** {@inheritDoc} */
@@ -59,12 +61,35 @@ public class BooleanConstraint implements ConstraintInterface<Object, Boolean> {
     public Boolean validate() {
         Boolean status = true;
 
+        if (this.required != null && this.required && this.value == null) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s is required.", this.fieldName));
+        }
+
         if (!this.isValidType()) {
             status &= false;
             this.errors.add(String.format("Error! Field %s must be boolean.", this.fieldName));
         }
 
         return status;
+    }
+
+    /**
+     * Set Required
+     *
+     * @param required whether required or not
+     */
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    /**
+     * Get Required
+     *
+     * @return whether required or not
+     */
+    public Boolean getRequired() {
+        return this.required;
     }
 
     /** {@inheritDoc} */

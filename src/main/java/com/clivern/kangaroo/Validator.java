@@ -152,11 +152,52 @@ public class Validator {
 
         if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
 
-        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {
+            NumberConstraint numberNode = new NumberConstraint();
 
-        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+            numberNode.setFieldName(parents.get(parents.size() - 1));
+            numberNode.setValue(Json.get(this.data, parents));
 
-        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+            if (required != null && required.size() > 0) {
+                numberNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                numberNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                numberNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                numberNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                numberNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                numberNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= numberNode.validate();
+            this.addErrors(numberNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
+            BooleanConstraint booleanNode = new BooleanConstraint();
+            booleanNode.setFieldName(parents.get(parents.size() - 1));
+            booleanNode.setValue(Json.get(this.data, parents));
+
+            status |= booleanNode.validate();
+            this.addErrors(booleanNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {
+            NullConstraint nullNode = new NullConstraint();
+            nullNode.setFieldName(parents.get(parents.size() - 1));
+            nullNode.setValue(Json.get(this.data, parents));
+
+            status |= nullNode.validate();
+            this.addErrors(nullNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
 
@@ -230,9 +271,23 @@ public class Validator {
 
         if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
 
-        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
+            BooleanConstraint booleanNode = new BooleanConstraint();
+            booleanNode.setFieldName(parents.get(parents.size() - 1));
+            booleanNode.setValue(Json.get(this.data, parents));
 
-        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+            status |= booleanNode.validate();
+            this.addErrors(booleanNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {
+            NullConstraint nullNode = new NullConstraint();
+            nullNode.setFieldName(parents.get(parents.size() - 1));
+            nullNode.setValue(Json.get(this.data, parents));
+
+            status |= nullNode.validate();
+            this.addErrors(nullNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
 
@@ -306,9 +361,23 @@ public class Validator {
 
         if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
 
-        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
+            BooleanConstraint booleanNode = new BooleanConstraint();
+            booleanNode.setFieldName(parents.get(parents.size() - 1));
+            booleanNode.setValue(Json.get(this.data, parents));
 
-        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+            status |= booleanNode.validate();
+            this.addErrors(booleanNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {
+            NullConstraint nullNode = new NullConstraint();
+            nullNode.setFieldName(parents.get(parents.size() - 1));
+            nullNode.setValue(Json.get(this.data, parents));
+
+            status |= nullNode.validate();
+            this.addErrors(nullNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
 
@@ -382,9 +451,23 @@ public class Validator {
 
         if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
 
-        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
+            BooleanConstraint booleanNode = new BooleanConstraint();
+            booleanNode.setFieldName(parents.get(parents.size() - 1));
+            booleanNode.setValue(Json.get(this.data, parents));
 
-        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {}
+            status |= booleanNode.validate();
+            this.addErrors(booleanNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.NULL.name().toLowerCase())) {
+            NullConstraint nullNode = new NullConstraint();
+            nullNode.setFieldName(parents.get(parents.size() - 1));
+            nullNode.setValue(Json.get(this.data, parents));
+
+            status |= nullNode.validate();
+            this.addErrors(nullNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
 

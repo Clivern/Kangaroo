@@ -42,7 +42,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint2 = new NumberConstraint();
         numberConstraint2.setValue(new Integer("11"));
         numberConstraint2.setFieldName("fieldName");
-        numberConstraint2.setExclusiveMinimum(new Float("10.2"));
+        numberConstraint2.setExclusiveMinimum("10.2");
         assertEquals(numberConstraint2.getExclusiveMinimum(), "10.2");
         assertEquals(numberConstraint2.getFieldName(), "fieldName");
         assertEquals(numberConstraint2.getValue(), "11");
@@ -59,7 +59,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint1 = new NumberConstraint();
         numberConstraint1.setValue(new Float("10.2"));
         numberConstraint1.setFieldName("fieldName");
-        numberConstraint1.setExclusiveMinimum(new Float("10.2"));
+        numberConstraint1.setExclusiveMinimum("10.2");
         assertEquals(numberConstraint1.getExclusiveMinimum(), "10.2");
         assertEquals(numberConstraint1.getFieldName(), "fieldName");
         assertEquals(numberConstraint1.getValue(), "10.2");
@@ -76,7 +76,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint2 = new NumberConstraint();
         numberConstraint2.setValue(new Integer("9"));
         numberConstraint2.setFieldName("fieldName");
-        numberConstraint2.setExclusiveMinimum(new Integer("10"));
+        numberConstraint2.setExclusiveMinimum("10");
         assertEquals(numberConstraint2.getExclusiveMinimum(), "10");
         assertEquals(numberConstraint2.getFieldName(), "fieldName");
         assertEquals(numberConstraint2.getValue(), "9");
@@ -96,7 +96,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint2 = new NumberConstraint();
         numberConstraint2.setValue(new Integer("9"));
         numberConstraint2.setFieldName("fieldName");
-        numberConstraint2.setExclusiveMaximum(new Float("10.2"));
+        numberConstraint2.setExclusiveMaximum("10.2");
         assertEquals(numberConstraint2.getExclusiveMaximum(), "10.2");
         assertEquals(numberConstraint2.getFieldName(), "fieldName");
         assertEquals(numberConstraint2.getValue(), "9");
@@ -113,7 +113,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint1 = new NumberConstraint();
         numberConstraint1.setValue(new Float("10.2"));
         numberConstraint1.setFieldName("fieldName");
-        numberConstraint1.setExclusiveMaximum(new Float("10.2"));
+        numberConstraint1.setExclusiveMaximum("10.2");
         assertEquals(numberConstraint1.getExclusiveMaximum(), "10.2");
         assertEquals(numberConstraint1.getFieldName(), "fieldName");
         assertEquals(numberConstraint1.getValue(), "10.2");
@@ -130,7 +130,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint2 = new NumberConstraint();
         numberConstraint2.setValue(new Integer("11"));
         numberConstraint2.setFieldName("fieldName");
-        numberConstraint2.setExclusiveMaximum(new Integer("10"));
+        numberConstraint2.setExclusiveMaximum("10");
         assertEquals(numberConstraint2.getExclusiveMaximum(), "10");
         assertEquals(numberConstraint2.getFieldName(), "fieldName");
         assertEquals(numberConstraint2.getValue(), "11");
@@ -150,7 +150,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint1 = new NumberConstraint();
         numberConstraint1.setValue(new Float("10.2"));
         numberConstraint1.setFieldName("fieldName");
-        numberConstraint1.setMaximum(new Float("10.2"));
+        numberConstraint1.setMaximum("10.2");
         assertEquals(numberConstraint1.getMaximum(), "10.2");
         assertEquals(numberConstraint1.getFieldName(), "fieldName");
         assertEquals(numberConstraint1.getValue(), "10.2");
@@ -162,7 +162,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint2 = new NumberConstraint();
         numberConstraint2.setValue(new Integer("9"));
         numberConstraint2.setFieldName("fieldName");
-        numberConstraint2.setMaximum(new Float("10.2"));
+        numberConstraint2.setMaximum("10.2");
         assertEquals(numberConstraint2.getMaximum(), "10.2");
         assertEquals(numberConstraint2.getFieldName(), "fieldName");
         assertEquals(numberConstraint2.getValue(), "9");
@@ -179,7 +179,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint = new NumberConstraint();
         numberConstraint.setValue(new Integer("11"));
         numberConstraint.setFieldName("fieldName");
-        numberConstraint.setMaximum(new Integer("10"));
+        numberConstraint.setMaximum("10");
         assertEquals(numberConstraint.getMaximum(), "10");
         assertEquals(numberConstraint.getFieldName(), "fieldName");
         assertEquals(numberConstraint.getValue(), "11");
@@ -199,7 +199,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint1 = new NumberConstraint();
         numberConstraint1.setValue(new Float("10.2"));
         numberConstraint1.setFieldName("fieldName");
-        numberConstraint1.setMinimum(new Float("10.2"));
+        numberConstraint1.setMinimum("10.2");
         assertEquals(numberConstraint1.getMinimum(), "10.2");
         assertEquals(numberConstraint1.getFieldName(), "fieldName");
         assertEquals(numberConstraint1.getValue(), "10.2");
@@ -211,7 +211,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint2 = new NumberConstraint();
         numberConstraint2.setValue(new Integer("11"));
         numberConstraint2.setFieldName("fieldName");
-        numberConstraint2.setMinimum(new Float("10.2"));
+        numberConstraint2.setMinimum("10.2");
         assertEquals(numberConstraint2.getMinimum(), "10.2");
         assertEquals(numberConstraint2.getFieldName(), "fieldName");
         assertEquals(numberConstraint2.getValue(), "11");
@@ -228,7 +228,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint = new NumberConstraint();
         numberConstraint.setValue(new Integer("9"));
         numberConstraint.setFieldName("fieldName");
-        numberConstraint.setMinimum(new Integer("10"));
+        numberConstraint.setMinimum("10");
         assertEquals(numberConstraint.getMinimum(), "10");
         assertEquals(numberConstraint.getFieldName(), "fieldName");
         assertEquals(numberConstraint.getValue(), "9");
@@ -248,7 +248,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint = new NumberConstraint();
         numberConstraint.setValue(new Integer("10"));
         numberConstraint.setFieldName("fieldName");
-        numberConstraint.setMultipleOf(new Integer("10"));
+        numberConstraint.setMultipleOf("10");
         assertEquals(numberConstraint.getMultipleOf(), "10");
         assertEquals(numberConstraint.getFieldName(), "fieldName");
         assertEquals(numberConstraint.getValue(), "10");
@@ -265,7 +265,7 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint = new NumberConstraint();
         numberConstraint.setValue(new Integer("11"));
         numberConstraint.setFieldName("fieldName");
-        numberConstraint.setMultipleOf(new Integer("10"));
+        numberConstraint.setMultipleOf("10");
         assertEquals(numberConstraint.getMultipleOf(), "10");
         assertEquals(numberConstraint.getFieldName(), "fieldName");
         assertEquals(numberConstraint.getValue(), "11");
@@ -317,11 +317,11 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint = new NumberConstraint();
         numberConstraint.setValue(new Integer("10"));
         numberConstraint.setFieldName("fieldName");
-        numberConstraint.setMultipleOf(new Integer("10"));
-        numberConstraint.setMinimum(new Integer("10"));
-        numberConstraint.setMaximum(new Integer("11"));
-        numberConstraint.setExclusiveMinimum(new Integer("9"));
-        numberConstraint.setExclusiveMaximum(new Integer("11"));
+        numberConstraint.setMultipleOf("10");
+        numberConstraint.setMinimum("10");
+        numberConstraint.setMaximum("11");
+        numberConstraint.setExclusiveMinimum("9");
+        numberConstraint.setExclusiveMaximum("11");
         assertEquals(numberConstraint.getFieldName(), "fieldName");
         assertEquals(numberConstraint.getMultipleOf(), "10");
         assertEquals(numberConstraint.getMinimum(), "10");
@@ -342,11 +342,11 @@ public class NumberConstraintTest {
         NumberConstraint numberConstraint = new NumberConstraint();
         numberConstraint.setValue(new Integer("19"));
         numberConstraint.setFieldName("fieldName");
-        numberConstraint.setMultipleOf(new Integer("10"));
-        numberConstraint.setMinimum(new Integer("10"));
-        numberConstraint.setMaximum(new Integer("11"));
-        numberConstraint.setExclusiveMinimum(new Integer("9"));
-        numberConstraint.setExclusiveMaximum(new Integer("11"));
+        numberConstraint.setMultipleOf("10");
+        numberConstraint.setMinimum("10");
+        numberConstraint.setMaximum("11");
+        numberConstraint.setExclusiveMinimum("9");
+        numberConstraint.setExclusiveMaximum("11");
         assertEquals(numberConstraint.getFieldName(), "fieldName");
         assertEquals(numberConstraint.getMultipleOf(), "10");
         assertEquals(numberConstraint.getMinimum(), "10");

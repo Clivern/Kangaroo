@@ -38,6 +38,8 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
 
     private Object value;
 
+    private Boolean required;
+
     private ArrayList<String> errors = new ArrayList<String>();
 
     public static final String FLOAT = "FLOAT";
@@ -78,6 +80,11 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
         if (!this.isValidType()) {
             status &= false;
             this.errors.add(String.format("Error! Field %s must be a number.", this.fieldName));
+        }
+
+        if (this.required != null && this.required && this.value == null) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s is required.", this.fieldName));
         }
 
         if (!this.getMultipleOf().equals("")
@@ -146,21 +153,30 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
     }
 
     /**
+     * Set Required
+     *
+     * @param required whether required or not
+     */
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    /**
+     * Get Required
+     *
+     * @return whether required or not
+     */
+    public Boolean getRequired() {
+        return this.required;
+    }
+
+    /**
      * Set multipleOf value
      *
      * @param multipleOf the multipleOf value
      */
-    public void setMultipleOf(Integer multipleOf) {
-        this.multipleOf = String.valueOf(multipleOf);
-    }
-
-    /**
-     * Set multiple of
-     *
-     * @param multipleOf the multiple of value
-     */
-    public void setMultipleOf(Float multipleOf) {
-        this.multipleOf = String.valueOf(multipleOf);
+    public void setMultipleOf(String multipleOf) {
+        this.multipleOf = multipleOf;
     }
 
     /**
@@ -177,17 +193,8 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
      *
      * @param minimum the minimum value
      */
-    public void setMinimum(Integer minimum) {
-        this.minimum = String.valueOf(minimum);
-    }
-
-    /**
-     * Set minimum
-     *
-     * @param minimum the minimum value
-     */
-    public void setMinimum(Float minimum) {
-        this.minimum = String.valueOf(minimum);
+    public void setMinimum(String minimum) {
+        this.minimum = minimum;
     }
 
     /**
@@ -204,17 +211,8 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
      *
      * @param maximum the maximum value
      */
-    public void setMaximum(Integer maximum) {
-        this.maximum = String.valueOf(maximum);
-    }
-
-    /**
-     * Set maximum
-     *
-     * @param maximum the maximum value
-     */
-    public void setMaximum(Float maximum) {
-        this.maximum = String.valueOf(maximum);
+    public void setMaximum(String maximum) {
+        this.maximum = maximum;
     }
 
     /**
@@ -231,17 +229,8 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
      *
      * @param exclusiveMinimum the exclusive minimum value
      */
-    public void setExclusiveMinimum(Integer exclusiveMinimum) {
-        this.exclusiveMinimum = String.valueOf(exclusiveMinimum);
-    }
-
-    /**
-     * Set exclusive minimum
-     *
-     * @param exclusiveMinimum the exclusive minimum value
-     */
-    public void setExclusiveMinimum(Float exclusiveMinimum) {
-        this.exclusiveMinimum = String.valueOf(exclusiveMinimum);
+    public void setExclusiveMinimum(String exclusiveMinimum) {
+        this.exclusiveMinimum = exclusiveMinimum;
     }
 
     /**
@@ -258,17 +247,8 @@ public class NumberConstraint implements ConstraintInterface<Object, String> {
      *
      * @param exclusiveMaximum the exclusiveMaximum value
      */
-    public void setExclusiveMaximum(Integer exclusiveMaximum) {
-        this.exclusiveMaximum = String.valueOf(exclusiveMaximum);
-    }
-
-    /**
-     * Set exclusive maximum
-     *
-     * @param exclusiveMaximum the exclusiveMaximum value
-     */
-    public void setExclusiveMaximum(Float exclusiveMaximum) {
-        this.exclusiveMaximum = String.valueOf(exclusiveMaximum);
+    public void setExclusiveMaximum(String exclusiveMaximum) {
+        this.exclusiveMaximum = exclusiveMaximum;
     }
 
     /**

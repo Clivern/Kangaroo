@@ -45,6 +45,22 @@ public class NodeDraft6 {
     @SerializedName("format")
     public String format;
 
+    // Number Specific Properties
+    @SerializedName("multipleOf")
+    public String multipleOf;
+
+    @SerializedName("minimum")
+    public String minimum;
+
+    @SerializedName("maximum")
+    public String maximum;
+
+    @SerializedName("exclusiveMinimum")
+    public String exclusiveMinimum;
+
+    @SerializedName("exclusiveMaximum")
+    public String exclusiveMaximum;
+
     // When type is object
     @SerializedName("properties")
     public HashMap<String, NodeDraft6> properties = new HashMap<String, NodeDraft6>();
