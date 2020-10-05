@@ -30,6 +30,18 @@ public class ValidatorTest {
         cases.add("src/test/resources/test_case01.txt");
         cases.add("src/test/resources/test_case02.txt");
         cases.add("src/test/resources/test_case03.txt");
+        cases.add("src/test/resources/test_case04.txt");
+        cases.add("src/test/resources/test_case05.txt");
+        cases.add("src/test/resources/test_case06.txt");
+        cases.add("src/test/resources/test_case07.txt");
+        cases.add("src/test/resources/test_case08.txt");
+        cases.add("src/test/resources/test_case09.txt");
+        cases.add("src/test/resources/test_case10.txt");
+        cases.add("src/test/resources/test_case11.txt");
+        cases.add("src/test/resources/test_case12.txt");
+        cases.add("src/test/resources/test_case13.txt");
+        cases.add("src/test/resources/test_case14.txt");
+        cases.add("src/test/resources/test_case15.txt");
 
         for (int i = 0; i < cases.size(); i++) {
             String[] parts =
