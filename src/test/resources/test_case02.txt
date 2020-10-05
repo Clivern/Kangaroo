@@ -1,0 +1,47 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LaptopSpecs",
+  "title": "Laptop Specifications",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier",
+      "type": "string"
+    },
+    "hardware": {
+      "description": "Hardware information",
+      "type": "object",
+      "properties": {
+        "cpu": {
+          "description": "CPU information",
+          "type": "object",
+          "properties": {
+            "cores": {
+              "description": "Number of cores",
+              "type": "string"
+            }
+          },
+          "required": [
+            "cores"
+          ]
+        }
+      },
+      "required": [
+        "cpu"
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
+---------------------
+{
+  "id": "11"
+}
+---------------------
+[
+  "Error! Field id must be a string."
+]

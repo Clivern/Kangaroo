@@ -425,6 +425,7 @@ public class Validator {
             StringConstraint stringNode = new StringConstraint();
 
             stringNode.setFieldName(parents.get(parents.size() - 1));
+
             stringNode.setValue(Json.get(this.data, parents));
 
             if (required != null && required.size() > 0) {

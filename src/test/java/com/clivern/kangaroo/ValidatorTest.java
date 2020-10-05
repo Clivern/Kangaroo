@@ -25,15 +25,41 @@ public class ValidatorTest {
     @Test
     public void testValidator() throws Exception {
         FileReader fileReader = new FileReader();
-        SchemaFactory schemaFactory = new SchemaFactory();
-        Validator validator = new Validator();
 
-        SchemaDraft7 schemaDraft7 =
-                schemaFactory.unserialize(
-                        fileReader.readFileAsString("src/test/resources/schema01.json"),
-                        SchemaDraft7.class);
+        ArrayList<String> cases = new ArrayList<String>();
+        cases.add("src/test/resources/test_case01.txt");
+        cases.add("src/test/resources/test_case02.txt");
+        cases.add("src/test/resources/test_case03.txt");
 
-        assertEquals(validator.validate(schemaDraft7, "{\"id\":\"1\"}"), true);
-        assertEquals(validator.getErrors(), new ArrayList<String>());
+        for (int i = 0; i < cases.size(); i++) {
+            String[] parts =
+                    fileReader.readFileAsString(cases.get(i)).split("---------------------");
+
+            SchemaFactory schemaFactory = new SchemaFactory();
+            Validator validator = new Validator();
+            SchemaDraft7 schemaDraft7 = new SchemaDraft7();
+
+            System.out.println(" -- Draft:\n" + parts[0]);
+            System.out.println(" -- Schema:\n" + parts[1]);
+            System.out.println(" -- Data:\n" + parts[2]);
+            System.out.println(" -- Errors:\n" + parts[3]);
+
+            if (parts[0].contains("draft7")) {
+                schemaDraft7 = schemaFactory.unserialize(parts[1], SchemaDraft7.class);
+
+                Boolean result = validator.validate(schemaDraft7, parts[2]);
+
+                if (validator.getErrors().size() > 0) {
+                    assertEquals(result, false);
+                } else {
+                    assertEquals(result, true);
+                }
+
+                for (int k = 0; k < validator.getErrors().size(); k++) {
+                    System.out.println(" -- Thrown: " + validator.getErrors().get(k));
+                    assertEquals(parts[3].contains(validator.getErrors().get(k)), true);
+                }
+            }
+        }
     }
 }
