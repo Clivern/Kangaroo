@@ -39,11 +39,6 @@ public class ValidatorTest {
             Validator validator = new Validator();
             SchemaDraft7 schemaDraft7 = new SchemaDraft7();
 
-            System.out.println(" -- Draft:\n" + parts[0]);
-            System.out.println(" -- Schema:\n" + parts[1]);
-            System.out.println(" -- Data:\n" + parts[2]);
-            System.out.println(" -- Errors:\n" + parts[3]);
-
             if (parts[0].contains("draft7")) {
                 schemaDraft7 = schemaFactory.unserialize(parts[1], SchemaDraft7.class);
 
@@ -55,8 +50,10 @@ public class ValidatorTest {
                     assertEquals(result, true);
                 }
 
+                System.out.printf(
+                        "Actual Errors for %s: %s \n", cases.get(i), validator.getErrors());
+
                 for (int k = 0; k < validator.getErrors().size(); k++) {
-                    System.out.println(" -- Thrown: " + validator.getErrors().get(k));
                     assertEquals(parts[3].contains(validator.getErrors().get(k)), true);
                 }
             }

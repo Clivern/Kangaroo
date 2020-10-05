@@ -42,6 +42,4 @@ draft7
   "id": "11"
 }
 ---------------------
-[
-  "Error! Field id must be a string."
-]
+[]

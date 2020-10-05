@@ -43,6 +43,6 @@ draft7
 }
 ---------------------
 [
-  "Error! Field id must be a string.",
-  "Error! Field id is required."
+  Error! Field id must be a string.,
+  Error! Field id is required.
 ]
