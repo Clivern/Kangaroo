@@ -25,15 +25,50 @@ public class ValidatorTest {
     @Test
     public void testValidator() throws Exception {
         FileReader fileReader = new FileReader();
-        SchemaFactory schemaFactory = new SchemaFactory();
-        Validator validator = new Validator();
 
-        SchemaDraft7 schemaDraft7 =
-                schemaFactory.unserialize(
-                        fileReader.readFileAsString("src/test/resources/schema01.json"),
-                        SchemaDraft7.class);
+        ArrayList<String> cases = new ArrayList<String>();
+        cases.add("src/test/resources/test_case01.txt");
+        cases.add("src/test/resources/test_case02.txt");
+        cases.add("src/test/resources/test_case03.txt");
+        cases.add("src/test/resources/test_case04.txt");
+        cases.add("src/test/resources/test_case05.txt");
+        cases.add("src/test/resources/test_case06.txt");
+        cases.add("src/test/resources/test_case07.txt");
+        cases.add("src/test/resources/test_case08.txt");
+        cases.add("src/test/resources/test_case09.txt");
+        cases.add("src/test/resources/test_case10.txt");
+        cases.add("src/test/resources/test_case11.txt");
+        cases.add("src/test/resources/test_case12.txt");
+        cases.add("src/test/resources/test_case13.txt");
+        cases.add("src/test/resources/test_case14.txt");
+        cases.add("src/test/resources/test_case15.txt");
 
-        assertEquals(validator.validate(schemaDraft7, "{\"id\":\"1\"}"), true);
-        assertEquals(validator.getErrors(), new ArrayList<String>());
+        for (int i = 0; i < cases.size(); i++) {
+            String[] parts =
+                    fileReader.readFileAsString(cases.get(i)).split("---------------------");
+
+            SchemaFactory schemaFactory = new SchemaFactory();
+            Validator validator = new Validator();
+            SchemaDraft7 schemaDraft7 = new SchemaDraft7();
+
+            if (parts[0].contains("draft7")) {
+                schemaDraft7 = schemaFactory.unserialize(parts[1], SchemaDraft7.class);
+
+                Boolean result = validator.validate(schemaDraft7, parts[2]);
+
+                if (validator.getErrors().size() > 0) {
+                    assertEquals(result, false);
+                } else {
+                    assertEquals(result, true);
+                }
+
+                System.out.printf(
+                        "Actual Errors for %s: %s \n", cases.get(i), validator.getErrors());
+
+                for (int k = 0; k < validator.getErrors().size(); k++) {
+                    assertEquals(parts[3].contains(validator.getErrors().get(k)), true);
+                }
+            }
+        }
     }
 }
