@@ -13,7 +13,9 @@
  */
 package com.clivern.kangaroo.util;
 
+import java.io.File;
 import java.nio.file.*;
+import java.util.ArrayList;
 
 /** File Reader Class */
 public class FileReader {
@@ -27,5 +29,26 @@ public class FileReader {
      */
     public String readFileAsString(String filePath) throws Exception {
         return new String(Files.readAllBytes(Paths.get(filePath)));
+    }
+
+    /**
+     * Get Files Abs Path from directory
+     *
+     * @param directory the dir path
+     * @return A list of files abs path
+     * @throws Exception throws exception if dir not readable
+     */
+    public ArrayList<String> getFilesInDir(String directory) throws Exception {
+        File folder = new File(directory);
+        File[] listOfFiles = folder.listFiles();
+        ArrayList<String> files = new ArrayList<String>();
+
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                files.add(file.getAbsolutePath());
+            }
+        }
+
+        return files;
     }
 }
