@@ -150,7 +150,34 @@ public class Validator {
             this.addErrors(stringNode.getErrors());
         }
 
-        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {
+            IntegerConstraint integerNode = new IntegerConstraint();
+
+            integerNode.setFieldName(parents.get(parents.size() - 1));
+            integerNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                integerNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                integerNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                integerNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                integerNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                integerNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                integerNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= integerNode.validate();
+            this.addErrors(integerNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {
             NumberConstraint numberNode = new NumberConstraint();
@@ -272,9 +299,63 @@ public class Validator {
             this.addErrors(stringNode.getErrors());
         }
 
-        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {
+            IntegerConstraint integerNode = new IntegerConstraint();
 
-        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+            integerNode.setFieldName(parents.get(parents.size() - 1));
+            integerNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                integerNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                integerNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                integerNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                integerNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                integerNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                integerNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= integerNode.validate();
+            this.addErrors(integerNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {
+            NumberConstraint numberNode = new NumberConstraint();
+
+            numberNode.setFieldName(parents.get(parents.size() - 1));
+            numberNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                numberNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                numberNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                numberNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                numberNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                numberNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                numberNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= numberNode.validate();
+            this.addErrors(numberNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
             BooleanConstraint booleanNode = new BooleanConstraint();
@@ -367,9 +448,63 @@ public class Validator {
             this.addErrors(stringNode.getErrors());
         }
 
-        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {
+            IntegerConstraint integerNode = new IntegerConstraint();
 
-        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+            integerNode.setFieldName(parents.get(parents.size() - 1));
+            integerNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                integerNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                integerNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                integerNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                integerNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                integerNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                integerNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= integerNode.validate();
+            this.addErrors(integerNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {
+            NumberConstraint numberNode = new NumberConstraint();
+
+            numberNode.setFieldName(parents.get(parents.size() - 1));
+            numberNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                numberNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                numberNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                numberNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                numberNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                numberNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                numberNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= numberNode.validate();
+            this.addErrors(numberNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
             BooleanConstraint booleanNode = new BooleanConstraint();
@@ -463,9 +598,63 @@ public class Validator {
             this.addErrors(stringNode.getErrors());
         }
 
-        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.INTEGER.name().toLowerCase())) {
+            IntegerConstraint integerNode = new IntegerConstraint();
 
-        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {}
+            integerNode.setFieldName(parents.get(parents.size() - 1));
+            integerNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                integerNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                integerNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                integerNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                integerNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                integerNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                integerNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= integerNode.validate();
+            this.addErrors(integerNode.getErrors());
+        }
+
+        if (type.inTypes(ConstraintType.NUMBER.name().toLowerCase())) {
+            NumberConstraint numberNode = new NumberConstraint();
+
+            numberNode.setFieldName(parents.get(parents.size() - 1));
+            numberNode.setValue(Json.get(this.data, parents));
+
+            if (required != null && required.size() > 0) {
+                numberNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+            if (node.multipleOf != null) {
+                numberNode.setMultipleOf(node.multipleOf);
+            }
+            if (node.minimum != null) {
+                numberNode.setMinimum(node.minimum);
+            }
+            if (node.maximum != null) {
+                numberNode.setMaximum(node.maximum);
+            }
+            if (node.exclusiveMinimum != null) {
+                numberNode.setExclusiveMinimum(node.exclusiveMinimum);
+            }
+            if (node.exclusiveMaximum != null) {
+                numberNode.setExclusiveMaximum(node.exclusiveMaximum);
+            }
+
+            status |= numberNode.validate();
+            this.addErrors(numberNode.getErrors());
+        }
 
         if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
             BooleanConstraint booleanNode = new BooleanConstraint();

@@ -339,6 +339,17 @@ public class Validate {
     }
 
     /**
+     * Validate if number is greater than another
+     *
+     * @param value field value
+     * @param minimum the minimum value
+     * @return whether value is greater than the minimum
+     */
+    public static Boolean greaterThan(Integer value, Integer minimum) {
+        return (Integer.compare(minimum, value) < 0);
+    }
+
+    /**
      * Validate if number is greater than or equal another
      *
      * @param value field value
@@ -354,6 +365,21 @@ public class Validate {
     }
 
     /**
+     * Validate if number is greater than or equal another
+     *
+     * @param value field value
+     * @param minimum the minimum value
+     * @return whether value is greater than or equal the minimum
+     */
+    public static Boolean greaterThanEq(Integer value, Integer minimum) {
+        if (Integer.compare(value, minimum) == 0) {
+            return true;
+        }
+
+        return (Integer.compare(minimum, value) < 0);
+    }
+
+    /**
      * Validate if number is less than another
      *
      * @param value field value
@@ -362,6 +388,17 @@ public class Validate {
      */
     public static Boolean lessThan(Float value, Float maximum) {
         return (Float.compare(value, maximum) < 0);
+    }
+
+    /**
+     * Validate if number is less than another
+     *
+     * @param value field value
+     * @param maximum the maximum value
+     * @return whether value is less than the maximum
+     */
+    public static Boolean lessThan(Integer value, Integer maximum) {
+        return (Integer.compare(value, maximum) < 0);
     }
 
     /**
@@ -380,6 +417,21 @@ public class Validate {
     }
 
     /**
+     * Validate if number is less than or equal another
+     *
+     * @param value field value
+     * @param maximum the maximum value
+     * @return whether value is less than or equal the maximum
+     */
+    public static Boolean lessThanEq(Integer value, Integer maximum) {
+        if (Integer.compare(value, maximum) == 0) {
+            return true;
+        }
+
+        return (Integer.compare(value, maximum) < 0);
+    }
+
+    /**
      * Validate if number is multipleOf a provided factor
      *
      * @param value field value
@@ -392,5 +444,20 @@ public class Validate {
         }
 
         return (Float.compare(value % factor, new Float("0")) == 0);
+    }
+
+    /**
+     * Validate if number is multipleOf a provided factor
+     *
+     * @param value field value
+     * @param factor the factor
+     * @return whether number is multipleOf a provided factor
+     */
+    public static Boolean multipleOf(Integer value, Integer factor) {
+        if (Integer.compare(value, new Integer("0")) == 0) {
+            return true;
+        }
+
+        return (Integer.compare(value % factor, new Integer("0")) == 0);
     }
 }
