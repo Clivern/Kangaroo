@@ -184,6 +184,11 @@ public class Validator {
         if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
             BooleanConstraint booleanNode = new BooleanConstraint();
             booleanNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (required != null && required.size() > 0) {
+                booleanNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+
             booleanNode.setValue(Json.get(this.data, parents));
 
             status |= booleanNode.validate();
@@ -274,6 +279,11 @@ public class Validator {
         if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
             BooleanConstraint booleanNode = new BooleanConstraint();
             booleanNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (required != null && required.size() > 0) {
+                booleanNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+
             booleanNode.setValue(Json.get(this.data, parents));
 
             status |= booleanNode.validate();
@@ -364,6 +374,11 @@ public class Validator {
         if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
             BooleanConstraint booleanNode = new BooleanConstraint();
             booleanNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (required != null && required.size() > 0) {
+                booleanNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+
             booleanNode.setValue(Json.get(this.data, parents));
 
             status |= booleanNode.validate();
@@ -455,6 +470,11 @@ public class Validator {
         if (type.inTypes(ConstraintType.BOOLEAN.name().toLowerCase())) {
             BooleanConstraint booleanNode = new BooleanConstraint();
             booleanNode.setFieldName(parents.get(parents.size() - 1));
+
+            if (required != null && required.size() > 0) {
+                booleanNode.setRequired(required.contains(parents.get(parents.size() - 1)));
+            }
+
             booleanNode.setValue(Json.get(this.data, parents));
 
             status |= booleanNode.validate();
