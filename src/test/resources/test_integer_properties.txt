@@ -158,8 +158,9 @@ draft7
   Error! Field int5 must be an integer.,
   Error! Field int5 must be greater than or equal 3.,
   Error! Field int8 must be an integer.,
-  Error! Field int8 must be greater than or equal 3., Error! Field int7 must be an integer.,
+  Error! Field int8 must be greater than or equal 3.,
+  Error! Field int7 must be an integer.,
   Error! Field int7 must be greater than or equal 3.,
   Error! Field int9 must be an integer.,
-  Error! Field int9 must be greater than or equal 3
+  Error! Field int9 must be greater than or equal 3.
 ]
