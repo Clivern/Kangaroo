@@ -1,0 +1,65 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "TestNullProperties",
+  "title": "Test Null Properties",
+  "type": "object",
+  "properties": {
+    "bool1": {
+      "description": "Null",
+      "type": "null"
+    },
+    "bool2": {
+      "description": "Null",
+      "type": "null"
+    },
+    "bool3": {
+      "description": "Null",
+      "type": "null"
+    },
+    "bool4": {
+      "description": "Null",
+      "type": "null"
+    },
+    "bool5": {
+      "description": "Null",
+      "type": "null"
+    },
+    "bool6": {
+      "description": "Null",
+      "type": "null"
+    },
+    "bool7": {
+      "description": "Null",
+      "type": "null"
+    }
+  },
+  "required": [
+    "bool1",
+    "bool2",
+    "bool3",
+    "bool4",
+    "bool5",
+    "bool6",
+    "bool7"
+  ]
+}
+---------------------
+{
+  "bool2": null,
+  "bool3": "null",
+  "bool4": "",
+  "bool5": "fg",
+  "bool6": 3,
+  "bool7": "2.3"
+}
+---------------------
+[
+  Error! Field bool3 must be null.,
+  Error! Field bool2 must be null.,
+  Error! Field bool5 must be null.,
+  Error! Field bool4 must be null.,
+  Error! Field bool7 must be null.,
+  Error! Field bool6 must be null.
+]
