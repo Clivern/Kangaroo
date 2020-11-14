@@ -6,60 +6,60 @@ draft7
   "title": "Test Null Properties",
   "type": "object",
   "properties": {
-    "bool1": {
+    "nul1": {
       "description": "Null",
       "type": "null"
     },
-    "bool2": {
+    "nul2": {
       "description": "Null",
       "type": "null"
     },
-    "bool3": {
+    "nul3": {
       "description": "Null",
       "type": "null"
     },
-    "bool4": {
+    "nul4": {
       "description": "Null",
       "type": "null"
     },
-    "bool5": {
+    "nul5": {
       "description": "Null",
       "type": "null"
     },
-    "bool6": {
+    "nul6": {
       "description": "Null",
       "type": "null"
     },
-    "bool7": {
+    "nul7": {
       "description": "Null",
       "type": "null"
     }
   },
   "required": [
-    "bool1",
-    "bool2",
-    "bool3",
-    "bool4",
-    "bool5",
-    "bool6",
-    "bool7"
+    "nul1",
+    "nul2",
+    "nul3",
+    "nul4",
+    "nul5",
+    "nul6",
+    "nul7"
   ]
 }
 ---------------------
 {
-  "bool2": null,
-  "bool3": "null",
-  "bool4": "",
-  "bool5": "fg",
-  "bool6": 3,
-  "bool7": "2.3"
+  "nul2": null,
+  "nul3": "null",
+  "nul4": "",
+  "nul5": "fg",
+  "nul6": 3,
+  "nul7": "2.3"
 }
 ---------------------
 [
-  Error! Field bool3 must be null.,
-  Error! Field bool2 must be null.,
-  Error! Field bool5 must be null.,
-  Error! Field bool4 must be null.,
-  Error! Field bool7 must be null.,
-  Error! Field bool6 must be null.
+  Error! Field nul3 must be null.,
+  Error! Field nul2 must be null.,
+  Error! Field nul5 must be null.,
+  Error! Field nul4 must be null.,
+  Error! Field nul7 must be null.,
+  Error! Field nul6 must be null.
 ]

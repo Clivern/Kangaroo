@@ -62,13 +62,17 @@ public class Validate {
      * @return whether field is number or not
      */
     public static Boolean isNumber(Object value) {
-        try {
-            return ((value == null) || (!(value instanceof Integer) && !(value instanceof Float)))
-                    ? false
-                    : true;
-        } catch (Exception e) {
+        if (value == null) {
             return false;
         }
+
+        try {
+            Float.parseFloat(String.valueOf(value));
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

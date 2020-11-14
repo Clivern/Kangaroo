@@ -1,0 +1,165 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "TestIntegerProperties",
+  "title": "Test Integer Properties",
+  "type": "object",
+  "properties": {
+    "int1": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int2": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int3": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int4": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int5": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int6": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int7": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int8": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int9": {
+      "description": "Integer",
+      "type": "integer",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "int10": {
+      "description": "Integer",
+      "type": "integer",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10"
+    },
+    "int11": {
+      "description": "Integer",
+      "type": "integer",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10"
+    },
+    "int12": {
+      "description": "Integer",
+      "type": "integer",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10"
+    },
+    "int13": {
+      "description": "Integer",
+      "type": "integer",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    },
+    "int14": {
+      "description": "Integer",
+      "type": "integer",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    },
+    "int15": {
+      "description": "Integer",
+      "type": "integer",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    },
+    "int16": {
+      "description": "Integer",
+      "type": "integer",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    }
+  },
+  "required": [
+    "int1",
+    "int2",
+    "int3",
+    "int4",
+    "int5",
+    "int6",
+    "int7",
+    "int8",
+    "int9",
+    "int10",
+    "int11",
+    "int12",
+    "int13",
+    "int14",
+    "int15",
+    "int16"
+  ]
+}
+---------------------
+{
+  "int2": 3,
+  "int3": 10,
+  "int4": 5,
+  "int5": 2.9,
+  "int6": 10.5,
+  "int7": 5.5,
+  "int8": "4",
+  "int9": "g",
+  "int10": 3,
+  "int11": 10,
+  "int12": 5,
+  "int13": 4,
+  "int14": 5,
+  "int15": 10,
+  "int16": 8,
+}
+---------------------
+[
+  Error! Field int15 must be less than 10.,
+  Error! Field int14 must be multiple of 2.,
+  Error! Field int1 must be an integer.,
+  Error! Field int1 is required.,
+  Error! Field int1 must be greater than or equal 3.,
+  Error! Field int11 must be less than 10.,
+  Error! Field int10 must be greater than 3.,
+  Error! Field int6 must be an integer.,
+  Error! Field int6 must be greater than or equal 3.,
+  Error! Field int5 must be an integer.,
+  Error! Field int5 must be greater than or equal 3.,
+  Error! Field int8 must be an integer.,
+  Error! Field int8 must be greater than or equal 3., Error! Field int7 must be an integer.,
+  Error! Field int7 must be greater than or equal 3.,
+  Error! Field int9 must be an integer.,
+  Error! Field int9 must be greater than or equal 3
+]
