@@ -1,0 +1,65 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "TestNullProperties",
+  "title": "Test Null Properties",
+  "type": "object",
+  "properties": {
+    "nul1": {
+      "description": "Null",
+      "type": "null"
+    },
+    "nul2": {
+      "description": "Null",
+      "type": "null"
+    },
+    "nul3": {
+      "description": "Null",
+      "type": "null"
+    },
+    "nul4": {
+      "description": "Null",
+      "type": "null"
+    },
+    "nul5": {
+      "description": "Null",
+      "type": "null"
+    },
+    "nul6": {
+      "description": "Null",
+      "type": "null"
+    },
+    "nul7": {
+      "description": "Null",
+      "type": "null"
+    }
+  },
+  "required": [
+    "nul1",
+    "nul2",
+    "nul3",
+    "nul4",
+    "nul5",
+    "nul6",
+    "nul7"
+  ]
+}
+---------------------
+{
+  "nul2": null,
+  "nul3": "null",
+  "nul4": "",
+  "nul5": "fg",
+  "nul6": 3,
+  "nul7": "2.3"
+}
+---------------------
+[
+  Error! Field nul7 must be null.,
+  Error! Field nul6 must be null.,
+  Error! Field nul5 must be null.,
+  Error! Field nul4 must be null.,
+  Error! Field nul3 must be null.,
+  Error! Field nul2 must be null.
+]

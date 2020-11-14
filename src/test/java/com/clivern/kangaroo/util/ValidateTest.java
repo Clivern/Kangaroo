@@ -52,7 +52,7 @@ public class ValidateTest {
         assertEquals(Validate.isNumber(-1), true);
         assertEquals(Validate.isNumber(new Float(1.2)), true);
         assertEquals(Validate.isNumber(new Float(-1.2)), true);
-        assertEquals(Validate.isNumber("1"), false);
+        assertEquals(Validate.isNumber("1"), true);
         assertEquals(Validate.isNumber(null), false);
         assertEquals(Validate.isNumber(new Float(2.99792458e8)), true);
         assertEquals(Validate.isNumber(new Float(-2.99792458e8)), true);

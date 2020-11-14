@@ -1,0 +1,109 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "TestBooleanProperties",
+  "title": "Test Boolean Properties",
+  "type": "object",
+  "properties": {
+    "bool1": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool2": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool3": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool4": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool5": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool6": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool7": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool8": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool9": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool10": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool11": {
+      "description": "Boolean",
+      "type": "boolean"
+    },
+    "bool12": {
+      "description": "Boolean",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bool1",
+    "bool2",
+    "bool3",
+    "bool4",
+    "bool5",
+    "bool6",
+    "bool7",
+    "bool8",
+    "bool9",
+    "bool10",
+    "bool11",
+    "bool12"
+  ]
+}
+---------------------
+{
+  "bool2": true,
+  "bool3": false,
+  "bool4": "true",
+  "bool5": "false",
+  "bool6": 3,
+  "bool7": "deki",
+  "bool8": "",
+  "bool9": null,
+  "bool10": "null",
+  "bool11": "2.3"
+}
+---------------------
+[
+  Error! Field bool1 is required.,
+  Error! Field bool1 must be boolean.,
+
+  Error! Field bool4 must be boolean.,
+
+  Error! Field bool5 must be boolean.,
+
+  Error! Field bool6 must be boolean.,
+
+  Error! Field bool7 must be boolean.,
+
+  Error! Field bool8 must be boolean.,
+
+  Error! Field bool9 must be boolean.,
+
+  Error! Field bool10 must be boolean.,
+
+  Error! Field bool11 must be boolean.,
+
+  Error! Field bool12 is required.,
+  Error! Field bool12 must be boolean.,
+]

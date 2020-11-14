@@ -1,0 +1,140 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "TestStringProperties",
+  "title": "Test String Properties",
+  "type": "object",
+  "properties": {
+    "str1": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5"
+    },
+    "str2": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5"
+    },
+    "str3": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5"
+    },
+    "str4": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5"
+    },
+    "str5": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5"
+    },
+    "str6": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5"
+    },
+    "str7": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5",
+      "format": "email"
+    },
+    "str8": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "20",
+      "format": "email"
+    },
+    "str9": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5",
+      "format": "email"
+    },
+    "str10": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "5",
+      "format": "ipv4"
+    },
+    "str11": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "20",
+      "format": "ipv4"
+    },
+    "str12": {
+      "description": "String",
+      "type": "string",
+      "minLength": "2",
+      "maxLength": "20",
+      "format": "ipv4"
+    }
+  },
+  "required": [
+    "str1",
+    "str2",
+    "str3",
+    "str4",
+    "str5",
+    "str6",
+    "str7",
+    "str8",
+    "str9",
+    "str10",
+    "str11",
+    "str12"
+  ]
+}
+---------------------
+{
+  "str2": "fg",
+  "str3": "k",
+  "str4": "aaaaaa",
+  "str5": "aaaaa",
+  "str6": 3,
+  "str7": "deki",
+  "str8": "ghy19@gmail.com",
+  "str9": "gh@dki.com",
+  "str10": "127.0.0.1",
+  "str11": "127.0.0.1",
+  "str12": "127.0.0"
+}
+---------------------
+[
+  Error! Field str6 must be a string.,
+  Error! Field str6 is required.,
+  Error! Field str6 length must be more than or equal 2.,
+
+  Error! Field str3 length must be more than or equal 2.,
+
+  Error! Field str4 length must be less than or equal 5.,
+
+  Error! Field str1 must be a string.,
+  Error! Field str1 is required.,
+  Error! Field str1 length must be more than or equal 2.,
+
+  Error! Field str7 must be an email.,
+
+  Error! Field str8 must be an email.,
+
+  Error! Field str9 length must be less than or equal 5.,
+
+  Error! Field str10 length must be less than or equal 5.,
+
+  Error! Field str12 must be IPv4.
+]

@@ -1,0 +1,160 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "TestNumberProperties",
+  "title": "Test Number Properties",
+  "type": "object",
+  "properties": {
+    "numb1": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb2": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb3": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb4": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb5": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb6": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb7": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb8": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb9": {
+      "description": "Number",
+      "type": "number",
+      "minimum": "3",
+      "maximum": "10"
+    },
+    "numb10": {
+      "description": "Number",
+      "type": "number",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10"
+    },
+    "numb11": {
+      "description": "Number",
+      "type": "number",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10"
+    },
+    "numb12": {
+      "description": "Number",
+      "type": "number",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10"
+    },
+    "numb13": {
+      "description": "Number",
+      "type": "number",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    },
+    "numb14": {
+      "description": "Number",
+      "type": "number",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    },
+    "numb15": {
+      "description": "Number",
+      "type": "number",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    },
+    "numb16": {
+      "description": "Number",
+      "type": "number",
+      "exclusiveMinimum": "3",
+      "exclusiveMaximum": "10",
+      "multipleOf": "2"
+    }
+  },
+  "required": [
+    "numb1",
+    "numb2",
+    "numb3",
+    "numb4",
+    "numb5",
+    "numb6",
+    "numb7",
+    "numb8",
+    "numb9",
+    "numb10",
+    "numb11",
+    "numb12",
+    "numb13",
+    "numb14",
+    "numb15",
+    "numb16"
+  ]
+}
+---------------------
+{
+  "numb2": 3,
+  "numb3": 10,
+  "numb4": 5,
+  "numb5": 2.9,
+  "numb6": 10.5,
+  "numb7": 5.5,
+  "numb8": "4",
+  "numb9": "g",
+  "numb10": 3,
+  "numb11": 10,
+  "numb12": 5,
+  "numb13": 4,
+  "numb14": 5,
+  "numb15": 10,
+  "numb16": 8,
+}
+---------------------
+[
+  Error! Field numb10 must be greater than 3.,
+  Error! Field numb11 must be less than 10.,
+  Error! Field numb14 must be multiple of 2.,
+  Error! Field numb1 must be a number.,
+  Error! Field numb1 is required.,
+  Error! Field numb1 must be greater than or equal 3.,
+  Error! Field numb15 must be less than 10.,
+  Error! Field numb9 must be a number.,
+  Error! Field numb9 must be greater than or equal 3.,
+  Error! Field numb5 must be greater than or equal 3.,
+  Error! Field numb6 must be less than or equal 10.
+]
