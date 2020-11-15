@@ -105,6 +105,26 @@ draft7
       "exclusiveMinimum": "3",
       "exclusiveMaximum": "10",
       "multipleOf": "2"
+    },
+    "int17": {
+      "type": "object",
+      "properties": {
+        "int18": {
+          "description": "Integer",
+          "type": "integer",
+          "exclusiveMinimum": "3",
+          "exclusiveMaximum": "10",
+          "multipleOf": "2"
+        },
+        "int19": {
+          "description": "Integer",
+          "type": "integer",
+          "exclusiveMinimum": "3",
+          "exclusiveMaximum": "10",
+          "multipleOf": "2"
+        }
+      },
+      required: ["int18", "int19"]
     }
   },
   "required": [
@@ -143,6 +163,10 @@ draft7
   "int14": 5,
   "int15": 10,
   "int16": 8,
+  "int17": {
+    "int18": 5,
+    "int19": 8
+  }
 }
 ---------------------
 [
@@ -162,5 +186,6 @@ draft7
   Error! Field int7 must be an integer.,
   Error! Field int7 must be greater than or equal 3.,
   Error! Field int9 must be an integer.,
-  Error! Field int9 must be greater than or equal 3.
+  Error! Field int9 must be greater than or equal 3.,
+  Error! Field int18 must be multiple of 2.
 ]

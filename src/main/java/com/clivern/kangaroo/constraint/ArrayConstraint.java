@@ -13,10 +13,92 @@
  */
 package com.clivern.kangaroo.constraint;
 
+import com.clivern.kangaroo.util.Validate;
+import java.util.ArrayList;
+
 /**
  * Array Constraint Class
  *
  * @see <a href="https://json-schema.org/understanding-json-schema/reference/array.html">Array
  *     types</a>
  */
-public class ArrayConstraint {}
+public class ArrayConstraint implements ConstraintInterface<Object, ArrayList> {
+
+    private String fieldName;
+
+    private Object value;
+
+    private Boolean required;
+
+    private ArrayList<String> errors = new ArrayList<String>();
+
+    /** {@inheritDoc} */
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    /** {@inheritDoc} */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    /** {@inheritDoc} */
+    public ArrayList getValue() {
+        return new ArrayList<String>();
+    }
+
+    /** {@inheritDoc} */
+    public String getFieldName() {
+        return this.fieldName;
+    }
+
+    /** {@inheritDoc} */
+    public Boolean isValidType() {
+        return Validate.isBoolean(this.value);
+    }
+
+    /** {@inheritDoc} */
+    public Boolean validate() {
+        Boolean status = true;
+
+        if (this.required != null && this.required && this.value == null) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s is required.", this.fieldName));
+        }
+
+        if (!this.isValidType()) {
+            status &= false;
+            this.errors.add(String.format("Error! Field %s must be boolean.", this.fieldName));
+        }
+
+        return status;
+    }
+
+    /**
+     * Set Required
+     *
+     * @param required whether required or not
+     */
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    /**
+     * Get Required
+     *
+     * @return whether required or not
+     */
+    public Boolean getRequired() {
+        return this.required;
+    }
+
+    /** {@inheritDoc} */
+    public ArrayList<String> getErrors() {
+        return this.errors;
+    }
+
+    /** {@inheritDoc} */
+    public Boolean hasErrors() {
+        return this.errors.size() > 0;
+    }
+}

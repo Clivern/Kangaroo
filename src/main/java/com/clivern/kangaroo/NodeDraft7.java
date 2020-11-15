@@ -61,6 +61,16 @@ public class NodeDraft7 {
     @SerializedName("exclusiveMaximum")
     public String exclusiveMaximum;
 
+    // Array Specific Properties
+    @SerializedName("minItems")
+    public Integer minItems;
+
+    @SerializedName("maxItems")
+    public Integer maxItems;
+
+    @SerializedName("uniqueItems")
+    public Boolean uniqueItems;
+
     // When type is object
     @SerializedName("properties")
     public HashMap<String, NodeDraft7> properties = new HashMap<String, NodeDraft7>();
