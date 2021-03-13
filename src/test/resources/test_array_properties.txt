@@ -1,0 +1,29 @@
+draft7
+---------------------
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "TestArrayProperties",
+  "title": "Test Array Properties",
+  "type": "object",
+  "properties": {
+    "arr1": {
+      "description": "Array",
+      "type": "boolean",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "arr1"
+  ]
+}
+---------------------
+{
+  "arr1": [1, 2, 3, 4, "ds"]
+}
+---------------------
+[
+
+]

@@ -20,6 +20,11 @@ import java.util.HashMap;
 /** Node Draft7 Class */
 public class NodeDraft7 {
 
+    private class ContainsType {
+        @SerializedName("type")
+        public String type;
+    }
+
     @SerializedName("description")
     public String description;
 
@@ -60,6 +65,18 @@ public class NodeDraft7 {
 
     @SerializedName("exclusiveMaximum")
     public String exclusiveMaximum;
+
+    @SerializedName("uniqueItems")
+    public Boolean uniqueItems;
+
+    @SerializedName("minItems")
+    public Integer minItems;
+
+    @SerializedName("maxItems")
+    public Integer maxItems;
+
+    @SerializedName("contains")
+    public ContainsType contains;
 
     // When type is object
     @SerializedName("properties")

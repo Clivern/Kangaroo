@@ -681,7 +681,11 @@ public class Validator {
 
         if (type.inTypes(ConstraintType.ENUM.name().toLowerCase())) {}
 
-        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {}
+        if (type.inTypes(ConstraintType.ARRAY.name().toLowerCase())) {
+            System.out.println("----dddd----");
+            System.out.println(node.type);
+            System.out.println(Json.get(this.data, parents));
+        }
 
         // Skip if node not object
         if (!type.inTypes(ConstraintType.OBJECT.name().toLowerCase())) {
