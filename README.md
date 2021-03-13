@@ -3,10 +3,18 @@
 	<h3 align="center">Decoy</h3>
 	<p align="center">JSON Schema Validation Package for Java.</p>
 	<p align="center">
-		<a href="http://www.javadoc.io/doc/com.clivern/decoy"><img src="http://www.javadoc.io/badge/com.clivern/decoy.svg"></a>
-		<a href="https://travis-ci.org/Clivern/Decoy"><img src="https://travis-ci.org/Clivern/Decoy.svg?branch=master"></a>
-		<a href="https://mvnrepository.com/artifact/com.clivern/decoy/0.1.0"><img src="https://img.shields.io/maven-central/v/com.clivern/decoy.svg"></a>
-		<a href="https://github.com/Clivern/Decoy/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg"></a>
+        <a href="https://github.com/clivern/decoy/actions/workflows/ci.yml">
+            <img src="https://github.com/clivern/decoy/actions/workflows/ci.yml/badge.svg">
+        </a>
+        <a href="http://www.javadoc.io/doc/com.clivern/decoy">
+            <img src="http://www.javadoc.io/badge/com.clivern/decoy.svg">
+        </a>
+        <a href="https://mvnrepository.com/artifact/com.clivern/decoy/0.1.0">
+            <img src="https://img.shields.io/maven-central/v/com.clivern/decoy.svg">
+        </a>
+        <a href="https://github.com/clivern/decoy/blob/main/LICENSE">
+            <img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg">
+        </a>
 	</p>
 </p>
 
@@ -18,6 +26,7 @@ Decoy is a Java implementation for the [JSON Schema Standard](https://json-schem
 ### Installation
 
 To add a dependency using Maven, use the following:
+
 ```xml
 <dependency>
     <groupId>com.clivern</groupId>
@@ -27,6 +36,7 @@ To add a dependency using Maven, use the following:
 ```
 
 To add a dependency using Gradle, use the following:
+
 ```java
 dependencies {
     compile 'com.clivern:decoy:0.1.0'
@@ -34,6 +44,7 @@ dependencies {
 ```
 
 To add a dependency using Scala SBT, use the following:
+
 ```java
 libraryDependencies += "com.clivern" % "decoy" % "0.1.0"
 ```
