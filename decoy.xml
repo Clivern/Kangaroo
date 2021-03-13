@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.clivern</groupId>
   <artifactId>decoy</artifactId>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
   <name>Decoy</name>
   <description>JSON Schema Validation Package for Java.</description>
   <url>https://github.com/Clivern/Decoy</url>

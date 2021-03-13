@@ -22,7 +22,7 @@ plugins {
 }
 
 archivesBaseName = "decoy"
-version = '0.0.1'
+version = '0.1.0'
 
 spotless {
   java {
@@ -135,7 +135,7 @@ task updatePom {
       project {
         groupId 'com.clivern'
         artifactId 'decoy'
-        version '0.0.1'
+        version '0.1.0'
         name 'Decoy'
         description "JSON Schema Validation Package for Java."
         url 'https://github.com/Clivern/Decoy'
