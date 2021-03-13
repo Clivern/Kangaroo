@@ -7,3 +7,5 @@ build
 gradle.properties
 
 secring.gpg
+
+gnupg_secring.gpg
