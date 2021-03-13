@@ -1,16 +1,16 @@
 <p align="center">
-	<img alt="Kangaroo Logo" src="https://raw.githubusercontent.com/Clivern/Kangaroo/master/images/logo.png" height="150" />
-	<h3 align="center">Kangaroo</h3>
+	<img alt="Decoy Logo" src="https://raw.githubusercontent.com/Clivern/Decoy/master/images/logo.png" height="150" />
+	<h3 align="center">Decoy</h3>
 	<p align="center">JSON Schema Validation Package for Java.</p>
 	<p align="center">
-		<a href="http://www.javadoc.io/doc/com.clivern/kangaroo"><img src="http://www.javadoc.io/badge/com.clivern/kangaroo.svg"></a>
-		<a href="https://travis-ci.org/Clivern/Kangaroo"><img src="https://travis-ci.org/Clivern/Kangaroo.svg?branch=master"></a>
-		<a href="https://mvnrepository.com/artifact/com.clivern/kangaroo/0.0.1"><img src="https://img.shields.io/maven-central/v/com.clivern/kangaroo.svg"></a>
-		<a href="https://github.com/Clivern/Kangaroo/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg"></a>
+		<a href="http://www.javadoc.io/doc/com.clivern/decoy"><img src="http://www.javadoc.io/badge/com.clivern/decoy.svg"></a>
+		<a href="https://travis-ci.org/Clivern/Decoy"><img src="https://travis-ci.org/Clivern/Decoy.svg?branch=master"></a>
+		<a href="https://mvnrepository.com/artifact/com.clivern/decoy/0.0.1"><img src="https://img.shields.io/maven-central/v/com.clivern/decoy.svg"></a>
+		<a href="https://github.com/Clivern/Decoy/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg"></a>
 	</p>
 </p>
 
-Kangaroo is a Java implementation for the [JSON Schema Standard](https://json-schema.org/) (`draft-03`, `draft-04`, `draft-06` and `draft-07`), that will help you validate all sorts of JSON documents, whether they are configuration files or a set of data sent to a RESTful API endpoint.
+Decoy is a Java implementation for the [JSON Schema Standard](https://json-schema.org/) (`draft-03`, `draft-04`, `draft-06` and `draft-07`), that will help you validate all sorts of JSON documents, whether they are configuration files or a set of data sent to a RESTful API endpoint.
 
 
 ## Documentation
@@ -21,7 +21,7 @@ To add a dependency using Maven, use the following:
 ```xml
 <dependency>
     <groupId>com.clivern</groupId>
-    <artifactId>kangaroo</artifactId>
+    <artifactId>decoy</artifactId>
     <version>0.0.1</version>
 </dependency>
 ```
@@ -29,13 +29,13 @@ To add a dependency using Maven, use the following:
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-    compile 'com.clivern:kangaroo:0.0.1'
+    compile 'com.clivern:decoy:0.0.1'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "kangaroo" % "0.0.1"
+libraryDependencies += "com.clivern" % "decoy" % "0.0.1"
 ```
 
 
@@ -44,9 +44,9 @@ libraryDependencies += "com.clivern" % "kangaroo" % "0.0.1"
 First import & initialize all required classes.
 
 ```java
-import com.clivern.kangaroo.util.FileReader;
-import com.clivern.kangaroo.SchemaFactory;
-import com.clivern.kangaroo.Validator;
+import com.clivern.decoy.util.FileReader;
+import com.clivern.decoy.SchemaFactory;
+import com.clivern.decoy.Validator;
 
 
 FileReader fileReader = new FileReader();
@@ -57,7 +57,7 @@ Validator validator = new Validator();
 Then validate the `JSON` string against the `JSON Schema`.
 
 ```java
-import com.clivern.kangaroo.SchemaDraft3;
+import com.clivern.decoy.SchemaDraft3;
 
 
 // For SchemaDraft3
@@ -72,7 +72,7 @@ validator.getErrors();                                       // returns ArrayLis
 ```
 
 ```java
-import com.clivern.kangaroo.SchemaDraft4;
+import com.clivern.decoy.SchemaDraft4;
 
 
 // For SchemaDraft4
@@ -87,7 +87,7 @@ validator.getErrors();                                       // returns ArrayLis
 ```
 
 ```java
-import com.clivern.kangaroo.SchemaDraft6;
+import com.clivern.decoy.SchemaDraft6;
 
 
 // For SchemaDraft6
@@ -102,7 +102,7 @@ validator.getErrors();                                       // returns ArrayLis
 ```
 
 ```java
-import com.clivern.kangaroo.SchemaDraft7;
+import com.clivern.decoy.SchemaDraft7;
 
 
 // For SchemaDraft7
@@ -125,19 +125,19 @@ validator.getErrors();                                       // returns ArrayLis
 
 ## Versioning
 
-For transparency into our release cycle and in striving to maintain backward compatibility, Kangaroo is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
+For transparency into our release cycle and in striving to maintain backward compatibility, Decoy is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
 
-See the [Releases section of our GitHub project](https://github.com/clivern/kangaroo/releases) for changelogs for each release version of Kangaroo. It contains summaries of the most noteworthy changes made in each release.
+See the [Releases section of our GitHub project](https://github.com/clivern/decoy/releases) for changelogs for each release version of Decoy. It contains summaries of the most noteworthy changes made in each release.
 
 
 ## Bug tracker
 
-If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/kangaroo/issues
+If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/decoy/issues
 
 
 ## Security Issues
 
-If you discover a security vulnerability within Kangaroo, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
+If you discover a security vulnerability within Decoy, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
 
 
 ## Contributing
@@ -149,4 +149,4 @@ We are an open source, community-driven project so please feel free to join us. 
 
 © 2019, Clivern. Released under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-**Kangaroo** is authored and maintained by [@Clivern](http://github.com/clivern).
+**Decoy** is authored and maintained by [@Clivern](http://github.com/clivern).

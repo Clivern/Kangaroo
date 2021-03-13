@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.clivern</groupId>
-  <artifactId>kangaroo</artifactId>
+  <artifactId>decoy</artifactId>
   <version>0.0.1</version>
-  <name>Kangaroo</name>
+  <name>Decoy</name>
   <description>JSON Schema Validation Package for Java.</description>
-  <url>https://github.com/Clivern/Kangaroo</url>
+  <url>https://github.com/Clivern/Decoy</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -27,9 +27,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/clivern/kangaroo.git</connection>
-    <developerConnection>scm:git:git@github.com:clivern/kangaroo.git</developerConnection>
-    <url>https://github.com/clivern/kangaroo</url>
+    <connection>scm:git:git://github.com/clivern/decoy.git</connection>
+    <developerConnection>scm:git:git@github.com:clivern/decoy.git</developerConnection>
+    <url>https://github.com/clivern/decoy</url>
   </scm>
   <dependencies>
     <dependency>

@@ -21,7 +21,7 @@ plugins {
   id 'com.diffplug.gradle.spotless' version '3.26.1'
 }
 
-archivesBaseName = "kangaroo"
+archivesBaseName = "decoy"
 version = '0.0.1'
 
 spotless {
@@ -134,11 +134,11 @@ task updatePom {
     pom {
       project {
         groupId 'com.clivern'
-        artifactId 'kangaroo'
+        artifactId 'decoy'
         version '0.0.1'
-        name 'Kangaroo'
+        name 'Decoy'
         description "JSON Schema Validation Package for Java."
-        url 'https://github.com/Clivern/Kangaroo'
+        url 'https://github.com/Clivern/Decoy'
         licenses {
           license {
             name 'The Apache Software License, Version 2.0'
@@ -158,12 +158,12 @@ task updatePom {
           }
         }
         scm {
-          url 'https://github.com/clivern/kangaroo'
-          connection 'scm:git:git://github.com/clivern/kangaroo.git'
-          developerConnection 'scm:git:git@github.com:clivern/kangaroo.git'
+          url 'https://github.com/clivern/decoy'
+          connection 'scm:git:git://github.com/clivern/decoy.git'
+          developerConnection 'scm:git:git@github.com:clivern/decoy.git'
         }
       }
-    }.writeTo("kangaroo.pom").writeTo("kangaroo.xml")
+    }.writeTo("decoy.pom").writeTo("decoy.xml")
   }
 }
 
