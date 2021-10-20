@@ -183,7 +183,7 @@ repositories {
 }
 
 ext {
-  gsonVersion = "2.8.5"
+  gsonVersion = "2.8.8"
   commonsValidatorVersion = "1.6"
   jsonVersion = "20190722"
   junitVersion = "4.12"
