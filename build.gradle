@@ -186,7 +186,7 @@ ext {
   gsonVersion = "2.8.8"
   commonsValidatorVersion = "1.6"
   jsonVersion = "20210307"
-  junitVersion = "4.12"
+  junitVersion = "4.13.2"
 }
 
 dependencies {
